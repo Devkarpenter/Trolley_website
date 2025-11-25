@@ -1,0 +1,6 @@
+{
+  "version": 3,
+  "sources": [],
+  "sections": [
+    {"offset": {"line": 4, "column": 0}, "map": {"version":3,"sources":["file:///D:/my%20coding/Company/trolley-store/trolley-next/components/ProductCard.jsx"],"sourcesContent":["'use client'\r\nimport { useContext } from 'react'\r\nimport { CartContext } from '../context/cart-context'\r\n\r\nexport default function ProductCard({ product }) {\r\n  const { addToCart } = useContext(CartContext)\r\n  return (\r\n    <div className=\"bg-white p-4 rounded shadow\">\r\n      <h3 className=\"font-semibold\">{product.name}</h3>\r\n      <p className=\"text-gray-600\">₹{product.price}</p>\r\n      <button onClick={() => addToCart(product)} className=\"mt-3 bg-blue-600 text-white px-3 py-1 rounded\">\r\n        Add to cart\r\n      </button>\r\n    </div>\r\n  )\r\n}\r\n"],"names":[],"mappings":";;;;;AACA;AACA;;;AAFA;;;AAIe,SAAS,YAAY,EAAE,OAAO,EAAE;;IAC7C,MAAM,EAAE,SAAS,EAAE,GAAG,IAAA,2KAAU,EAAC,4IAAW;IAC5C,qBACE,6LAAC;QAAI,WAAU;;0BACb,6LAAC;gBAAG,WAAU;0BAAiB,QAAQ,IAAI;;;;;;0BAC3C,6LAAC;gBAAE,WAAU;;oBAAgB;oBAAE,QAAQ,KAAK;;;;;;;0BAC5C,6LAAC;gBAAO,SAAS,IAAM,UAAU;gBAAU,WAAU;0BAAgD;;;;;;;;;;;;AAK3G;GAXwB;KAAA"}}]
+}
