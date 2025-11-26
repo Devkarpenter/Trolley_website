@@ -1,0 +1,8 @@
+node_modules/
+.env
+*.log
+.DS_Store
+backend/node_modules/
+trolley-next/node_modules/
+trolley-next/.next/
+backend/.env
