@@ -1,6 +1,10 @@
 {
+  "/about/page": "app/about/page.js",
+  "/cart/page": "app/cart/page.js",
+  "/categories/page": "app/categories/page.js",
   "/dashboard/page": "app/dashboard/page.js",
   "/page": "app/page.js",
+  "/products/page": "app/products/page.js",
   "/sign-in/page": "app/sign-in/page.js",
   "/sign-up/page": "app/sign-up/page.js"
 }
