@@ -11,6 +11,8 @@
   "dependencies": {
     "axios": "^1.13.2",
     "framer-motion": "^12.23.24",
+    "google-auth-library": "^10.5.0",
+    "google-client-api": "^1.0.4",
     "next": "^16.0.3",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",

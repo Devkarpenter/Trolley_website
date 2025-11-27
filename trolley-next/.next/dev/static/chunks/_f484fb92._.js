@@ -71,6 +71,8 @@ if (typeof globalThis.$RefreshHelpers$ === 'object' && globalThis.$RefreshHelper
 "use strict";
 
 __turbopack_context__.s([
+    "AuthContext",
+    ()=>AuthContext,
     "AuthProvider",
     ()=>AuthProvider,
     "useAuth",
@@ -81,106 +83,104 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/compiled/react/index.js [app-client] (ecmascript)");
 ;
 var _s = __turbopack_context__.k.signature(), _s1 = __turbopack_context__.k.signature();
-'use client';
+"use client";
 ;
 const AuthContext = /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["createContext"])();
-function AuthProvider({ children }) {
+function useAuth() {
     _s();
+    return (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useContext"])(AuthContext);
+}
+_s(useAuth, "gDsCjeeItUuvgOWf1v4qoK9RF6k=");
+const AuthProvider = ({ children })=>{
+    _s1();
     const [user, setUser] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(null);
-    const [isLoading, setIsLoading] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(true);
+    // Load user on refresh
     (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useEffect"])({
         "AuthProvider.useEffect": ()=>{
-            // Load user from localStorage on mount
-            const savedUser = localStorage.getItem('user');
-            if (savedUser) {
-                setUser(JSON.parse(savedUser));
+            const token = localStorage.getItem("token");
+            const storedUser = localStorage.getItem("user");
+            if (token && storedUser) {
+                setUser(JSON.parse(storedUser));
             }
-            setIsLoading(false);
         }
     }["AuthProvider.useEffect"], []);
-    const API = __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"].env.NEXT_PUBLIC_API_URL || 'http://localhost:5000';
-    const signIn = async (email, password)=>{
-        setIsLoading(true);
-        try {
-            const res = await fetch(`${API}/api/auth/signin`, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({
-                    email,
-                    password
-                })
-            });
-            const data = await res.json();
-            if (!res.ok) throw new Error(data.message || 'Sign in failed');
-            localStorage.setItem('token', data.token);
-            localStorage.setItem('user', JSON.stringify(data.user));
-            setUser(data.user);
-            setIsLoading(false);
-            return data;
-        } catch (err) {
-            setIsLoading(false);
-            throw err;
-        }
-    };
-    const signUp = async (name, email, password)=>{
-        setIsLoading(true);
-        try {
-            const res = await fetch(`${API}/api/auth/signup`, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({
-                    name,
-                    email,
-                    password
-                })
-            });
-            const data = await res.json();
-            if (!res.ok) throw new Error(data.message || 'Sign up failed');
-            localStorage.setItem('token', data.token);
-            localStorage.setItem('user', JSON.stringify(data.user));
-            setUser(data.user);
-            setIsLoading(false);
-            return data;
-        } catch (err) {
-            setIsLoading(false);
-            throw err;
-        }
-    };
-    const logout = ()=>{
+    // ⭐ SIGN UP
+    async function signUp(name, email, password) {
+        const res = await fetch(`${("TURBOPACK compile-time value", "http://localhost:5000/api")}/auth/signup`, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                name,
+                email,
+                password
+            })
+        });
+        const data = await res.json();
+        if (!data.success) throw new Error(data.message);
+        localStorage.setItem("token", data.token);
+        localStorage.setItem("user", JSON.stringify(data.user));
+        setUser(data.user);
+    }
+    // ⭐ SIGN IN
+    async function signIn(email, password) {
+        const res = await fetch(`${("TURBOPACK compile-time value", "http://localhost:5000/api")}/auth/signin`, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                email,
+                password
+            })
+        });
+        const data = await res.json();
+        if (!data.success) throw new Error(data.message);
+        localStorage.setItem("token", data.token);
+        localStorage.setItem("user", JSON.stringify(data.user));
+        setUser(data.user);
+    }
+    // ⭐ GOOGLE LOGIN
+    async function googleLogin(googleToken) {
+        const res = await fetch(`${("TURBOPACK compile-time value", "http://localhost:5000/api")}/auth/google`, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                token: googleToken
+            })
+        });
+        const data = await res.json();
+        if (!data.success) throw new Error(data.message);
+        localStorage.setItem("token", data.token);
+        localStorage.setItem("user", JSON.stringify(data.user));
+        setUser(data.user);
+    }
+    // ⭐ LOGOUT
+    function logout() {
+        localStorage.removeItem("token");
+        localStorage.removeItem("user");
         setUser(null);
-        localStorage.removeItem('user');
-        localStorage.removeItem('token');
-    };
+    }
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(AuthContext.Provider, {
         value: {
             user,
             signIn,
             signUp,
-            logout,
-            isLoading
+            googleLogin,
+            logout
         },
         children: children
     }, void 0, false, {
         fileName: "[project]/context/auth-context.js",
-        lineNumber: 70,
+        lineNumber: 79,
         columnNumber: 5
-    }, this);
-}
-_s(AuthProvider, "YajQB7LURzRD+QP5gw0+K2TZIWA=");
+    }, ("TURBOPACK compile-time value", void 0));
+};
+_s1(AuthProvider, "5s2qRsV95gTJBmaaTh11GoxYeGE=");
 _c = AuthProvider;
-function useAuth() {
-    _s1();
-    const context = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useContext"])(AuthContext);
-    if (!context) {
-        throw new Error('useAuth must be used within AuthProvider');
-    }
-    return context;
-}
-_s1(useAuth, "b9L3QQ+jgeyIrH0NfHrJ8nn7VMU=");
 var _c;
 __turbopack_context__.k.register(_c, "AuthProvider");
 if (typeof globalThis.$RefreshHelpers$ === 'object' && globalThis.$RefreshHelpers !== null) {

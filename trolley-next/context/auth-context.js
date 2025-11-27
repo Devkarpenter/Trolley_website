@@ -1,82 +1,91 @@
-'use client'
-import { createContext, useContext, useState, useEffect } from 'react'
+"use client"
+import { createContext, useContext, useState, useEffect } from "react"
 
-const AuthContext = createContext()
+// ⭐ FIX: Add this hook so Header, Sign-In, Sign-Up can use useAuth()
+export const AuthContext = createContext()
 
-export function AuthProvider({ children }) {
+export function useAuth() {
+  return useContext(AuthContext)
+}
+
+export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null)
-  const [isLoading, setIsLoading] = useState(true)
 
+  // Load user on refresh
   useEffect(() => {
-    // Load user from localStorage on mount
-    const savedUser = localStorage.getItem('user')
-    if (savedUser) {
-      setUser(JSON.parse(savedUser))
+    const token = localStorage.getItem("token")
+    const storedUser = localStorage.getItem("user")
+    if (token && storedUser) {
+      setUser(JSON.parse(storedUser))
     }
-    setIsLoading(false)
   }, [])
 
-  const API = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000'
+  // ⭐ SIGN UP
+  async function signUp(name, email, password) {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/auth/signup`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ name, email, password }),
+    })
 
-  const signIn = async (email, password) => {
-    setIsLoading(true)
-    try {
-      const res = await fetch(`${API}/api/auth/signin`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email, password }),
-      })
-      const data = await res.json()
-      if (!res.ok) throw new Error(data.message || 'Sign in failed')
-      localStorage.setItem('token', data.token)
-      localStorage.setItem('user', JSON.stringify(data.user))
-      setUser(data.user)
-      setIsLoading(false)
-      return data
-    } catch (err) {
-      setIsLoading(false)
-      throw err
-    }
+    const data = await res.json()
+    if (!data.success) throw new Error(data.message)
+
+    localStorage.setItem("token", data.token)
+    localStorage.setItem("user", JSON.stringify(data.user))
+    setUser(data.user)
   }
 
-  const signUp = async (name, email, password) => {
-    setIsLoading(true)
-    try {
-      const res = await fetch(`${API}/api/auth/signup`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ name, email, password }),
-      })
-      const data = await res.json()
-      if (!res.ok) throw new Error(data.message || 'Sign up failed')
-      localStorage.setItem('token', data.token)
-      localStorage.setItem('user', JSON.stringify(data.user))
-      setUser(data.user)
-      setIsLoading(false)
-      return data
-    } catch (err) {
-      setIsLoading(false)
-      throw err
-    }
+  // ⭐ SIGN IN
+  async function signIn(email, password) {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/auth/signin`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ email, password }),
+    })
+
+    const data = await res.json()
+    if (!data.success) throw new Error(data.message)
+
+    localStorage.setItem("token", data.token)
+    localStorage.setItem("user", JSON.stringify(data.user))
+    setUser(data.user)
   }
 
-  const logout = () => {
+  // ⭐ GOOGLE LOGIN
+  async function googleLogin(googleToken) {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/auth/google`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ token: googleToken }),
+    })
+
+    const data = await res.json()
+    if (!data.success) throw new Error(data.message)
+
+    localStorage.setItem("token", data.token)
+    localStorage.setItem("user", JSON.stringify(data.user))
+    setUser(data.user)
+  }
+
+  // ⭐ LOGOUT
+  function logout() {
+    localStorage.removeItem("token")
+    localStorage.removeItem("user")
     setUser(null)
-    localStorage.removeItem('user')
-    localStorage.removeItem('token')
   }
 
   return (
-    <AuthContext.Provider value={{ user, signIn, signUp, logout, isLoading }}>
+    <AuthContext.Provider
+      value={{
+        user,
+        signIn,
+        signUp,
+        googleLogin,
+        logout,
+      }}
+    >
       {children}
     </AuthContext.Provider>
   )
-}
-
-export function useAuth() {
-  const context = useContext(AuthContext)
-  if (!context) {
-    throw new Error('useAuth must be used within AuthProvider')
-  }
-  return context
 }
