@@ -4,164 +4,234 @@ import { useRouter } from 'next/navigation'
 import { useContext, useState, useEffect } from 'react'
 import { CartContext } from '../context/cart-context'
 import { useAuth } from '../context/auth-context'
-import { FiShoppingCart, FiMenu, FiX, FiSearch, FiHeart, FiLogOut, FiUser } from 'react-icons/fi'
+
+import { motion, AnimatePresence } from "framer-motion"
+
+import {
+  FiShoppingCart,
+  FiMenu,
+  FiX,
+  FiSearch,
+  FiHeart,
+  FiLogOut,
+  FiUser,
+} from 'react-icons/fi'
 
 export default function Header() {
   const { cart } = useContext(CartContext)
   const { user, logout } = useAuth()
   const router = useRouter()
+
   const count = cart.reduce((s, i) => s + (i.quantity || 0), 0)
+
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const [mounted, setMounted] = useState(false)
 
-  useEffect(() => {
-    setMounted(true)
-  }, [])
+  useEffect(() => setMounted(true), [])
 
   const handleLogout = () => {
     logout()
     router.push('/')
   }
 
+  // ⭐ FIXED NAVIGATION LINKS
+  const navLinks = [
+    { label: "Shop", href: "/products" },
+    { label: "Categories", href: "/categories" },
+    { label: "About", href: "/about" },
+    { label: "Contact", href: "/contact" },
+  ]
+
   return (
-    <header className="bg-white shadow-sm sticky top-0 z-50">
-      <div className="bg-gradient-to-r from-blue-600 to-blue-700 text-white py-2 px-4 text-center text-sm">
-        <p>🎉 Free delivery on orders over $50 | Shop now and save!</p>
-      </div>
+    <header className="backdrop-blur-md bg-white/70 shadow-md sticky top-0 z-50 border-b border-gray-200">
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      {/* ⭐ Top promo bar */}
+      <motion.div
+        initial={{ opacity: 0, y: -10 }}
+        animate={{ opacity: 1, y: 0 }}
+        className="bg-gradient-to-r from-blue-600 to-indigo-700 text-white py-2 text-center text-sm"
+      >
+        <p className="animate-pulse">🚚 Free delivery on orders above ₹999 | Festival Sale LIVE!</p>
+      </motion.div>
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2">
         <div className="flex items-center justify-between h-16">
-          <div className="flex items-center space-x-2">
-            <div className="relative">
-              <FiShoppingCart className="w-8 h-8 text-blue-600" />
-              <div className="absolute -top-1 -right-1 w-3 h-3 bg-orange-500 rounded-full animate-pulse"></div>
-            </div>
-            <Link href="/" className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-blue-800 bg-clip-text text-transparent">TrolleyMart</Link>
-          </div>
 
-          <div className="hidden md:flex flex-1 max-w-md mx-8">
-            <div className="relative w-full">
+          {/* ⭐ Brand Logo */}
+          <motion.div
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+            className="flex items-center gap-2"
+          >
+            <FiShoppingCart className="w-9 h-9 text-blue-600 drop-shadow-md" />
+
+            <Link
+              href="/"
+              className="text-3xl font-extrabold bg-gradient-to-r from-blue-600 to-indigo-800 bg-clip-text text-transparent tracking-tight"
+            >
+              AccinziaDrifter
+            </Link>
+          </motion.div>
+
+          {/* ⭐ Search Bar */}
+          <div className="hidden md:flex flex-1 max-w-lg mx-6">
+            <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="relative w-full">
+              <FiSearch className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 w-5 h-5" />
               <input
                 type="text"
-                placeholder="Search for products..."
-                className="w-full px-4 py-2 pl-10 pr-4 text-gray-700 bg-gray-100 border-0 rounded-full focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-white transition-all"
+                placeholder="Search products..."
+                className="w-full pl-12 pr-4 py-2 rounded-full bg-gray-100 focus:bg-white shadow-inner outline-none border border-transparent focus:ring-2 focus:ring-blue-500 transition-all"
               />
-              <FiSearch className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
-            </div>
+            </motion.div>
           </div>
 
+          {/* ⭐ Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-8">
-            <Link href="/products" className="text-gray-700 hover:text-blue-600 font-medium transition-colors relative group">
-              Shop
-              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-600 group-hover:w-full transition-all duration-300"></span>
-            </Link>
-            <Link href="/categories" className="text-gray-700 hover:text-blue-600 font-medium transition-colors relative group">
-              Categories
-              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-600 group-hover:w-full transition-all duration-300"></span>
-            </Link>
-            <Link href="/about" className="text-gray-700 hover:text-blue-600 font-medium transition-colors relative group">
-              About
-              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-600 group-hover:w-full transition-all duration-300"></span>
-            </Link>
-            <Link href="/contact" className="text-gray-700 hover:text-blue-600 font-medium transition-colors relative group">
-              Contact
-              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-600 group-hover:w-full transition-all duration-300"></span>
-            </Link>
+            {navLinks.map((link, i) => (
+              <motion.div key={i} whileHover={{ scale: 1.1 }} className="relative group">
+                <Link
+                  href={link.href}
+                  className="text-gray-700 font-medium hover:text-blue-600 transition-colors"
+                >
+                  {link.label}
+                </Link>
+
+                {/* underline animation */}
+                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-600 group-hover:w-full transition-all"></span>
+              </motion.div>
+            ))}
           </nav>
 
-          <div className="flex items-center space-x-4">
-            <button className="hidden sm:block relative p-2 text-gray-700 hover:text-blue-600 transition-colors">
-              <FiHeart className="w-6 h-6" />
-            </button>
+          {/* ⭐ User + Icons */}
+          <div className="flex items-center space-x-5">
 
+            {/* Wishlist */}
+            <motion.button
+              whileHover={{ scale: 1.2 }}
+              className="hidden sm:block text-gray-600 hover:text-blue-600 transition"
+            >
+              <FiHeart className="w-6 h-6" />
+            </motion.button>
+
+            {/* ⭐ User Auth Section */}
             {mounted && user ? (
-              <div className="hidden sm:flex items-center space-x-3">
-                <div className="flex items-center space-x-2 px-3 py-2 bg-blue-50 rounded-lg">
-                  <FiUser className="w-5 h-5 text-blue-600" />
-                  <span className="text-sm font-medium text-gray-700">{user.name}</span>
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                className="hidden sm:flex items-center space-x-3"
+              >
+                <div className="flex items-center gap-2 bg-blue-50 px-3 py-2 rounded-xl shadow-sm">
+                  <FiUser className="text-blue-600" />
+                  <span className="text-sm font-semibold">{user.name}</span>
                 </div>
-                <Link href="/dashboard" className="px-3 py-2 text-gray-700 hover:text-blue-600 font-medium transition-colors">
+
+                <Link href="/dashboard" className="text-gray-700 hover:text-blue-600 font-medium">
                   Dashboard
                 </Link>
+
                 <button
                   onClick={handleLogout}
-                  className="flex items-center space-x-2 px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 font-medium transition-colors"
+                  className="px-4 py-2 bg-red-600 text-white rounded-xl hover:bg-red-700 font-medium"
                 >
-                  <FiLogOut className="w-4 h-4" />
-                  <span>Logout</span>
+                  Logout
                 </button>
-              </div>
+              </motion.div>
             ) : (
               <>
-                <Link href="/sign-in" className="hidden sm:block px-4 py-2 text-gray-700 hover:text-blue-600 font-medium transition-colors">
+                <Link href="/sign-in" className="hidden sm:block font-medium hover:text-blue-600">
                   Sign In
                 </Link>
-                <Link href="/sign-up" className="hidden sm:block px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 font-medium transition-colors">
+
+                <Link
+                  href="/sign-up"
+                  className="hidden sm:block bg-blue-600 text-white px-4 py-2 rounded-xl shadow hover:bg-blue-700"
+                >
                   Sign Up
                 </Link>
               </>
             )}
 
-            <Link href="/cart" className="relative p-2 text-gray-700 hover:text-blue-600 transition-colors group">
-              <FiShoppingCart className="w-6 h-6" />
+            {/* ⭐ Cart */}
+            <Link href="/cart" className="relative">
+              <FiShoppingCart className="w-7 h-7 text-gray-700 hover:text-blue-600 transition" />
               {count > 0 && (
-                <span className="absolute -top-1 -right-1 bg-orange-500 text-white text-xs font-bold rounded-full w-5 h-5 flex items-center justify-center group-hover:scale-110 transition-transform">
+                <motion.span
+                  initial={{ scale: 0 }}
+                  animate={{ scale: 1 }}
+                  className="absolute -top-1 -right-2 bg-orange-500 text-white text-xs font-bold rounded-full w-5 h-5 flex items-center justify-center"
+                >
                   {count}
-                </span>
+                </motion.span>
               )}
             </Link>
 
-            <button onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)} className="md:hidden p-2 text-gray-700 hover:text-blue-600 transition-colors">
-              {isMobileMenuOpen ? <FiX className="w-6 h-6" /> : <FiMenu className="w-6 h-6" />}
+            {/* Mobile Menu Button */}
+            <button
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              className="md:hidden"
+            >
+              {isMobileMenuOpen ? <FiX className="w-8 h-8" /> : <FiMenu className="w-8 h-8" />}
             </button>
-          </div>
-        </div>
-
-        <div className="md:hidden pb-3">
-          <div className="relative">
-            <input
-              type="text"
-              placeholder="Search products..."
-              className="w-full px-4 py-2 pl-10 text-gray-700 bg-gray-100 border-0 rounded-full focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-white transition-all"
-            />
-            <FiSearch className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
           </div>
         </div>
       </div>
 
-      {isMobileMenuOpen && (
-        <div className="md:hidden bg-white border-t border-gray-200 animate-in slide-in-from-top">
-          <nav className="px-4 py-4 space-y-3">
-            <Link href="/products" className="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600 rounded-lg font-medium transition-colors">Shop</Link>
-            <Link href="/categories" className="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600 rounded-lg font-medium transition-colors">Categories</Link>
-            <Link href="/about" className="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600 rounded-lg font-medium transition-colors">About</Link>
-            <Link href="/contact" className="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600 rounded-lg font-medium transition-colors">Contact</Link>
-            <div className="border-t border-gray-200 pt-3 mt-3">
-              {user ? (
-                <>
-                  <div className="flex items-center space-x-2 px-4 py-2 bg-blue-50 rounded-lg mb-2">
-                    <FiUser className="w-5 h-5 text-blue-600" />
-                    <span className="text-sm font-medium text-gray-700">{user.name}</span>
-                  </div>
-                  <Link href="/dashboard" className="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600 rounded-lg font-medium transition-colors">Dashboard</Link>
-                  <button
-                    onClick={handleLogout}
-                    className="w-full text-left flex items-center space-x-2 px-4 py-2 text-red-600 hover:bg-red-50 rounded-lg font-medium transition-colors"
-                  >
-                    <FiLogOut className="w-4 h-4" />
-                    <span>Logout</span>
-                  </button>
-                </>
-              ) : (
-                <>
-                  <Link href="/sign-in" className="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600 rounded-lg font-medium transition-colors">Sign In</Link>
-                  <Link href="/sign-up" className="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600 rounded-lg font-medium transition-colors">Sign Up</Link>
-                </>
-              )}
+      {/* ⭐ Mobile Menu */}
+      <AnimatePresence>
+        {isMobileMenuOpen && (
+          <motion.div
+            initial={{ height: 0 }}
+            animate={{ height: "auto" }}
+            exit={{ height: 0 }}
+            className="md:hidden bg-white shadow-lg overflow-hidden"
+          >
+            <div className="p-4 space-y-3">
+
+              {/* ⭐ FIXED MOBILE LINKS */}
+              {navLinks.map((link, i) => (
+                <Link
+                  key={i}
+                  href={link.href}
+                  className="block px-4 py-2 bg-gray-100 hover:bg-blue-50 rounded-lg font-medium"
+                >
+                  {link.label}
+                </Link>
+              ))}
+
+              <div className="pt-3 border-t">
+                {user ? (
+                  <>
+                    <div className="flex items-center gap-2 bg-blue-50 px-4 py-2 rounded-lg mb-2">
+                      <FiUser className="text-blue-600" />
+                      <span>{user.name}</span>
+                    </div>
+
+                    <Link href="/dashboard" className="block py-2 font-medium">
+                      Dashboard
+                    </Link>
+
+                    <button
+                      onClick={handleLogout}
+                      className="w-full text-left px-4 py-2 text-red-600 hover:bg-red-50 rounded-lg"
+                    >
+                      Logout
+                    </button>
+                  </>
+                ) : (
+                  <>
+                    <Link href="/sign-in" className="block py-2 font-medium">
+                      Sign In
+                    </Link>
+                    <Link href="/sign-up" className="block py-2 font-medium">
+                      Sign Up
+                    </Link>
+                  </>
+                )}
+              </div>
             </div>
-          </nav>
-        </div>
-      )}
+          </motion.div>
+        )}
+      </AnimatePresence>
     </header>
   )
 }

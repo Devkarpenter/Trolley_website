@@ -1,122 +1,176 @@
-'use client'
-import { useState } from 'react'
-import { useRouter } from 'next/navigation'
-import Link from 'next/link'
-import { useAuth } from '../../context/auth-context'
+"use client"
+import { useState } from "react"
+import { useRouter } from "next/navigation"
+import Link from "next/link"
+import { useAuth } from "../../context/auth-context"
+import { motion } from "framer-motion"
+import { FiMail, FiLock, FiUser } from "react-icons/fi"
 
 export default function SignUp() {
-  const [formData, setFormData] = useState({ name: '', email: '', password: '', confirmPassword: '' })
-  const [error, setError] = useState('')
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    password: "",
+    confirmPassword: ""
+  })
+
+  const [error, setError] = useState("")
   const { signUp } = useAuth()
   const router = useRouter()
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value })
-    setError('')
+    setError("")
   }
 
   const handleSubmit = async (e) => {
     e.preventDefault()
-    if (!formData.name || !formData.email || !formData.password || !formData.confirmPassword) {
-      setError('Please fill in all fields')
+
+    if (
+      !formData.name ||
+      !formData.email ||
+      !formData.password ||
+      !formData.confirmPassword
+    ) {
+      setError("Please fill in all fields")
       return
     }
-    if (formData.password !== formData.confirmPassword) {
-      setError('Passwords do not match!')
-      return
-    }
+
     if (formData.password.length < 6) {
-      setError('Password must be at least 6 characters')
+      setError("Password must be at least 6 characters")
       return
     }
+
+    if (formData.password !== formData.confirmPassword) {
+      setError("Passwords do not match")
+      return
+    }
+
     try {
       await signUp(formData.name, formData.email, formData.password)
-      router.push('/dashboard')
+      router.push("/dashboard")
     } catch (err) {
-      setError(err.message || 'Sign up failed')
+      setError(err.message || "Sign up failed")
     }
   }
 
   return (
-    <div className="max-w-md mx-auto p-6 mt-8">
-      <div className="bg-white p-8 rounded-lg shadow">
-        <h1 className="text-3xl font-bold mb-6 text-center">Create Account</h1>
-        
-        {error && <div className="bg-red-100 text-red-700 p-3 rounded-lg mb-4">{error}</div>}
-        
-        <form onSubmit={handleSubmit} className="space-y-4">
-          <div>
-            <label className="block text-sm font-medium mb-2">Full Name</label>
+    <section className="relative flex items-center justify-center px-6 py-20">
+
+      {/* ⭐ Background Glow */}
+      <div className="absolute inset-0 bg-gradient-to-br from-blue-100 to-indigo-200 -z-10"></div>
+      <div className="absolute top-10 left-10 w-60 h-60 bg-blue-400/20 blur-[120px] rounded-full -z-10"></div>
+      <div className="absolute bottom-10 right-10 w-60 h-60 bg-indigo-400/20 blur-[120px] rounded-full -z-10"></div>
+
+      {/* ⭐ Main Sign-Up Card */}
+      <motion.div
+        initial={{ opacity: 0, y: 25 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+        className="w-full max-w-md bg-white/80 backdrop-blur-xl p-10 rounded-2xl shadow-2xl border border-white/40"
+      >
+        <h1 className="text-4xl font-extrabold text-center mb-6 text-gray-900">
+          Create Account
+        </h1>
+
+        {/* Error Message */}
+        {error && (
+          <motion.div
+            initial={{ opacity: 0, y: -8 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="bg-red-100 text-red-700 p-3 rounded-lg mb-4 font-medium text-sm"
+          >
+            {error}
+          </motion.div>
+        )}
+
+        {/* Sign Up Form */}
+        <form onSubmit={handleSubmit} className="space-y-6">
+
+          {/* Name */}
+          <div className="relative">
+            <FiUser className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 w-5 h-5" />
             <input
               type="text"
               name="name"
               value={formData.name}
               onChange={handleChange}
+              placeholder="Full Name"
+              className="w-full pl-10 pr-4 py-3 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-600"
               required
-              className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-              placeholder="John Doe"
             />
           </div>
-          
-          <div>
-            <label className="block text-sm font-medium mb-2">Email Address</label>
+
+          {/* Email */}
+          <div className="relative">
+            <FiMail className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 w-5 h-5" />
             <input
               type="email"
               name="email"
               value={formData.email}
               onChange={handleChange}
+              placeholder="Email Address"
+              className="w-full pl-10 pr-4 py-3 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-600"
               required
-              className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-              placeholder="your@email.com"
             />
           </div>
-          
-          <div>
-            <label className="block text-sm font-medium mb-2">Password</label>
+
+          {/* Password */}
+          <div className="relative">
+            <FiLock className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 w-5 h-5" />
             <input
               type="password"
               name="password"
               value={formData.password}
               onChange={handleChange}
+              placeholder="Password"
+              className="w-full pl-10 pr-4 py-3 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-600"
               required
-              className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-              placeholder="••••••••"
             />
           </div>
-          
-          <div>
-            <label className="block text-sm font-medium mb-2">Confirm Password</label>
+
+          {/* Confirm Password */}
+          <div className="relative">
+            <FiLock className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 w-5 h-5" />
             <input
               type="password"
               name="confirmPassword"
               value={formData.confirmPassword}
               onChange={handleChange}
+              placeholder="Confirm Password"
+              className="w-full pl-10 pr-4 py-3 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-600"
               required
-              className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-              placeholder="••••••••"
             />
           </div>
-          
+
+          {/* Terms Checkbox */}
           <label className="flex items-center text-sm">
             <input type="checkbox" required className="mr-2" />
             I agree to the Terms of Service and Privacy Policy
           </label>
-          
-          <button
+
+          {/* Submit Button */}
+          <motion.button
+            whileHover={{ scale: 1.03 }}
+            whileTap={{ scale: 0.97 }}
             type="submit"
-            className="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 font-semibold"
+            className="w-full py-3 bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-xl font-semibold shadow-md hover:shadow-blue-300/40"
           >
             Create Account
-          </button>
+          </motion.button>
         </form>
-        
-        <p className="text-center text-gray-600 mt-6">
-          Already have an account?{' '}
-          <Link href="/sign-in" className="text-blue-600 hover:underline font-semibold">
+
+        {/* Sign In Link */}
+        <p className="text-center text-sm text-gray-700 mt-6">
+          Already have an account?{" "}
+          <Link
+            href="/sign-in"
+            className="text-blue-600 font-semibold hover:underline"
+          >
             Sign In
           </Link>
         </p>
-      </div>
-    </div>
+      </motion.div>
+    </section>
   )
 }

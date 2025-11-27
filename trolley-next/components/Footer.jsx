@@ -1,105 +1,196 @@
 "use client"
 import Link from 'next/link'
-import { FiFacebook, FiTwitter, FiInstagram, FiLinkedin, FiMail, FiPhone, FiMapPin } from 'react-icons/fi'
+import { motion } from "framer-motion"   // ⭐ Added animation library
+
+import {
+  FiFacebook,
+  FiTwitter,
+  FiInstagram,
+  FiLinkedin,
+  FiMail,
+  FiPhone,
+  FiMapPin,
+} from 'react-icons/fi'
 
 export default function Footer() {
   return (
-    <footer className="bg-gray-900 text-gray-300 mt-16">
-      {/* Main Footer Content */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-5 gap-8">
-          {/* Company Info */}
+    <footer className="bg-[#0d0f16] text-gray-300 mt-20 relative overflow-hidden">
+
+      {/* ⭐ Animated glowing background gradient */}
+      <div className="absolute inset-0 bg-gradient-to-br from-blue-600/10 to-purple-600/5 blur-3xl"></div>
+
+      <div className="relative max-w-7xl mx-auto px-6 lg:px-10 py-14">
+
+        {/* ⭐ Smooth fade-in for entire footer */}
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7 }}
+          viewport={{ once: true }}
+          className="grid grid-cols-1 md:grid-cols-5 gap-10"
+        >
+
+          {/* ---------------- COMPANY INFO ---------------- */}
           <div>
-            <h3 className="text-white font-bold text-lg mb-4">TrolleyMart</h3>
-            <p className="text-sm mb-4">Your trusted destination for premium trolleys and travel solutions.</p>
-            <div className="space-y-2 text-sm">
-              <div className="flex items-center gap-2">
+            <motion.h3
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.4 }}
+              className="text-white font-extrabold text-2xl tracking-tight mb-4"
+            >
+              TrolleyMart
+            </motion.h3>
+
+            <p className="text-sm text-gray-400 mb-4 leading-relaxed">
+              Your trusted destination for premium trolleys and smart travel gear.
+            </p>
+
+            {/* Company contact info */}
+            <div className="space-y-3 text-sm">
+
+              <div className="flex items-center gap-2 text-gray-400 hover:text-blue-400 transition">
                 <FiMapPin className="w-4 h-4" />
-                <span>123 Travel Street, City, ST 12345</span>
+                <span>123 Travel Street, Mumbai, India</span>
               </div>
-              <div className="flex items-center gap-2">
+
+              <a href="tel:+91000000000" className="flex items-center gap-2 hover:text-blue-400 transition">
                 <FiPhone className="w-4 h-4" />
-                <a href="tel:+1234567890" className="hover:text-blue-400">+1 (234) 567-890</a>
-              </div>
-              <div className="flex items-center gap-2">
+                +91 00000 00000
+              </a>
+
+              <a href="mailto:support@trolleymart.com" className="flex items-center gap-2 hover:text-blue-400 transition">
                 <FiMail className="w-4 h-4" />
-                <a href="mailto:support@trolleymart.com" className="hover:text-blue-400">support@trolleymart.com</a>
-              </div>
+                support@trolleymart.com
+              </a>
+
             </div>
           </div>
 
-          {/* Products */}
-          <div>
-            <h4 className="text-white font-semibold mb-4">Products</h4>
-            <ul className="space-y-2 text-sm">
-              <li><Link href="/products" className="hover:text-blue-400">All Trolleys</Link></li>
-              <li><Link href="#" className="hover:text-blue-400">Travel Bags</Link></li>
-              <li><Link href="#" className="hover:text-blue-400">Cabin Luggage</Link></li>
-              <li><Link href="#" className="hover:text-blue-400">Business Cases</Link></li>
-              <li><Link href="#" className="hover:text-blue-400">Accessories</Link></li>
-            </ul>
-          </div>
+          {/* ---------------- PRODUCTS ---------------- */}
+          <FooterColumn title="Products" items={[
+            ["All Trolleys", "/products"],
+            ["Travel Bags", "#"],
+            ["Cabin Luggage", "#"],
+            ["Business Cases", "#"],
+            ["Accessories", "#"],
+          ]} />
 
-          {/* Support */}
-          <div>
-            <h4 className="text-white font-semibold mb-4">Support</h4>
-            <ul className="space-y-2 text-sm">
-              <li><Link href="#" className="hover:text-blue-400">Contact Us</Link></li>
-              <li><Link href="#" className="hover:text-blue-400">Shipping Info</Link></li>
-              <li><Link href="#" className="hover:text-blue-400">Returns & Exchanges</Link></li>
-              <li><Link href="#" className="hover:text-blue-400">FAQ</Link></li>
-              <li><Link href="#" className="hover:text-blue-400">Track Order</Link></li>
-            </ul>
-          </div>
+          {/* ---------------- SUPPORT ---------------- */}
+          <FooterColumn title="Support" items={[
+            ["Contact Us", "/contact"],
+            ["Shipping Info", "#"],
+            ["Returns & Exchanges", "#"],
+            ["FAQ", "#"],
+            ["Track Order", "#"],
+          ]} />
 
-          {/* Legal */}
-          <div>
-            <h4 className="text-white font-semibold mb-4">Legal</h4>
-            <ul className="space-y-2 text-sm">
-              <li><Link href="#" className="hover:text-blue-400">Privacy Policy</Link></li>
-              <li><Link href="#" className="hover:text-blue-400">Terms of Service</Link></li>
-              <li><Link href="#" className="hover:text-blue-400">Warranty</Link></li>
-              <li><Link href="#" className="hover:text-blue-400">Cookies Policy</Link></li>
-              <li><Link href="#" className="hover:text-blue-400">Sitemap</Link></li>
-            </ul>
-          </div>
+          {/* ---------------- LEGAL ---------------- */}
+          <FooterColumn title="Legal" items={[
+            ["Privacy Policy", "#"],
+            ["Terms of Service", "#"],
+            ["Warranty", "#"],
+            ["Cookies Policy", "#"],
+            ["Sitemap", "#"],
+          ]} />
 
-          {/* Newsletter & Social */}
-          <div>
-            <h4 className="text-white font-semibold mb-4">Stay Connected</h4>
-            <p className="text-sm mb-3">Subscribe for exclusive offers and updates.</p>
+          {/* ---------------- NEWSLETTER ---------------- */}
+          <motion.div
+            initial={{ opacity: 0, x: 20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6 }}
+            className=""
+          >
+            <h4 className="text-white font-semibold text-lg mb-4">Stay Updated</h4>
+            <p className="text-sm text-gray-400 mb-3">
+              Get exclusive offers & the latest product updates.
+            </p>
+
+            {/* Newsletter input */}
             <form className="mb-4">
               <input
                 type="email"
                 placeholder="Your email"
-                className="w-full px-3 py-2 bg-gray-800 text-white rounded text-sm placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 mb-2"
+                className="w-full px-4 py-2 bg-[#141824] text-white rounded-lg text-sm 
+                           placeholder-gray-500 focus:outline-none focus:ring-2 
+                           focus:ring-blue-500 transition"
               />
-              <button className="w-full bg-blue-600 hover:bg-blue-700 text-white py-2 rounded text-sm font-medium transition-colors">
+
+              <button
+                className="w-full bg-gradient-to-r from-blue-600 to-indigo-600 
+                  hover:from-blue-700 hover:to-indigo-700 text-white py-2 mt-2 rounded-lg 
+                  text-sm font-medium shadow-md shadow-blue-900/20 transition-all"
+              >
                 Subscribe
               </button>
             </form>
-            <div className="flex gap-3">
-              <a href="#" className="text-gray-400 hover:text-blue-400 transition-colors"><FiFacebook className="w-5 h-5" /></a>
-              <a href="#" className="text-gray-400 hover:text-blue-400 transition-colors"><FiTwitter className="w-5 h-5" /></a>
-              <a href="#" className="text-gray-400 hover:text-blue-400 transition-colors"><FiInstagram className="w-5 h-5" /></a>
-              <a href="#" className="text-gray-400 hover:text-blue-400 transition-colors"><FiLinkedin className="w-5 h-5" /></a>
+
+            {/* Social Icons */}
+            <div className="flex gap-4">
+              {[FiFacebook, FiTwitter, FiInstagram, FiLinkedin].map((Icon, i) => (
+                <motion.a
+                  key={i}
+                  whileHover={{ scale: 1.15, color: "#60a5fa" }}
+                  className="cursor-pointer text-gray-400 hover:text-blue-400 transition"
+                >
+                  <Icon className="w-5 h-5" />
+                </motion.a>
+              ))}
             </div>
-          </div>
-        </div>
+          </motion.div>
 
-        {/* Divider */}
-        <div className="border-t border-gray-700 my-8"></div>
+        </motion.div>
 
-        {/* Bottom Bar */}
-        <div className="flex flex-col md:flex-row items-center justify-between text-sm text-gray-400">
-          <p>© {new Date().getFullYear()} TrolleyMart. All rights reserved.</p>
-          <div className="flex gap-4 mt-4 md:mt-0">
-            <Link href="#" className="hover:text-white">Accessibility</Link>
-            <Link href="#" className="hover:text-white">Security</Link>
-            <Link href="#" className="hover:text-white">Sustainability</Link>
+        {/* ---------------- DIVIDER ---------------- */}
+        <div className="border-t border-gray-800 my-10"></div>
+
+        {/* ---------------- BOTTOM BAR ---------------- */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 0.6 }}
+          className="flex flex-col md:flex-row justify-between items-center text-sm text-gray-500"
+        >
+          <p>© {new Date().getFullYear()} TrolleyMart — All rights reserved.</p>
+
+          <div className="flex gap-6 mt-4 md:mt-0">
+            {["Accessibility", "Security", "Sustainability"].map((t, i) => (
+              <Link
+                key={i}
+                href="#"
+                className="hover:text-blue-400 transition"
+              >
+                {t}
+              </Link>
+            ))}
           </div>
-        </div>
+        </motion.div>
+
       </div>
     </footer>
+  )
+}
+
+/* ⭐ Reusable Footer Column Component (Modern + Animated) */
+function FooterColumn({ title, items }) {
+  return (
+    <motion.div
+      initial={{ opacity: 0, x: -10 }}
+      whileInView={{ opacity: 1, x: 0 }}
+      transition={{ duration: 0.5 }}
+    >
+      <h4 className="text-white font-semibold text-lg mb-4">{title}</h4>
+      <ul className="space-y-2">
+        {items.map(([label, link], i) => (
+          <li key={i}>
+            <Link
+              href={link}
+              className="text-sm text-gray-400 hover:text-blue-400 transition-colors"
+            >
+              {label}
+            </Link>
+          </li>
+        ))}
+      </ul>
+    </motion.div>
   )
 }
