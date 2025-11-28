@@ -46,13 +46,13 @@ export default function Header() {
     <header className="backdrop-blur-md bg-white/70 shadow-md sticky top-0 z-50 border-b border-gray-200">
 
       {/* ⭐ Top promo bar */}
-      <motion.div
+      {/* <motion.div
         initial={{ opacity: 0, y: -10 }}
         animate={{ opacity: 1, y: 0 }}
         className="bg-gradient-to-r from-blue-600 to-indigo-700 text-white py-2 text-center text-sm"
       >
         <p className="animate-pulse">🚚 Free delivery on orders above ₹999 | Festival Sale LIVE!</p>
-      </motion.div>
+      </motion.div> */}
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2">
         <div className="flex items-center justify-between h-16">
