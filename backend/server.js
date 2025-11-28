@@ -24,6 +24,7 @@ const router = express.Router()
 require('./routes/authRoutes')(router)
 require('./routes/productRoutes')(router)
 require('./routes/orderRoutes')(router)
+require("./routes/paymentRoutes")(router);
 
 app.use('/api', router)
 

@@ -1,8 +1,7 @@
-[00:00:04.804] Server  LOG      ✓ Ready in 3.1s
-[00:00:07.919] Server  LOG      ○ Compiling / ...
-[00:00:14.189] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:00:14.880] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:00:15.199] Browser ERROR   A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+[00:00:03.239] Server  LOG      ✓ Ready in 2.1s
+[00:00:15.516] Server  LOG      ○ Compiling / ...
+[00:00:19.408] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:00:19.687] Browser ERROR   A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
 
 - A server/client branch `if (typeof window !== 'undefined')`.
 - Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
@@ -19,70 +18,7 @@ It can also happen if the client has a browser extension installed which messes 
       <AuthProvider>
         <CartProvider>
           <Header>
-          ...
-            <SegmentViewNode type="page" pagePath="page.js">
-              <SegmentTrieNode>
-              <Home>
-                <div className="max-w-9xl ...">
-                  <HeroScrollSlider>
-                    <section ref={{current:null}} className="relative h...">
-                      <div className="sticky top...">
-                        <motion.div>
-                        <div className="relative h...">
-                          <div>
-                          <div className="flex-1 fle...">
-                            <AnimatePresence>
-                            <AnimatePresence>
-                            <AnimatePresence>
-                            <motion.button onClick={function onClick} className="lg:px-12 l..." whileHover={{scale:1.05}} ...>
-                              <button
-                                onClick={function onClick}
-                                className="lg:px-12 lg:py-4 px-8 py-3 bg-white text-slate-900 rounded-full font-semibo..."
-                                tabIndex={0}
-                                style={{}}
-                                ref={function useMotionRef.useCallback}
--                               fdprocessedid="d8nv7"
-                              >
-+                               Check Out
-                          ...
-                        ...
-                  ...
-                    <div className="grid md:gr...">
-                      ...
-                        <LinkComponent href="/products/1">
-                          <a ref={function} onClick={function onClick} onMouseEnter={function onMouseEnter} ...>
-                            <motion.button whileHover={{scale:1.08}} className="mt-6 w-ful...">
-                              <button
-                                className="mt-6 w-full bg-gradient-to-r from-blue-600 to-indigo-600 text-white py-3 ro..."
-                                style={{}}
-                                ref={function useMotionRef.useCallback}
--                               fdprocessedid="eli2u"
-                              >
-+                               View Details
-                      ...
-                        <LinkComponent href="/products/2">
-                          <a ref={function} onClick={function onClick} onMouseEnter={function onMouseEnter} ...>
-                            <motion.button whileHover={{scale:1.08}} className="mt-6 w-ful...">
-                              <button
-                                className="mt-6 w-full bg-gradient-to-r from-blue-600 to-indigo-600 text-white py-3 ro..."
-                                style={{}}
-                                ref={function useMotionRef.useCallback}
--                               fdprocessedid="tmarm"
-                              >
-+                               View Details
-                      ...
-                        <LinkComponent href="/products/3">
-                          <a ref={function} onClick={function onClick} onMouseEnter={function onMouseEnter} ...>
-                            <motion.button whileHover={{scale:1.08}} className="mt-6 w-ful...">
-                              <button
-                                className="mt-6 w-full bg-gradient-to-r from-blue-600 to-indigo-600 text-white py-3 ro..."
-                                style={{}}
-                                ref={function useMotionRef.useCallback}
--                               fdprocessedid="lhs49"
-                              >
-+                               View Details
-                  ...
-            ...
+          <main>
           <Footer>
             <footer className="bg-[#0d0f1...">
               <div>
@@ -102,17 +38,443 @@ It can also happen if the client has a browser extension installed which messes 
                             type="email"
                             placeholder="Your email"
                             className="w-full px-4 py-2 bg-[#141824] text-white rounded-lg text-sm    placeholder-gray..."
--                           fdprocessedid="1h4xgk"
+-                           fdprocessedid="b179xf"
                           >
                           <button
                             className="w-full bg-gradient-to-r from-blue-600 to-indigo-600    hover:from-blue-700 hove..."
--                           fdprocessedid="zvwj39"
+-                           fdprocessedid="zesm0m"
                           >
 +                           Subscribe
                         ...
                 ...
 
-[00:00:15.695] Browser ERROR   A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+[00:02:29.407] Server  LOG      ✓ Compiled in 385ms
+[00:07:24.873] Server  LOG      ✓ Compiled in 296ms
+[00:07:46.271] Server  LOG      ✓ Compiled in 227ms
+[00:08:53.442] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:13:28.913] Server  LOG      ✓ Compiled in 855ms
+[00:13:40.950] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:13:41.210] Browser ERROR   A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+%s%s https://react.dev/link/hydration-mismatch 
+
+  ...
+    <body>
+      <AuthProvider>
+        <CartProvider>
+          <Header>
+          ...
+            <FeaturedProducts>
+              <section className="max-w-7xl ...">
+                <div>
+                <motion.h2>
+                <div className="grid md:gr...">
+                  <motion.div initial={{opacity:0,y:30}} whileInView={{opacity:1,y:0}} transition={{duration:0.6, ...}} ...>
+                    <div className="relative b..." style={{opacity:0, ...}} ref={function useMotionRef.useCallback}>
+                      <motion.div>
+                      <h3>
+                      <motion.div>
+                      <LinkComponent href="/products/1">
+                        <a ref={function} onClick={function onClick} onMouseEnter={function onMouseEnter} ...>
+                          <motion.button whileHover={{scale:1.08}} className="mt-6 w-ful...">
+                            <button
+                              className="mt-6 w-full bg-gradient-to-r from-blue-600 to-indigo-600 text-white py-3 roun..."
+                              style={{}}
+                              ref={function useMotionRef.useCallback}
+-                             fdprocessedid="zt6n7"
+                            >
++                             View Details
+                  <motion.div initial={{opacity:0,y:30}} whileInView={{opacity:1,y:0}} transition={{duration:0.6, ...}} ...>
+                    <div className="relative b..." style={{opacity:0, ...}} ref={function useMotionRef.useCallback}>
+                      <motion.div>
+                      <h3>
+                      <motion.div>
+                      <LinkComponent href="/products/2">
+                        <a ref={function} onClick={function onClick} onMouseEnter={function onMouseEnter} ...>
+                          <motion.button whileHover={{scale:1.08}} className="mt-6 w-ful...">
+                            <button
+                              className="mt-6 w-full bg-gradient-to-r from-blue-600 to-indigo-600 text-white py-3 roun..."
+                              style={{}}
+                              ref={function useMotionRef.useCallback}
+-                             fdprocessedid="esm69"
+                            >
++                             View Details
+                  <motion.div initial={{opacity:0,y:30}} whileInView={{opacity:1,y:0}} transition={{duration:0.6, ...}} ...>
+                    <div className="relative b..." style={{opacity:0, ...}} ref={function useMotionRef.useCallback}>
+                      <motion.div>
+                      <h3>
+                      <motion.div>
+                      <LinkComponent href="/products/3">
+                        <a ref={function} onClick={function onClick} onMouseEnter={function onMouseEnter} ...>
+                          <motion.button whileHover={{scale:1.08}} className="mt-6 w-ful...">
+                            <button
+                              className="mt-6 w-full bg-gradient-to-r from-blue-600 to-indigo-600 text-white py-3 roun..."
+                              style={{}}
+                              ref={function useMotionRef.useCallback}
+-                             fdprocessedid="a9qita"
+                            >
++                             View Details
+                ...
+          <Footer>
+            <footer className="bg-[#0d0f1...">
+              <div>
+              <div className="relative m...">
+                <motion.div initial={{opacity:0,y:40}} whileInView={{opacity:1,y:0}} transition={{duration:0.7}} ...>
+                  <div className="grid grid-..." style={{opacity:0, ...}} ref={function useMotionRef.useCallback}>
+                    <div>
+                    <FooterColumn>
+                    <FooterColumn>
+                    <FooterColumn>
+                    <motion.div initial={{opacity:0,x:20}} whileInView={{opacity:1,x:0}} transition={{duration:0.6}} ...>
+                      <div className="" style={{opacity:0, ...}} ref={function useMotionRef.useCallback}>
+                        <h4>
+                        <p>
+                        <form className="mb-4">
+                          <input
+                            type="email"
+                            placeholder="Your email"
+                            className="w-full px-4 py-2 bg-[#141824] text-white rounded-lg text-sm    placeholder-gray..."
+-                           fdprocessedid="yvgib9"
+                          >
+                          <button
+                            className="w-full bg-gradient-to-r from-blue-600 to-indigo-600    hover:from-blue-700 hove..."
+-                           fdprocessedid="0b1g1h"
+                          >
++                           Subscribe
+                        ...
+                ...
+
+[00:13:51.047] Browser WARN    [GSI_LOGGER]: Provided button width is invalid: 100%
+[00:13:51.047] Browser LOG     Google Client ID Loaded: 469862363694-m77chvegfmkktcj2libnktimfhvqkatg.apps.googleusercontent.com
+[00:13:51.047] Browser WARN    [GSI_LOGGER]: Provided button width is invalid: 100%
+[00:13:51.047] Browser LOG     Google Client ID Loaded: 469862363694-m77chvegfmkktcj2libnktimfhvqkatg.apps.googleusercontent.com
+[00:15:24.791] Server  LOG      ✓ Compiled in 599ms
+[00:16:01.488] Server  WARN     ⚠ Fast Refresh had to perform a full reload when ./app/checkout/page.js changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+[00:16:01.506] Server  LOG      ✓ Compiled in 297ms
+[00:16:02.410] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:16:03.012] Browser ERROR   A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+%s%s https://react.dev/link/hydration-mismatch 
+
+  ...
+    <HotReload globalError={[...]} webSocket={WebSocket} staticIndicatorState={{pathname:null, ...}}>
+      <AppDevOverlayErrorBoundary globalError={[...]}>
+        <ReplaySsrOnlyErrors>
+        <DevRootHTTPAccessFallbackBoundary>
+          <HTTPAccessFallbackBoundary notFound={<NotAllowedRootHTTPFallbackError>}>
+            <HTTPAccessFallbackErrorBoundary pathname="/" notFound={<NotAllowedRootHTTPFallbackError>} ...>
+              <RedirectBoundary>
+                <RedirectErrorBoundary router={{...}}>
+                  <Head>
+                  <__next_root_layout_boundary__>
+                    <SegmentViewNode type="layout" pagePath="layout.js">
+                      <SegmentTrieNode>
+                      <link>
+                      <script>
+                      <script>
+                      <script>
+                      <RootLayout>
+                        <html lang="en">
+                          <head>
+                          <body
+-                           cz-shortcut-listen="true"
+                          >
+                            ...
+                              ...
+                                <div className="flex items...">
+                                  <motion.div>
+                                  <div className="hidden md:...">
+                                    <motion.div initial={{opacity:0}} animate={{opacity:1}} className="relative w...">
+                                      <div className="relative w..." style={{opacity:0}} ...>
+                                        <FiSearch>
+                                        <input
+                                          type="text"
+                                          placeholder="Search products..."
+                                          className="w-full pl-12 pr-4 py-2 rounded-full bg-gray-100 focus:bg-white sh..."
+-                                         fdprocessedid="9tdnuk"
+                                        >
+                                  <nav>
+                                  <div className="flex items...">
+                                    <motion.button whileHover={{scale:1.2}} className="hidden sm:...">
+                                      <button
+                                        className="hidden sm:block text-gray-600 hover:text-blue-600 transition"
+                                        style={{}}
+                                        ref={function useMotionRef.useCallback}
+-                                       fdprocessedid="afwagn"
+                                      >
+                                    ...
+                              ...
+                                <Home>
+                                  <div className="max-w-9xl ...">
+                                    ...
+                                      <div className="flex-1 fle...">
+                                        <AnimatePresence>
+                                        <AnimatePresence>
+                                        <AnimatePresence>
+                                        <motion.button onClick={function onClick} className="lg:px-12 l..." ...>
+                                          <button
+                                            onClick={function onClick}
+                                            className="lg:px-12 lg:py-4 px-8 py-3 bg-white text-slate-900 rounded-full..."
+                                            tabIndex={0}
+                                            style={{}}
+                                            ref={function useMotionRef.useCallback}
+-                                           fdprocessedid="6f3ea8"
+                                          >
++                                           Check Out
+                                    ...
+                                      <div className="grid md:gr...">
+                                        ...
+                                          <a ref={function} onClick={function onClick} ...>
+                                            <motion.button whileHover={{scale:1.08}} className="mt-6 w-ful...">
+                                              <button
+                                                className="mt-6 w-full bg-gradient-to-r from-blue-600 to-indigo-600 te..."
+                                                style={{}}
+                                                ref={function useMotionRef.useCallback}
+-                                               fdprocessedid="zf9xv2"
+                                              >
++                                               View Details
+                                        ...
+                                          <a ref={function} onClick={function onClick} ...>
+                                            <motion.button whileHover={{scale:1.08}} className="mt-6 w-ful...">
+                                              <button
+                                                className="mt-6 w-full bg-gradient-to-r from-blue-600 to-indigo-600 te..."
+                                                style={{}}
+                                                ref={function useMotionRef.useCallback}
+-                                               fdprocessedid="gitqwo"
+                                              >
++                                               View Details
+                                        ...
+                                          <a ref={function} onClick={function onClick} ...>
+                                            <motion.button whileHover={{scale:1.08}} className="mt-6 w-ful...">
+                                              <button
+                                                className="mt-6 w-full bg-gradient-to-r from-blue-600 to-indigo-600 te..."
+                                                style={{}}
+                                                ref={function useMotionRef.useCallback}
+-                                               fdprocessedid="vkkz0k"
+                                              >
++                                               View Details
+                                    ...
+                              ...
+                                <div className="" style={{opacity:0, ...}} ref={function useMotionRef.useCallback}>
+                                  <h4>
+                                  <p>
+                                  <form className="mb-4">
+                                    <input
+                                      type="email"
+                                      placeholder="Your email"
+                                      className="w-full px-4 py-2 bg-[#141824] text-white rounded-lg text-sm    placeh..."
+-                                     fdprocessedid="ivdtlg"
+                                    >
+                                    <button
+                                      className="w-full bg-gradient-to-r from-blue-600 to-indigo-600    hover:from-blu..."
+-                                     fdprocessedid="2ld28"
+                                    >
++                                     Subscribe
+                                  ...
+                  ...
+
+[00:18:17.090] Server  WARN     ⚠ Fast Refresh had to perform a full reload when ./context/cart-context.js changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+[00:18:18.472] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:18:19.011] Browser ERROR   A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+%s%s https://react.dev/link/hydration-mismatch 
+
+  ...
+    <HotReload globalError={[...]} webSocket={WebSocket} staticIndicatorState={{pathname:null, ...}}>
+      <AppDevOverlayErrorBoundary globalError={[...]}>
+        <ReplaySsrOnlyErrors>
+        <DevRootHTTPAccessFallbackBoundary>
+          <HTTPAccessFallbackBoundary notFound={<NotAllowedRootHTTPFallbackError>}>
+            <HTTPAccessFallbackErrorBoundary pathname="/" notFound={<NotAllowedRootHTTPFallbackError>} ...>
+              <RedirectBoundary>
+                <RedirectErrorBoundary router={{...}}>
+                  <Head>
+                  <__next_root_layout_boundary__>
+                    <SegmentViewNode type="layout" pagePath="layout.js">
+                      <SegmentTrieNode>
+                      <link>
+                      <script>
+                      <script>
+                      <script>
+                      <RootLayout>
+                        <html lang="en">
+                          <head>
+                          <body
+-                           cz-shortcut-listen="true"
+                          >
+                            ...
+                              ...
+                                <div className="flex items...">
+                                  <motion.div>
+                                  <div className="hidden md:...">
+                                    <motion.div initial={{opacity:0}} animate={{opacity:1}} className="relative w...">
+                                      <div className="relative w..." style={{opacity:0}} ...>
+                                        <FiSearch>
+                                        <input
+                                          type="text"
+                                          placeholder="Search products..."
+                                          className="w-full pl-12 pr-4 py-2 rounded-full bg-gray-100 focus:bg-white sh..."
+-                                         fdprocessedid="q2l63n"
+                                        >
+                                  <nav>
+                                  <div className="flex items...">
+                                    <motion.button whileHover={{scale:1.2}} className="hidden sm:...">
+                                      <button
+                                        className="hidden sm:block text-gray-600 hover:text-blue-600 transition"
+                                        style={{}}
+                                        ref={function useMotionRef.useCallback}
+-                                       fdprocessedid="hg8cws"
+                                      >
+                                    ...
+                              ...
+                                <Home>
+                                  <div className="max-w-9xl ...">
+                                    ...
+                                      <div className="flex-1 fle...">
+                                        <AnimatePresence>
+                                        <AnimatePresence>
+                                        <AnimatePresence>
+                                        <motion.button onClick={function onClick} className="lg:px-12 l..." ...>
+                                          <button
+                                            onClick={function onClick}
+                                            className="lg:px-12 lg:py-4 px-8 py-3 bg-white text-slate-900 rounded-full..."
+                                            tabIndex={0}
+                                            style={{}}
+                                            ref={function useMotionRef.useCallback}
+-                                           fdprocessedid="gkhy9a"
+                                          >
++                                           Check Out
+                                    ...
+                                      <div className="grid md:gr...">
+                                        ...
+                                          <a ref={function} onClick={function onClick} ...>
+                                            <motion.button whileHover={{scale:1.08}} className="mt-6 w-ful...">
+                                              <button
+                                                className="mt-6 w-full bg-gradient-to-r from-blue-600 to-indigo-600 te..."
+                                                style={{}}
+                                                ref={function useMotionRef.useCallback}
+-                                               fdprocessedid="f79xlr"
+                                              >
++                                               View Details
+                                        ...
+                                          <a ref={function} onClick={function onClick} ...>
+                                            <motion.button whileHover={{scale:1.08}} className="mt-6 w-ful...">
+                                              <button
+                                                className="mt-6 w-full bg-gradient-to-r from-blue-600 to-indigo-600 te..."
+                                                style={{}}
+                                                ref={function useMotionRef.useCallback}
+-                                               fdprocessedid="4s4od"
+                                              >
++                                               View Details
+                                        ...
+                                          <a ref={function} onClick={function onClick} ...>
+                                            <motion.button whileHover={{scale:1.08}} className="mt-6 w-ful...">
+                                              <button
+                                                className="mt-6 w-full bg-gradient-to-r from-blue-600 to-indigo-600 te..."
+                                                style={{}}
+                                                ref={function useMotionRef.useCallback}
+-                                               fdprocessedid="fzpvn"
+                                              >
++                                               View Details
+                                    ...
+                              ...
+                                <div className="" style={{opacity:0, ...}} ref={function useMotionRef.useCallback}>
+                                  <h4>
+                                  <p>
+                                  <form className="mb-4">
+                                    <input
+                                      type="email"
+                                      placeholder="Your email"
+                                      className="w-full px-4 py-2 bg-[#141824] text-white rounded-lg text-sm    placeh..."
+-                                     fdprocessedid="qw4def"
+                                    >
+                                    <button
+                                      className="w-full bg-gradient-to-r from-blue-600 to-indigo-600    hover:from-blu..."
+-                                     fdprocessedid="faro6b"
+                                    >
++                                     Subscribe
+                                  ...
+                  ...
+
+[00:18:25.007] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:20:17.994] Browser WARN    [GSI_LOGGER]: Provided button width is invalid: 100%
+[00:20:17.994] Browser LOG     Google Client ID Loaded: 469862363694-m77chvegfmkktcj2libnktimfhvqkatg.apps.googleusercontent.com
+[00:20:17.994] Browser WARN    [GSI_LOGGER]: Provided button width is invalid: 100%
+[00:20:17.995] Browser LOG     Google Client ID Loaded: 469862363694-m77chvegfmkktcj2libnktimfhvqkatg.apps.googleusercontent.com
+[00:20:26.859] Browser WARN    [GSI_LOGGER]: Provided button width is invalid: 100%
+[00:20:26.859] Browser LOG     Google Client ID Loaded: 469862363694-m77chvegfmkktcj2libnktimfhvqkatg.apps.googleusercontent.com
+[00:20:26.859] Browser WARN    [GSI_LOGGER]: Provided button width is invalid: 100%
+[00:20:26.859] Browser LOG     Google Client ID Loaded: 469862363694-m77chvegfmkktcj2libnktimfhvqkatg.apps.googleusercontent.com
+[00:34:46.084] Server  LOG      ✓ Compiled in 226ms
+[00:34:50.152] Server  LOG      ✓ Compiled in 139ms
+[00:35:26.328] Server  LOG      ✓ Compiled in 156ms
+[00:35:35.202] Server  LOG      ✓ Compiled in 116ms
+[00:35:39.878] Server  LOG      ✓ Compiled in 148ms
+[00:35:41.052] Server  LOG      ✓ Compiled in 203ms
+[00:35:52.103] Server  LOG      ✓ Compiled in 118ms
+[00:35:56.681] Server  LOG      ✓ Compiled in 110ms
+[00:36:14.064] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:36:27.681] Browser WARN    [GSI_LOGGER]: Provided button width is invalid: 100%
+[00:36:27.681] Browser LOG     Google Client ID Loaded: 469862363694-m77chvegfmkktcj2libnktimfhvqkatg.apps.googleusercontent.com
+[00:36:27.681] Browser WARN    [GSI_LOGGER]: Provided button width is invalid: 100%
+[00:36:27.681] Browser LOG     Google Client ID Loaded: 469862363694-m77chvegfmkktcj2libnktimfhvqkatg.apps.googleusercontent.com
+[00:36:30.815] Browser WARN    [GSI_LOGGER]: Provided button width is invalid: 100%
+[00:36:30.815] Browser WARN    [GSI_LOGGER]: Provided button width is invalid: 100%
+[00:36:32.917] Browser WARN    [GSI_LOGGER]: Provided button width is invalid: 100%
+[00:36:32.917] Browser LOG     Google Client ID Loaded: 469862363694-m77chvegfmkktcj2libnktimfhvqkatg.apps.googleusercontent.com
+[00:36:32.917] Browser WARN    [GSI_LOGGER]: Provided button width is invalid: 100%
+[00:36:32.917] Browser LOG     Google Client ID Loaded: 469862363694-m77chvegfmkktcj2libnktimfhvqkatg.apps.googleusercontent.com
+[00:36:55.729] Browser ERROR   uncaughtError: ReferenceError: router is not defined
+[00:36:58.647] Browser ERROR   uncaughtError: ReferenceError: router is not defined
+[00:37:01.125] Browser ERROR   uncaughtError: ReferenceError: router is not defined
+[00:38:51.927] Server  LOG      ✓ Compiled in 338ms
+[00:38:53.019] Browser ERROR   ./app/cart/page.js:16:16
+Parsing ecmascript source code failed
+  14 |
+  15 |   if (cart.length === 0) {
+> 16 |     return (...)
+     |                ^
+  17 |   }
+  18 |
+  19 |   return (
+
+Expression expected
+
+Import traces:
+  Client Component Browser:
+    ./app/cart/page.js [Client Component Browser]
+    ./app/cart/page.js [Server Component]
+
+  Client Component SSR:
+    ./app/cart/page.js [Client Component SSR]
+    ./app/cart/page.js [Server Component]
+[00:39:20.039] Server  LOG      ✓ Compiled in 111ms
+[00:39:25.400] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:39:26.011] Browser ERROR   A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
 
 - A server/client branch `if (typeof window !== 'undefined')`.
 - Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
@@ -150,7 +512,7 @@ It can also happen if the client has a browser extension installed which messes 
                                 type="text"
                                 placeholder="Search products..."
                                 className="w-full pl-12 pr-4 py-2 rounded-full bg-gray-100 focus:bg-white shadow-inner..."
--                               fdprocessedid="o6x5r"
+-                               fdprocessedid="vc1gz6"
                               >
                         <nav>
                         <div className="flex items...">
@@ -159,67 +521,64 @@ It can also happen if the client has a browser extension installed which messes 
                               className="hidden sm:block text-gray-600 hover:text-blue-600 transition"
                               style={{}}
                               ref={function useMotionRef.useCallback}
--                             fdprocessedid="zywor"
+-                             fdprocessedid="zbgrcc"
                             >
                           ...
                     ...
                 ...
-                  <Home>
-                    <div className="max-w-9xl ...">
-                      ...
-                        <div className="sticky top...">
-                          <motion.div>
-                          <div className="relative h...">
-                            <div>
-                            <div className="flex-1 fle...">
-                              <AnimatePresence>
-                              <AnimatePresence>
-                              <AnimatePresence>
-                              <motion.button onClick={function onClick} className="lg:px-12 l..." ...>
+                  <SegmentViewNode type="page" pagePath="products/p...">
+                    <SegmentTrieNode>
+                    <Products>
+                      <div className="max-w-7xl ...">
+                        <ProductCard product={{id:"1",name:"A...", ...}}>
+                          <motion.div whileHover={{scale:1.03}} transition={{type:"spring", ...}} ...>
+                            <div className="bg-white/8..." style={{}} ref={function useMotionRef.useCallback}>
+                              <motion.div>
+                              <h3>
+                              <p>
+                              <div>
+                              <p>
+                              <div className="mt-5 flex ...">
                                 <button
                                   onClick={function onClick}
-                                  className="lg:px-12 lg:py-4 px-8 py-3 bg-white text-slate-900 rounded-full font-semi..."
-                                  tabIndex={0}
-                                  style={{}}
-                                  ref={function useMotionRef.useCallback}
--                                 fdprocessedid="dzzymg"
+                                  className="flex-1 bg-gradient-to-r from-blue-600 to-indigo-600 text-white py-2 round..."
+-                                 fdprocessedid="ihkih"
                                 >
-+                                 Check Out
-                            ...
-                          ...
-                      ...
-                        <div className="grid md:gr...">
-                          ...
-                            <a ref={function} onClick={function onClick} onMouseEnter={function onMouseEnter} ...>
-                              <motion.button whileHover={{scale:1.08}} className="mt-6 w-ful...">
++                                 Add to Cart
+                                ...
+                        <ProductCard product={{id:"2",name:"V...", ...}}>
+                          <motion.div whileHover={{scale:1.03}} transition={{type:"spring", ...}} ...>
+                            <div className="bg-white/8..." style={{}} ref={function useMotionRef.useCallback}>
+                              <motion.div>
+                              <h3>
+                              <p>
+                              <div>
+                              <p>
+                              <div className="mt-5 flex ...">
                                 <button
-                                  className="mt-6 w-full bg-gradient-to-r from-blue-600 to-indigo-600 text-white py-3 ..."
-                                  style={{}}
-                                  ref={function useMotionRef.useCallback}
--                                 fdprocessedid="v9z8ef"
+                                  onClick={function onClick}
+                                  className="flex-1 bg-gradient-to-r from-blue-600 to-indigo-600 text-white py-2 round..."
+-                                 fdprocessedid="mtj4hd"
                                 >
-+                                 View Details
-                          ...
-                            <a ref={function} onClick={function onClick} onMouseEnter={function onMouseEnter} ...>
-                              <motion.button whileHover={{scale:1.08}} className="mt-6 w-ful...">
++                                 Add to Cart
+                                ...
+                        <ProductCard product={{id:"3",name:"T...", ...}}>
+                          <motion.div whileHover={{scale:1.03}} transition={{type:"spring", ...}} ...>
+                            <div className="bg-white/8..." style={{}} ref={function useMotionRef.useCallback}>
+                              <motion.div>
+                              <h3>
+                              <p>
+                              <div>
+                              <p>
+                              <div className="mt-5 flex ...">
                                 <button
-                                  className="mt-6 w-full bg-gradient-to-r from-blue-600 to-indigo-600 text-white py-3 ..."
-                                  style={{}}
-                                  ref={function useMotionRef.useCallback}
--                                 fdprocessedid="r9rzzh"
+                                  onClick={function onClick}
+                                  className="flex-1 bg-gradient-to-r from-blue-600 to-indigo-600 text-white py-2 round..."
+-                                 fdprocessedid="06o7fe"
                                 >
-+                                 View Details
-                          ...
-                            <a ref={function} onClick={function onClick} onMouseEnter={function onMouseEnter} ...>
-                              <motion.button whileHover={{scale:1.08}} className="mt-6 w-ful...">
-                                <button
-                                  className="mt-6 w-full bg-gradient-to-r from-blue-600 to-indigo-600 text-white py-3 ..."
-                                  style={{}}
-                                  ref={function useMotionRef.useCallback}
--                                 fdprocessedid="dt84tc"
-                                >
-+                                 View Details
-                      ...
++                                 Add to Cart
+                                ...
+                  ...
                 ...
                   <div className="relative m...">
                     <motion.div initial={{opacity:0,y:40}} whileInView={{opacity:1,y:0}} transition={{duration:0.7}} ...>
@@ -237,19 +596,175 @@ It can also happen if the client has a browser extension installed which messes 
                                 type="email"
                                 placeholder="Your email"
                                 className="w-full px-4 py-2 bg-[#141824] text-white rounded-lg text-sm    placeholder-..."
--                               fdprocessedid="pvbyqa"
+-                               fdprocessedid="mh4yi"
                               >
                               <button
                                 className="w-full bg-gradient-to-r from-blue-600 to-indigo-600    hover:from-blue-700 ..."
--                               fdprocessedid="88vo9a"
+-                               fdprocessedid="kkrg1"
                               >
 +                               Subscribe
                             ...
                     ...
 
-[00:00:35.093] Browser WARN    [GSI_LOGGER]: Provided button width is invalid: 100%
-[00:00:35.093] Browser WARN    [GSI_LOGGER]: Provided button width is invalid: 100%
-[00:02:44.852] Browser WARN    [GSI_LOGGER]: Provided button width is invalid: 100%
-[00:02:44.854] Browser LOG     Google Client ID Loaded: 469862363694-m77chvegfmkktcj2libnktimfhvqkatg.apps.googleusercontent.com
-[00:02:44.854] Browser WARN    [GSI_LOGGER]: Provided button width is invalid: 100%
-[00:02:44.855] Browser LOG     Google Client ID Loaded: 469862363694-m77chvegfmkktcj2libnktimfhvqkatg.apps.googleusercontent.com
+[00:39:27.529] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:39:51.428] Browser ERROR   uncaughtError: ReferenceError: router is not defined
+[00:40:21.864] Server  LOG      ✓ Compiled in 184ms
+[00:40:40.901] Server  LOG      ✓ Compiled in 154ms
+[00:41:07.927] Browser ERROR   unhandledRejection: TypeError: window.Razorpay is not a constructor
+[00:43:58.906] Server  LOG      ✓ Compiled in 209ms
+[00:44:14.223] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:48:19.210] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:48:19.782] Browser ERROR   A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+%s%s https://react.dev/link/hydration-mismatch 
+
+  ...
+    <HotReload globalError={[...]} webSocket={WebSocket} staticIndicatorState={{pathname:null, ...}}>
+      <AppDevOverlayErrorBoundary globalError={[...]}>
+        <ReplaySsrOnlyErrors>
+        <DevRootHTTPAccessFallbackBoundary>
+          <HTTPAccessFallbackBoundary notFound={<NotAllowedRootHTTPFallbackError>}>
+            <HTTPAccessFallbackErrorBoundary pathname="/checkout" notFound={<NotAllowedRootHTTPFallbackError>} ...>
+              <RedirectBoundary>
+                <RedirectErrorBoundary router={{...}}>
+                  <Head>
+                  <__next_root_layout_boundary__>
+                    <SegmentViewNode type="layout" pagePath="layout.js">
+                      <SegmentTrieNode>
+                      <link>
+                      <script>
+                      <script>
+                      <script>
+                      <RootLayout>
+                        <html lang="en">
+                          <head>
+                          <body
+-                           cz-shortcut-listen="true"
+                          >
+                            ...
+                              ...
+                                <div className="flex items...">
+                                  <motion.div>
+                                  <div className="hidden md:...">
+                                    <motion.div initial={{opacity:0}} animate={{opacity:1}} className="relative w...">
+                                      <div className="relative w..." style={{opacity:0}} ...>
+                                        <FiSearch>
+                                        <input
+                                          type="text"
+                                          placeholder="Search products..."
+                                          className="w-full pl-12 pr-4 py-2 rounded-full bg-gray-100 focus:bg-white sh..."
+-                                         fdprocessedid="wg8d9m"
+                                        >
+                                  <nav>
+                                  <div className="flex items...">
+                                    <motion.button whileHover={{scale:1.2}} className="hidden sm:...">
+                                      <button
+                                        className="hidden sm:block text-gray-600 hover:text-blue-600 transition"
+                                        style={{}}
+                                        ref={function useMotionRef.useCallback}
+-                                       fdprocessedid="mkvjs"
+                                      >
+                                    ...
+                              ...
+                                <ClientPageRoot Component={function CheckoutPage} serverProvidedParams={{...}}>
+                                  <CheckoutPage params={Promise} searchParams={Promise}>
+                                    <div className="text-cente...">
+                                      <button
+                                        className="px-6 py-2 bg-blue-600 text-white rounded-xl mt-4"
+                                        onClick={function onClick}
+-                                       fdprocessedid="7w96ye"
+                                      >
++                                       Go to Login
+                              ...
+                                <div className="" style={{opacity:0, ...}} ref={function useMotionRef.useCallback}>
+                                  <h4>
+                                  <p>
+                                  <form className="mb-4">
+                                    <input
+                                      type="email"
+                                      placeholder="Your email"
+                                      className="w-full px-4 py-2 bg-[#141824] text-white rounded-lg text-sm    placeh..."
+-                                     fdprocessedid="icvnzg"
+                                    >
+                                    <button
+                                      className="w-full bg-gradient-to-r from-blue-600 to-indigo-600    hover:from-blu..."
+-                                     fdprocessedid="0tzr4j"
+                                    >
++                                     Subscribe
+                                  ...
+                  ...
+
+[00:49:49.654] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:49:49.944] Browser ERROR   A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+%s%s https://react.dev/link/hydration-mismatch 
+
+  ...
+    <body>
+      <AuthProvider>
+        <CartProvider>
+          <Header>
+          ...
+            <LoadingBoundary name="checkout/" loading={null}>
+              <HTTPAccessFallbackBoundary notFound={undefined} forbidden={undefined} unauthorized={undefined}>
+                <RedirectBoundary>
+                  <RedirectErrorBoundary router={{...}}>
+                    <InnerLayoutRouter url="/checkout" tree={[...]} params={{}} cacheNode={{lazyData:null, ...}} ...>
+                      <SegmentViewNode type="page" pagePath="checkout/p...">
+                        <SegmentTrieNode>
+                        <ClientPageRoot Component={function CheckoutPage} serverProvidedParams={{...}}>
+                          <CheckoutPage params={Promise} searchParams={Promise}>
+                            <div className="text-cente...">
+                              <button
+                                className="px-6 py-2 bg-blue-600 text-white rounded-xl mt-4"
+                                onClick={function onClick}
+-                               fdprocessedid="wgeami"
+                              >
++                               Go to Login
+                      ...
+                    ...
+          <Footer>
+            <footer className="bg-[#0d0f1...">
+              <div>
+              <div className="relative m...">
+                <motion.div initial={{opacity:0,y:40}} whileInView={{opacity:1,y:0}} transition={{duration:0.7}} ...>
+                  <div className="grid grid-..." style={{opacity:0, ...}} ref={function useMotionRef.useCallback}>
+                    <div>
+                    <FooterColumn>
+                    <FooterColumn>
+                    <FooterColumn>
+                    <motion.div initial={{opacity:0,x:20}} whileInView={{opacity:1,x:0}} transition={{duration:0.6}} ...>
+                      <div className="" style={{opacity:0, ...}} ref={function useMotionRef.useCallback}>
+                        <h4>
+                        <p>
+                        <form className="mb-4">
+                          <input
+                            type="email"
+                            placeholder="Your email"
+                            className="w-full px-4 py-2 bg-[#141824] text-white rounded-lg text-sm    placeholder-gray..."
+-                           fdprocessedid="h85058"
+                          >
+                          <button
+                            className="w-full bg-gradient-to-r from-blue-600 to-indigo-600    hover:from-blue-700 hove..."
+-                           fdprocessedid="i2jxb"
+                          >
++                           Subscribe
+                        ...
+                ...
+

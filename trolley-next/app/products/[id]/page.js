@@ -1,24 +1,51 @@
-"use client"
-import { useParams } from "next/navigation"
-import { useContext } from "react"
-import { CartContext } from "../../../context/cart-context"
-import { motion } from "framer-motion"
-import { FiStar } from "react-icons/fi"
-import { products } from "../../data/product"   // ⭐ SHARED DATA
+"use client";
+
+import { useParams, useRouter } from "next/navigation";
+import { useContext } from "react";
+import { CartContext } from "../../../context/cart-context";
+import { AuthContext } from "../../../context/auth-context";
+import { motion } from "framer-motion";
+import { FiStar } from "react-icons/fi";
+import { products } from "../../data/product"; // ⭐ SHARED DATA
 
 export default function ProductDetails() {
-  const { id } = useParams()
-  const { addToCart } = useContext(CartContext)
+  const { id } = useParams();
+  const router = useRouter();
+  const { addToCart } = useContext(CartContext);
+  const { user } = useContext(AuthContext); // ⭐ CHECK USER LOGGED IN
 
-  const product = products.find((p) => p.id === id)
+  const product = products.find((p) => String(p.id) === String(id));
 
   if (!product) {
     return (
       <div className="max-w-4xl mx-auto p-6 text-center text-xl font-semibold">
         Product Not Found
       </div>
-    )
+    );
   }
+
+  // ⭐ BUY NOW HANDLER WITH LOGIN CHECK
+  const handleBuyNow = () => {
+    if (!user) {
+      alert("Please login before making a purchase");
+      router.push("/sign-in");
+      return;
+    }
+
+    // Save product for Buy Now
+    localStorage.setItem(
+      "buyNowProduct",
+      JSON.stringify({
+        id: product.id,
+        name: product.name,
+        price: product.price,
+        quantity: 1,
+      })
+    );
+
+    // Redirect to checkout
+    router.push("/checkout?mode=buy-now");
+  };
 
   return (
     <div className="max-w-6xl mx-auto px-6 py-16">
@@ -26,7 +53,7 @@ export default function ProductDetails() {
       {/* ⭐ Product Section */}
       <div className="grid md:grid-cols-2 gap-16 items-center">
 
-        {/* Product Emoji / Image */}
+        {/* Product Emoji */}
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
@@ -36,7 +63,7 @@ export default function ProductDetails() {
           {product.emoji}
         </motion.div>
 
-        {/* Product Information */}
+        {/* Product Info */}
         <motion.div
           initial={{ opacity: 0, x: 40 }}
           animate={{ opacity: 1, x: 0 }}
@@ -66,6 +93,7 @@ export default function ProductDetails() {
 
           {/* ⭐ Buttons */}
           <div className="flex gap-4 mt-8">
+            {/* Add To Cart */}
             <button
               onClick={() => addToCart(product)}
               className="flex-1 bg-gradient-to-r from-blue-600 to-indigo-600 text-white py-3 rounded-xl font-semibold shadow-md hover:shadow-blue-300 transition hover:scale-105"
@@ -73,9 +101,20 @@ export default function ProductDetails() {
               Add to Cart
             </button>
 
-            <button className="flex-1 border border-gray-400 py-3 rounded-xl font-semibold hover:border-black hover:scale-105 transition">
-              Buy Now
-            </button>
+            {/* ⭐ BUY NOW WITH LOGIN CHECK */}
+                      <button
+            onClick={() => {
+              if (!user) {
+                router.push("/sign-in");
+              } else {
+                router.push("/checkout");
+              }
+            }}
+            className="flex-1 border border-gray-400 py-3 rounded-xl font-semibold hover:border-black hover:scale-105 transition"
+          >
+            Buy Now
+          </button>
+
           </div>
         </motion.div>
       </div>
@@ -87,9 +126,7 @@ export default function ProductDetails() {
         transition={{ duration: 0.7 }}
         className="mt-16 bg-white/70 backdrop-blur-xl p-10 rounded-2xl shadow-xl border border-gray-200"
       >
-        <h2 className="text-2xl font-bold text-gray-900 mb-6">
-          Product Features
-        </h2>
+        <h2 className="text-2xl font-bold text-gray-900 mb-6">Product Features</h2>
 
         <ul className="grid md:grid-cols-2 gap-4 text-gray-700">
           {product.features.map((feat, i) => (
@@ -101,5 +138,5 @@ export default function ProductDetails() {
         </ul>
       </motion.div>
     </div>
-  )
+  );
 }

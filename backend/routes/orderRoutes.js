@@ -1,16 +1,11 @@
-const {
-  createOrder,
-  getOrderById,
-  getUserOrders,
-  updateOrderStatus,
-  getAllOrders,
-} = require('../controllers/orderController')
-const { protect, authorize } = require('../middleware/auth')
+// /routes/orderRoutes.js
+const { createOrder, verifyPayment } = require('../controllers/orderController');
+const { protect } = require('../middleware/auth'); // optional protect if you want only logged-in users
 
 module.exports = (router) => {
-  router.post('/orders', protect, createOrder)
-  router.get('/orders', protect, getUserOrders)
-  router.get('/orders/:id', protect, getOrderById)
-  router.put('/orders/:id', protect, authorize('admin'), updateOrderStatus)
-  router.get('/admin/orders', protect, authorize('admin'), getAllOrders)
-}
+  // create order (frontend calls this to get razorpay order id)
+  router.post('/orders/create', /* protect, */ createOrder);
+
+  // verify payment (frontend posts razorpay response here)
+  router.post('/orders/verify', /* protect, */ verifyPayment);
+};
