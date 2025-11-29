@@ -1,45 +1,36 @@
-// /models/Order.js
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 
-const orderSchema = new mongoose.Schema({
-  user: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: 'User',
-    required: false,   // optional for guest checkout
-  },
-
-  items: [
-    {
-      productId: { type: String },
-      name: String,
-      price: Number,
-      quantity: Number,
+const orderSchema = new mongoose.Schema(
+  {
+    user: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "User",
+      default: null, // Guest checkout allowed
     },
-  ],
 
-  amount: { type: Number, required: true },
-  currency: { type: String, default: 'INR' },
+    items: [
+      {
+        productId: { type: String },
+        name: String,
+        price: Number,
+        quantity: Number,
+      },
+    ],
 
-  // ⭐ MATCHING FIELD NAMES FOR RAZORPAY VERIFICATION
-  razorpay_order_id: { type: String },
-  razorpay_payment_id: { type: String, default: null },
-  razorpay_signature: { type: String, default: null },
+    amount: { type: Number, required: true },
+    currency: { type: String, default: "INR" },
 
-  status: {
-    type: String,
-    enum: ['created', 'paid', 'failed', 'refunded'],
-    default: 'created',
+    razorpayOrderId: String,
+    razorpayPaymentId: String,
+    razorpaySignature: String,
+
+    status: {
+      type: String,
+      enum: ["created", "paid", "failed"],
+      default: "created",
+    },
   },
+  { timestamps: true }
+);
 
-  shippingAddress: {
-    name: String,
-    phone: String,
-    line1: String,
-    city: String,
-    state: String,
-    postal_code: String,
-    country: String,
-  },
-}, { timestamps: true });
-
-module.exports = mongoose.model('Order', orderSchema);
+module.exports = mongoose.model("Order", orderSchema);

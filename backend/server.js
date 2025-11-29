@@ -26,6 +26,8 @@ require('./routes/productRoutes')(router)
 require('./routes/orderRoutes')(router)
 require("./routes/paymentRoutes")(router);
 require('./routes/cartRoutes')(router)
+require('./routes/adminRoutes')(router);
+
 
 
 app.use('/api', router)

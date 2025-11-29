@@ -1,3 +1,6 @@
+// /routes/paymentRoutes.js
+
+const express = require("express");
 const { createOrder, verifyPayment } = require("../controllers/paymentController");
 const { protect } = require("../middleware/auth");
 

@@ -14,7 +14,7 @@ module.exports = (router) => {
   router.post("/auth/signin", signin);
   router.post("/auth/logout", logout);
 
-  // ⭐ GOOGLE LOGIN ROUTE
+  // Google Login Route
   router.post("/auth/google", googleLogin);
 
   router.get("/auth/profile", protect, getProfile);

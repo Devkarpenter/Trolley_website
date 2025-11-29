@@ -1,91 +1,95 @@
-"use client"
-import { createContext, useContext, useState, useEffect } from "react"
+"use client";
 
-// ⭐ FIX: Add this hook so Header, Sign-In, Sign-Up can use useAuth()
-export const AuthContext = createContext()
+import { createContext, useContext, useEffect, useState } from "react";
 
-export function useAuth() {
-  return useContext(AuthContext)
-}
+export const AuthContext = createContext();
 
-export const AuthProvider = ({ children }) => {
-  const [user, setUser] = useState(null)
+export function AuthProvider({ children }) {
+  const [user, setUser] = useState(null);
 
-  // Load user on refresh
+  // Load user from localStorage
   useEffect(() => {
-    const token = localStorage.getItem("token")
-    const storedUser = localStorage.getItem("user")
-    if (token && storedUser) {
-      setUser(JSON.parse(storedUser))
+    const userData = localStorage.getItem("user");
+    if (userData) {
+      setUser(JSON.parse(userData));
     }
-  }, [])
+  }, []);
 
-  // ⭐ SIGN UP
-  async function signUp(name, email, password) {
-    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/auth/signup`, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ name, email, password }),
-    })
+  // Store user + token in localStorage
+  const login = (userObj, token) => {
+    const cleanUser = {
+      _id: userObj._id,
+      name: userObj.name,
+      email: userObj.email,
+      role: userObj.role || "user", // ⭐ VERY IMPORTANT
+    };
 
-    const data = await res.json()
-    if (!data.success) throw new Error(data.message)
+    localStorage.setItem("token", token);
+    localStorage.setItem("user", JSON.stringify(cleanUser));
+    setUser(cleanUser);
+  };
 
-    localStorage.setItem("token", data.token)
-    localStorage.setItem("user", JSON.stringify(data.user))
-    setUser(data.user)
-  }
+  // ⭐ NORMAL LOGIN (EMAIL + PASSWORD)
+  const signIn = async (email, password) => {
+    try {
+      const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/auth/signin`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email, password }),
+      });
 
-  // ⭐ SIGN IN
-  async function signIn(email, password) {
-    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/auth/signin`, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ email, password }),
-    })
+      const data = await res.json();
 
-    const data = await res.json()
-    if (!data.success) throw new Error(data.message)
+      if (!data.success) {
+        return { success: false, message: data.message };
+      }
 
-    localStorage.setItem("token", data.token)
-    localStorage.setItem("user", JSON.stringify(data.user))
-    setUser(data.user)
-  }
+      login(data.user, data.token);
+      return { success: true };
+
+    } catch (err) {
+      return { success: false, message: err.message };
+    }
+  };
 
   // ⭐ GOOGLE LOGIN
-  async function googleLogin(googleToken) {
-    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/auth/google`, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ token: googleToken }),
-    })
+  const googleLogin = async (tokenId) => {
+    try {
+      const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/auth/google`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ token: tokenId }),
+      });
 
-    const data = await res.json()
-    if (!data.success) throw new Error(data.message)
+      const data = await res.json();
 
-    localStorage.setItem("token", data.token)
-    localStorage.setItem("user", JSON.stringify(data.user))
-    setUser(data.user)
-  }
+      if (!data.success) {
+        return { success: false, message: data.message };
+      }
+
+      login(data.user, data.token);
+      return { success: true };
+
+    } catch (err) {
+      return { success: false, message: err.message };
+    }
+  };
 
   // ⭐ LOGOUT
-  function logout() {
-    localStorage.removeItem("token")
-    localStorage.removeItem("user")
-    setUser(null)
-  }
+  const logout = () => {
+    localStorage.removeItem("token");
+    localStorage.removeItem("user");
+    setUser(null);
+  };
 
   return (
-    <AuthContext.Provider
-      value={{
-        user,
-        signIn,
-        signUp,
-        googleLogin,
-        logout,
-      }}
-    >
+    <AuthContext.Provider value={{ user, signIn, googleLogin, login, logout }}>
       {children}
     </AuthContext.Provider>
-  )
+  );
+}
+
+// Custom hook
+export function useAuth() {
+  return useContext(AuthContext);
 }

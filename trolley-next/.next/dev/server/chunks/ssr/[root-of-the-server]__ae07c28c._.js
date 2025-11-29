@@ -16,7 +16,7 @@ __turbopack_context__.s([
 ]);
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/server/route-modules/app-page/vendored/ssr/react-jsx-dev-runtime.js [app-ssr] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/server/route-modules/app-page/vendored/ssr/react.js [app-ssr] (ecmascript)");
-'use client';
+"use client";
 ;
 ;
 const CartContext = /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["createContext"])();
@@ -25,10 +25,12 @@ function CartProvider({ children }) {
     const addToCart = (product)=>{
         setCart((prev)=>{
             const found = prev.find((i)=>i.id === product.id);
-            if (found) return prev.map((i)=>i.id === product.id ? {
-                    ...i,
-                    quantity: i.quantity + 1
-                } : i);
+            if (found) {
+                return prev.map((i)=>i.id === product.id ? {
+                        ...i,
+                        quantity: i.quantity + 1
+                    } : i);
+            }
             return [
                 ...prev,
                 {
@@ -38,7 +40,9 @@ function CartProvider({ children }) {
             ];
         });
     };
-    const removeFromCart = (id)=>setCart((prev)=>prev.filter((i)=>i.id !== id));
+    const removeFromCart = (id)=>{
+        setCart((prev)=>prev.filter((i)=>i.id !== id));
+    };
     const updateQuantity = (id, quantity)=>{
         if (quantity <= 0) {
             removeFromCart(id);
@@ -59,7 +63,7 @@ function CartProvider({ children }) {
         children: children
     }, void 0, false, {
         fileName: "[project]/context/cart-context.js",
-        lineNumber: 28,
+        lineNumber: 38,
         columnNumber: 5
     }, this);
 }
@@ -81,94 +85,112 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist
 ;
 ;
 const AuthContext = /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["createContext"])();
-function useAuth() {
-    return (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useContext"])(AuthContext);
-}
-const AuthProvider = ({ children })=>{
+function AuthProvider({ children }) {
     const [user, setUser] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(null);
-    // Load user on refresh
+    // Load user from localStorage
     (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useEffect"])(()=>{
-        const token = localStorage.getItem("token");
-        const storedUser = localStorage.getItem("user");
-        if (token && storedUser) {
-            setUser(JSON.parse(storedUser));
+        const userData = localStorage.getItem("user");
+        if (userData) {
+            setUser(JSON.parse(userData));
         }
     }, []);
-    // ⭐ SIGN UP
-    async function signUp(name, email, password) {
-        const res = await fetch(`${("TURBOPACK compile-time value", "http://localhost:5000/api")}/auth/signup`, {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({
-                name,
-                email,
-                password
-            })
-        });
-        const data = await res.json();
-        if (!data.success) throw new Error(data.message);
-        localStorage.setItem("token", data.token);
-        localStorage.setItem("user", JSON.stringify(data.user));
-        setUser(data.user);
-    }
-    // ⭐ SIGN IN
-    async function signIn(email, password) {
-        const res = await fetch(`${("TURBOPACK compile-time value", "http://localhost:5000/api")}/auth/signin`, {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({
-                email,
-                password
-            })
-        });
-        const data = await res.json();
-        if (!data.success) throw new Error(data.message);
-        localStorage.setItem("token", data.token);
-        localStorage.setItem("user", JSON.stringify(data.user));
-        setUser(data.user);
-    }
+    // Store user + token in localStorage
+    const login = (userObj, token)=>{
+        const cleanUser = {
+            _id: userObj._id,
+            name: userObj.name,
+            email: userObj.email,
+            role: userObj.role || "user"
+        };
+        localStorage.setItem("token", token);
+        localStorage.setItem("user", JSON.stringify(cleanUser));
+        setUser(cleanUser);
+    };
+    // ⭐ NORMAL LOGIN (EMAIL + PASSWORD)
+    const signIn = async (email, password)=>{
+        try {
+            const res = await fetch(`${("TURBOPACK compile-time value", "http://localhost:5000/api")}/auth/signin`, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    email,
+                    password
+                })
+            });
+            const data = await res.json();
+            if (!data.success) {
+                return {
+                    success: false,
+                    message: data.message
+                };
+            }
+            login(data.user, data.token);
+            return {
+                success: true
+            };
+        } catch (err) {
+            return {
+                success: false,
+                message: err.message
+            };
+        }
+    };
     // ⭐ GOOGLE LOGIN
-    async function googleLogin(googleToken) {
-        const res = await fetch(`${("TURBOPACK compile-time value", "http://localhost:5000/api")}/auth/google`, {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({
-                token: googleToken
-            })
-        });
-        const data = await res.json();
-        if (!data.success) throw new Error(data.message);
-        localStorage.setItem("token", data.token);
-        localStorage.setItem("user", JSON.stringify(data.user));
-        setUser(data.user);
-    }
+    const googleLogin = async (tokenId)=>{
+        try {
+            const res = await fetch(`${("TURBOPACK compile-time value", "http://localhost:5000/api")}/auth/google`, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    token: tokenId
+                })
+            });
+            const data = await res.json();
+            if (!data.success) {
+                return {
+                    success: false,
+                    message: data.message
+                };
+            }
+            login(data.user, data.token);
+            return {
+                success: true
+            };
+        } catch (err) {
+            return {
+                success: false,
+                message: err.message
+            };
+        }
+    };
     // ⭐ LOGOUT
-    function logout() {
+    const logout = ()=>{
         localStorage.removeItem("token");
         localStorage.removeItem("user");
         setUser(null);
-    }
+    };
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(AuthContext.Provider, {
         value: {
             user,
             signIn,
-            signUp,
             googleLogin,
+            login,
             logout
         },
         children: children
     }, void 0, false, {
         fileName: "[project]/context/auth-context.js",
-        lineNumber: 79,
+        lineNumber: 86,
         columnNumber: 5
-    }, ("TURBOPACK compile-time value", void 0));
-};
+    }, this);
+}
+function useAuth() {
+    return (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useContext"])(AuthContext);
+}
 }),
 "[externals]/next/dist/server/app-render/action-async-storage.external.js [external] (next/dist/server/app-render/action-async-storage.external.js, cjs)", ((__turbopack_context__, module, exports) => {
 

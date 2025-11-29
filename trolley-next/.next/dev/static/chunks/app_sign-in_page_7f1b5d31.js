@@ -30,25 +30,26 @@ function SignIn() {
     const [email, setEmail] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])("");
     const [password, setPassword] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])("");
     const [error, setError] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])("");
+    // ⭐ NORMAL LOGIN
     const handleSubmit = async (e)=>{
         e.preventDefault();
-        try {
-            await signIn(email, password);
-            router.push("/dashboard");
-        } catch (err) {
-            setError(err.message);
+        const result = await signIn(email, password);
+        if (!result.success) {
+            setError(result.message);
+            return;
         }
+        router.push("/dashboard");
     };
-    // ⭐ GOOGLE LOGIN HANDLER
+    // ⭐ GOOGLE LOGIN
     const handleGoogleResponse = async (res)=>{
-        try {
-            await googleLogin(res.credential);
-            router.push("/dashboard");
-        } catch (err) {
+        const result = await googleLogin(res.credential);
+        if (!result.success) {
             setError("Google login failed");
+            return;
         }
+        router.push("/dashboard");
     };
-    // ⭐ LOAD GOOGLE BUTTON
+    // Google Button Load
     (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useEffect"])({
         "SignIn.useEffect": ()=>{
             if (window.google) {
@@ -64,11 +65,6 @@ function SignIn() {
             }
         }
     }["SignIn.useEffect"], []);
-    (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useEffect"])({
-        "SignIn.useEffect": ()=>{
-            console.log("Google Client ID Loaded:", ("TURBOPACK compile-time value", "469862363694-m77chvegfmkktcj2libnktimfhvqkatg.apps.googleusercontent.com"));
-        }
-    }["SignIn.useEffect"], []);
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("section", {
         className: "flex items-center justify-center px-6 py-20 bg-gradient-to-br from-blue-50 to-indigo-100",
         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["motion"].div, {
@@ -80,14 +76,14 @@ function SignIn() {
                 opacity: 1,
                 y: 0
             },
-            className: "w-full max-w-md bg-white/80 p-10 rounded-2xl shadow-xl backdrop-blur-xl",
+            className: "w-full max-w-md bg-white/80 p-10 rounded-2xl shadow-xl",
             children: [
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h1", {
                     className: "text-4xl font-extrabold text-center mb-8",
                     children: "Welcome Back"
                 }, void 0, false, {
                     fileName: "[project]/app/sign-in/page.js",
-                    lineNumber: 63,
+                    lineNumber: 66,
                     columnNumber: 9
                 }, this),
                 error && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -95,8 +91,8 @@ function SignIn() {
                     children: error
                 }, void 0, false, {
                     fileName: "[project]/app/sign-in/page.js",
-                    lineNumber: 66,
-                    columnNumber: 11
+                    lineNumber: 68,
+                    columnNumber: 19
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("form", {
                     onSubmit: handleSubmit,
@@ -109,7 +105,7 @@ function SignIn() {
                                     className: "absolute left-3 top-1/2 -translate-y-1/2 text-gray-500"
                                 }, void 0, false, {
                                     fileName: "[project]/app/sign-in/page.js",
-                                    lineNumber: 75,
+                                    lineNumber: 72,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
@@ -119,13 +115,13 @@ function SignIn() {
                                     onChange: (e)=>setEmail(e.target.value)
                                 }, void 0, false, {
                                     fileName: "[project]/app/sign-in/page.js",
-                                    lineNumber: 76,
+                                    lineNumber: 73,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/app/sign-in/page.js",
-                            lineNumber: 74,
+                            lineNumber: 71,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -135,7 +131,7 @@ function SignIn() {
                                     className: "absolute left-3 top-1/2 -translate-y-1/2 text-gray-500"
                                 }, void 0, false, {
                                     fileName: "[project]/app/sign-in/page.js",
-                                    lineNumber: 85,
+                                    lineNumber: 82,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
@@ -145,13 +141,13 @@ function SignIn() {
                                     onChange: (e)=>setPassword(e.target.value)
                                 }, void 0, false, {
                                     fileName: "[project]/app/sign-in/page.js",
-                                    lineNumber: 86,
+                                    lineNumber: 83,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/app/sign-in/page.js",
-                            lineNumber: 84,
+                            lineNumber: 81,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -159,13 +155,13 @@ function SignIn() {
                             children: "Sign In"
                         }, void 0, false, {
                             fileName: "[project]/app/sign-in/page.js",
-                            lineNumber: 94,
+                            lineNumber: 91,
                             columnNumber: 11
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/app/sign-in/page.js",
-                    lineNumber: 72,
+                    lineNumber: 70,
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -175,7 +171,7 @@ function SignIn() {
                             className: "h-px bg-gray-300 flex-1"
                         }, void 0, false, {
                             fileName: "[project]/app/sign-in/page.js",
-                            lineNumber: 101,
+                            lineNumber: 97,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -183,20 +179,20 @@ function SignIn() {
                             children: "OR"
                         }, void 0, false, {
                             fileName: "[project]/app/sign-in/page.js",
-                            lineNumber: 102,
+                            lineNumber: 98,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                             className: "h-px bg-gray-300 flex-1"
                         }, void 0, false, {
                             fileName: "[project]/app/sign-in/page.js",
-                            lineNumber: 103,
+                            lineNumber: 99,
                             columnNumber: 11
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/app/sign-in/page.js",
-                    lineNumber: 100,
+                    lineNumber: 96,
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -204,7 +200,7 @@ function SignIn() {
                     className: "w-full flex justify-center"
                 }, void 0, false, {
                     fileName: "[project]/app/sign-in/page.js",
-                    lineNumber: 107,
+                    lineNumber: 102,
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -218,28 +214,28 @@ function SignIn() {
                             children: "Sign Up"
                         }, void 0, false, {
                             fileName: "[project]/app/sign-in/page.js",
-                            lineNumber: 111,
+                            lineNumber: 106,
                             columnNumber: 11
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/app/sign-in/page.js",
-                    lineNumber: 109,
+                    lineNumber: 104,
                     columnNumber: 9
                 }, this)
             ]
         }, void 0, true, {
             fileName: "[project]/app/sign-in/page.js",
-            lineNumber: 58,
+            lineNumber: 61,
             columnNumber: 7
         }, this)
     }, void 0, false, {
         fileName: "[project]/app/sign-in/page.js",
-        lineNumber: 57,
+        lineNumber: 60,
         columnNumber: 5
     }, this);
 }
-_s(SignIn, "ghrJ98Zo3BIPMeY32ugckn++NdI=", false, function() {
+_s(SignIn, "vqizVzNNsHWnbBBM6uyzgL9lpXA=", false, function() {
     return [
         __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$navigation$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useRouter"],
         __TURBOPACK__imported__module__$5b$project$5d2f$context$2f$auth$2d$context$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useAuth"]

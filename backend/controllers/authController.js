@@ -1,175 +1,123 @@
 const User = require("../models/User");
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcryptjs");
-const { OAuth2Client } = require("google-auth-library");
 
-const googleClient = new OAuth2Client(process.env.GOOGLE_CLIENT_ID);
-
+// Generate Token
 const generateToken = (id, role) => {
   return jwt.sign({ id, role }, process.env.JWT_SECRET, {
     expiresIn: process.env.JWT_EXPIRE || "7d",
   });
 };
 
-// ---------------------------------------------------------------------
-// ⭐ SIGN UP
-// ---------------------------------------------------------------------
+// ---------------- SIGNUP ----------------
 exports.signup = async (req, res) => {
   try {
     const { name, email, password } = req.body;
 
-    if (!name || !email || !password)
+    const exists = await User.findOne({ email });
+    if (exists) {
       return res
         .status(400)
-        .json({ success: false, message: "Please provide all fields" });
+        .json({ success: false, message: "Email already exists" });
+    }
 
-    const exist = await User.findOne({ email });
-    if (exist)
-      return res
-        .status(400)
-        .json({ success: false, message: "Email already registered" });
-
-    const salt = await bcrypt.genSalt(10);
-    const hashed = await bcrypt.hash(password, salt);
+    const hashed = await bcrypt.hash(password, 10);
 
     const user = await User.create({
       name,
       email,
       password: hashed,
+      role: "user",
     });
 
     const token = generateToken(user._id, user.role);
 
-    res.status(201).json({
-      success: true,
-      token,
-      user: {
-        id: user._id,
-        name: user.name,
-        email: user.email,
-        role: user.role,
-      },
-    });
+    res.json({ success: true, token, user });
   } catch (err) {
     res.status(500).json({ success: false, message: err.message });
   }
 };
 
-// ---------------------------------------------------------------------
-// ⭐ SIGN IN
-// ---------------------------------------------------------------------
+// ---------------- SIGNIN ----------------
 exports.signin = async (req, res) => {
   try {
     const { email, password } = req.body;
 
-    if (!email || !password)
-      return res
-        .status(400)
-        .json({ success: false, message: "Please provide email and password" });
-
     const user = await User.findOne({ email }).select("+password");
     if (!user)
       return res
-        .status(401)
-        .json({ success: false, message: "Invalid credentials" });
+        .status(400)
+        .json({ success: false, message: "Invalid email or password" });
 
-    const match = await bcrypt.compare(password, user.password);
-    if (!match)
+    const isMatch = await bcrypt.compare(password, user.password);
+    if (!isMatch)
       return res
-        .status(401)
-        .json({ success: false, message: "Invalid credentials" });
+        .status(400)
+        .json({ success: false, message: "Invalid email or password" });
 
     const token = generateToken(user._id, user.role);
 
-    res.status(200).json({
-      success: true,
-      token,
-      user: {
-        id: user._id,
-        name: user.name,
-        email: user.email,
-        role: user.role,
-      },
-    });
+    res.json({ success: true, token, user });
   } catch (err) {
     res.status(500).json({ success: false, message: err.message });
   }
 };
 
-// ---------------------------------------------------------------------
-// ⭐ GOOGLE LOGIN (MAIN LOGIC)
-// ---------------------------------------------------------------------
+// ---------------- GOOGLE LOGIN ----------------
 exports.googleLogin = async (req, res) => {
   try {
-    const { token } = req.body;
+    const { token: googleToken } = req.body;
 
-    if (!token)
-      return res
-        .status(400)
-        .json({ success: false, message: "Token missing" });
+    const googleUser = JSON.parse(
+      Buffer.from(googleToken.split(".")[1], "base64").toString()
+    );
 
-    const ticket = await googleClient.verifyIdToken({
-      idToken: token,
-      audience: process.env.GOOGLE_CLIENT_ID,
-    });
-
-    const payload = ticket.getPayload();
-    const { email, name, sub: googleId } = payload;
+    const email = googleUser.email;
 
     let user = await User.findOne({ email });
 
-    // If new Google user → create
     if (!user) {
       user = await User.create({
-        name,
+        name: googleUser.name,
         email,
-        googleId,
-        password: null, // no password for Google users
+        googleId: googleUser.sub,
+        password: null,
+        role: "user",
       });
     }
 
-    const jwtToken = generateToken(user._id, user.role);
+    const token = generateToken(user._id, user.role);
 
-    res.status(200).json({
-      success: true,
-      token: jwtToken,
-      user: {
-        id: user._id,
-        name: user.name,
-        email: user.email,
-        role: user.role,
-      },
-    });
+    res.json({ success: true, token, user });
   } catch (err) {
-    console.log("GOOGLE LOGIN ERROR:", err.message);
-    res.status(500).json({ success: false, message: "Google login failed" });
+    res.status(500).json({ success: false, message: err.message });
   }
 };
 
-// ---------------------------------------------------------------------
-exports.logout = (req, res) => {
-  res.status(200).json({ success: true, message: "Logged out successfully" });
-};
-
+// ---------------- PROFILE ----------------
 exports.getProfile = async (req, res) => {
   try {
     const user = await User.findById(req.user.id);
-    res.status(200).json({ success: true, user });
-  } catch (error) {
-    res.status(500).json({ success: false, message: error.message });
+    res.json({ success: true, user });
+  } catch (err) {
+    res.status(500).json({ success: false, message: err.message });
   }
 };
 
+// ---------------- UPDATE PROFILE ----------------
 exports.updateProfile = async (req, res) => {
   try {
-    const { name, phone, address } = req.body;
-    const user = await User.findByIdAndUpdate(
-      req.user.id,
-      { name, phone, address },
-      { new: true, runValidators: true }
-    );
-    res.status(200).json({ success: true, user });
-  } catch (error) {
-    res.status(500).json({ success: false, message: error.message });
+    const user = await User.findByIdAndUpdate(req.user.id, req.body, {
+      new: true,
+    });
+
+    res.json({ success: true, user });
+  } catch (err) {
+    res.status(500).json({ success: false, message: err.message });
   }
+};
+
+// ---------------- LOGOUT ----------------
+exports.logout = (req, res) => {
+  res.json({ success: true, message: "Logged out successfully" });
 };
