@@ -13,10 +13,15 @@ const razorpay = new Razorpay({
 exports.createOrder = async (req, res) => {
   try {
     const { items } = req.body;
-    const userId = req.user ? req.user.id : null;
+
+    if (!req.user) {
+      return res.status(401).json({ success: false, message: "User not logged in" });
+    }
 
     let total = 0;
-    items.forEach((it) => (total += it.price * it.quantity));
+    items.forEach((it) => {
+      total += it.price * it.quantity;
+    });
 
     const options = {
       amount: total * 100,
@@ -43,29 +48,32 @@ exports.createOrder = async (req, res) => {
 exports.verifyPayment = async (req, res) => {
   try {
     const { orderId, paymentId, signature, items, amount } = req.body;
-    const userId = req.user ? req.user.id : null;
+
+    if (!req.user) {
+      return res.status(401).json({ success: false, message: "User not logged in" });
+    }
 
     // Verify Razorpay signature
-    const body = orderId + "|" + paymentId;
+    const verifyBody = orderId + "|" + paymentId;
+
     const expectedSignature = crypto
       .createHmac("sha256", process.env.RAZORPAY_KEY_SECRET)
-      .update(body)
+      .update(verifyBody)
       .digest("hex");
 
     if (expectedSignature !== signature) {
       return res.status(400).json({ success: false, message: "Invalid payment!" });
     }
 
-    // Save Order in Database
+    // Save Order in DB with user reference
     await Order.create({
-      user: userId,
+      user: req.user._id,      // ⭐ THIS IS IMPORTANT
       items,
       amount,
-      currency: "INR",
+      status: "paid",
       razorpayOrderId: orderId,
       razorpayPaymentId: paymentId,
       razorpaySignature: signature,
-      status: "paid",
     });
 
     res.json({ success: true, message: "Payment verified" });

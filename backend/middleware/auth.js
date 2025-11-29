@@ -1,9 +1,7 @@
 const jwt = require("jsonwebtoken");
 const User = require("../models/User");
 
-// ===============================
-// AUTHENTICATION
-// ===============================
+// AUTH – verify JWT
 exports.protect = async (req, res, next) => {
   let token;
 
@@ -16,24 +14,20 @@ exports.protect = async (req, res, next) => {
 
   try {
     const decoded = jwt.verify(token, process.env.JWT_SECRET);
-
     req.user = await User.findById(decoded.id).select("-password");
-
     next();
-  } catch (err) {
+  } catch (e) {
     return res.status(401).json({ success: false, message: "Invalid Token" });
   }
 };
 
-// ===============================
-// AUTHORIZATION
-// ===============================
+// ROLE CHECK
 exports.authorize = (...roles) => {
   return (req, res, next) => {
     if (!roles.includes(req.user.role)) {
       return res
         .status(403)
-        .json({ success: false, message: "Access Denied — Admin Only" });
+        .json({ success: false, message: "Access denied" });
     }
     next();
   };

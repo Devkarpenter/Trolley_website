@@ -1,73 +1,111 @@
 "use client";
 
-import { useAuth } from "../../../context/auth-context";
 import { useEffect, useState } from "react";
-import { useRouter } from "next/navigation";
+import { useAuth } from "../../../context/auth-context";
 
-export default function AdminOrders() {
+export default function AdminOrdersPage() {
   const { user } = useAuth();
-  const router = useRouter();
   const [orders, setOrders] = useState([]);
 
   useEffect(() => {
-    if (!user) return;
-    if (user.role !== "admin") router.push("/");
+    if (!user || user.role !== "admin") return;
+
+    async function fetchOrders() {
+      const res = await fetch(
+        `${process.env.NEXT_PUBLIC_API_URL}/admin/orders`,
+        {
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem("token")}`,
+          },
+        }
+      );
+
+      const data = await res.json();
+      if (data.success) setOrders(data.orders);
+    }
 
     fetchOrders();
   }, [user]);
 
-  const fetchOrders = async () => {
-    const token = localStorage.getItem("token");
-
-    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/admin/orders`, {
-      headers: { Authorization: `Bearer ${token}` },
-    });
-
-    const data = await res.json();
-    setOrders(data.orders || []);
-  };
+  if (!user || user.role !== "admin") {
+    return (
+      <div className="text-center text-xl py-20 text-red-600">
+        ❌ Access Denied — Admin Only
+      </div>
+    );
+  }
 
   return (
-    <div className="max-w-5xl mx-auto p-6">
-      <h1 className="text-3xl font-bold mb-6">All Orders</h1>
+    <div className="max-w-5xl mx-auto px-6 py-12">
+      <h1 className="text-4xl font-bold mb-10">All Orders</h1>
 
-      {orders.length === 0 && <p>No orders found.</p>}
+      {orders.length === 0 && (
+        <p className="text-gray-600 text-lg">No orders found.</p>
+      )}
 
-      <div className="space-y-6">
+      <div className="space-y-8">
         {orders.map((order) => (
-          <div key={order._id} className="p-5 bg-white shadow rounded-xl border">
-            
+          <div
+            key={order._id}
+            className="bg-white p-6 rounded-xl shadow border border-gray-200"
+          >
             {/* Order ID */}
-            <p className="font-semibold text-lg">
-              Order ID: <span className="text-blue-600">{order._id}</span>
+            <p className="text-lg font-semibold mb-2">
+              Order ID:{" "}
+              <span className="text-blue-600">{order._id}</span>
             </p>
 
-            {/* User */}
-            <p className="mt-1">
-              <strong>User:</strong>{" "}
-              {order.user ? `${order.user.name} (${order.user.email})` : "Guest"}
+            {/* User Info */}
+            <p className="mt-2">
+              <span className="font-semibold">User:</span>{" "}
+              {order.user
+                ? `${order.user.name} (${order.user.email})`
+                : "Guest"}
             </p>
 
             {/* Amount */}
-            <p>
-              <strong>Total Amount:</strong> ₹{order.amount}
+            <p className="mt-2">
+              <span className="font-semibold">Total Amount:</span> ₹
+              {order.amount}
             </p>
 
             {/* Status */}
-            <p>
-              <strong>Status:</strong> {order.status}
+            <p className="mt-2">
+              <span className="font-semibold">Status:</span>{" "}
+              <span
+                className={`inline-block px-3 py-1 rounded-full text-white ${
+                  order.status === "paid"
+                    ? "bg-green-600"
+                    : order.status === "failed"
+                    ? "bg-red-600"
+                    : "bg-yellow-600"
+                }`}
+              >
+                {order.status}
+              </span>
             </p>
 
             {/* Items */}
-            <div className="mt-3">
-              <h3 className="font-medium mb-1">Items:</h3>
+            <div className="mt-4">
+              <h3 className="font-semibold mb-2">Items:</h3>
+
               {order.items.map((item, idx) => (
-                <p key={idx}>
-                  {item.name} × {item.quantity} — ₹{item.price}
-                </p>
+                <div
+                  key={idx}
+                  className="ml-4 text-gray-700 flex justify-between"
+                >
+                  <span>
+                    {item.name} × {item.quantity}
+                  </span>
+                  <span>₹{item.price * item.quantity}</span>
+                </div>
               ))}
             </div>
 
+            {/* Created At */}
+            <p className="text-sm text-gray-500 mt-4">
+              Ordered on: {new Date(order.createdAt).toLocaleString()}
+            </p>
           </div>
         ))}
       </div>
