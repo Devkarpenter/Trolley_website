@@ -748,3 +748,3564 @@ It can also happen if the client has a browser extension installed which messes 
                         ...
                 ...
 
+[00:25:23.688] Server  WARN     ⚠ Fast Refresh had to perform a full reload when ./app/admin/users/page.jsx changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+[00:25:23.690] Server  LOG      ✓ Compiled in 1032ms
+[00:25:24.982] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:25:25.453] Browser ERROR   A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+%s%s https://react.dev/link/hydration-mismatch 
+
+  ...
+    <SegmentViewNode type="layout" pagePath="layout.js">
+      <SegmentTrieNode>
+      <link>
+      <script>
+      <script>
+      <script>
+      <RootLayout>
+        <html lang="en">
+          <head>
+          <body>
+            <AuthProvider>
+              <CartProvider>
+                <Header>
+                  <header className="backdrop-b...">
+                    <div className="max-w-7xl ...">
+                      <div className="flex items...">
+                        <motion.div>
+                        <div className="hidden md:...">
+                          <motion.div initial={{opacity:0}} animate={{opacity:1}} className="relative w...">
+                            <div className="relative w..." style={{opacity:0}} ref={function useMotionRef.useCallback}>
+                              <FiSearch>
+                              <input
+                                type="text"
+                                placeholder="Search products..."
+                                className="w-full pl-12 pr-4 py-2 rounded-full bg-gray-100 focus:bg-white shadow-inner..."
+-                               fdprocessedid="d245rc"
+                              >
+                        <nav>
+                        <div className="flex items...">
+                          <motion.button whileHover={{scale:1.2}} className="hidden sm:...">
+                            <button
+                              className="hidden sm:block text-gray-600 hover:text-blue-600 transition"
+                              style={{}}
+                              ref={function useMotionRef.useCallback}
+-                             fdprocessedid="28r4kr"
+                            >
+                          ...
+                    ...
+                <main>
+                ...
+                  <div className="relative m...">
+                    <motion.div initial={{opacity:0,y:40}} whileInView={{opacity:1,y:0}} transition={{duration:0.7}} ...>
+                      <div className="grid grid-..." style={{opacity:0, ...}} ref={function useMotionRef.useCallback}>
+                        <div>
+                        <FooterColumn>
+                        <FooterColumn>
+                        <FooterColumn>
+                        <motion.div initial={{opacity:0,x:20}} whileInView={{opacity:1,x:0}} transition={{duration:0.6}} ...>
+                          <div className="" style={{opacity:0, ...}} ref={function useMotionRef.useCallback}>
+                            <h4>
+                            <p>
+                            <form className="mb-4">
+                              <input
+                                type="email"
+                                placeholder="Your email"
+                                className="w-full px-4 py-2 bg-[#141824] text-white rounded-lg text-sm    placeholder-..."
+-                               fdprocessedid="dm3jb"
+                              >
+                              <button
+                                className="w-full bg-gradient-to-r from-blue-600 to-indigo-600    hover:from-blue-700 ..."
+-                               fdprocessedid="7ps1bg"
+                              >
++                               Subscribe
+                            ...
+                    ...
+
+[00:25:25.453] Browser ERROR   React has detected a change in the order of Hooks called by %s. This will lead to bugs and errors if not fixed. For more information, read the Rules of Hooks: https://react.dev/link/rules-of-hooks
+
+   Previous render            Next render
+   ------------------------------------------------------
+%s   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ AdminUsersPage 1. useContext                 useContext
+2. useState                   useState
+3. useState                   useState
+4. undefined                  useEffect
+
+[00:25:25.453] Browser ERROR   uncaughtError: Error: Rendered more hooks than during the previous render.
+[00:25:32.517] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[00:25:32.519] Server  WARN     ⚠ Fast Refresh had to perform a full reload when ./app/admin/users/page.jsx changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+[00:25:32.524] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[00:25:32.544] Server  LOG      ✓ Compiled in 413ms
+[00:25:33.564] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:25:33.796] Browser ERROR   A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+%s%s https://react.dev/link/hydration-mismatch 
+
+  ...
+    <body>
+      <AuthProvider>
+        <CartProvider>
+          <Header>
+          <main>
+          <Footer>
+            <footer className="bg-[#0d0f1...">
+              <div>
+              <div className="relative m...">
+                <motion.div initial={{opacity:0,y:40}} whileInView={{opacity:1,y:0}} transition={{duration:0.7}} ...>
+                  <div className="grid grid-..." style={{opacity:0, ...}} ref={function useMotionRef.useCallback}>
+                    <div>
+                    <FooterColumn>
+                    <FooterColumn>
+                    <FooterColumn>
+                    <motion.div initial={{opacity:0,x:20}} whileInView={{opacity:1,x:0}} transition={{duration:0.6}} ...>
+                      <div className="" style={{opacity:0, ...}} ref={function useMotionRef.useCallback}>
+                        <h4>
+                        <p>
+                        <form className="mb-4">
+                          <input
+                            type="email"
+                            placeholder="Your email"
+                            className="w-full px-4 py-2 bg-[#141824] text-white rounded-lg text-sm    placeholder-gray..."
+-                           fdprocessedid="ofnl3s"
+                          >
+                          <button
+                            className="w-full bg-gradient-to-r from-blue-600 to-indigo-600    hover:from-blue-700 hove..."
+-                           fdprocessedid="9w8ijd"
+                          >
++                           Subscribe
+                        ...
+                ...
+
+[00:27:25.986] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:27:26.314] Browser ERROR   A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+%s%s https://react.dev/link/hydration-mismatch 
+
+  ...
+    <HotReload globalError={[...]} webSocket={WebSocket} staticIndicatorState={{pathname:null, ...}}>
+      <AppDevOverlayErrorBoundary globalError={[...]}>
+        <ReplaySsrOnlyErrors>
+        <DevRootHTTPAccessFallbackBoundary>
+          <HTTPAccessFallbackBoundary notFound={<NotAllowedRootHTTPFallbackError>}>
+            <HTTPAccessFallbackErrorBoundary pathname="/admin/users" notFound={<NotAllowedRootHTTPFallbackError>} ...>
+              <RedirectBoundary>
+                <RedirectErrorBoundary router={{...}}>
+                  <Head>
+                  <__next_root_layout_boundary__>
+                    <SegmentViewNode type="layout" pagePath="layout.js">
+                      <SegmentTrieNode>
+                      <link>
+                      <script>
+                      <script>
+                      <script>
+                      <RootLayout>
+                        <html lang="en">
+                          <head>
+                          <body
+-                           cz-shortcut-listen="true"
+                          >
+                            ...
+                              ...
+                                <div className="flex items...">
+                                  <motion.div>
+                                  <div className="hidden md:...">
+                                    <motion.div initial={{opacity:0}} animate={{opacity:1}} className="relative w...">
+                                      <div className="relative w..." style={{opacity:0}} ...>
+                                        <FiSearch>
+                                        <input
+                                          type="text"
+                                          placeholder="Search products..."
+                                          className="w-full pl-12 pr-4 py-2 rounded-full bg-gray-100 focus:bg-white sh..."
+-                                         fdprocessedid="3tvao"
+                                        >
+                                  <nav>
+                                  <div className="flex items...">
+                                    <motion.button whileHover={{scale:1.2}} className="hidden sm:...">
+                                      <button
+                                        className="hidden sm:block text-gray-600 hover:text-blue-600 transition"
+                                        style={{}}
+                                        ref={function useMotionRef.useCallback}
+-                                       fdprocessedid="239cx"
+                                      >
+                                    ...
+                              <main>
+                              ...
+                                <div className="" style={{opacity:0, ...}} ref={function useMotionRef.useCallback}>
+                                  <h4>
+                                  <p>
+                                  <form className="mb-4">
+                                    <input
+                                      type="email"
+                                      placeholder="Your email"
+                                      className="w-full px-4 py-2 bg-[#141824] text-white rounded-lg text-sm    placeh..."
+-                                     fdprocessedid="txjfwo"
+                                    >
+                                    <button
+                                      className="w-full bg-gradient-to-r from-blue-600 to-indigo-600    hover:from-blu..."
+-                                     fdprocessedid="qu6ieo"
+                                    >
++                                     Subscribe
+                                  ...
+                  ...
+
+[00:27:35.209] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:27:35.426] Browser ERROR   A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+%s%s https://react.dev/link/hydration-mismatch 
+
+  ...
+    <body>
+      <AuthProvider>
+        <CartProvider>
+          <Header>
+          <main>
+          <Footer>
+            <footer className="bg-[#0d0f1...">
+              <div>
+              <div className="relative m...">
+                <motion.div initial={{opacity:0,y:40}} whileInView={{opacity:1,y:0}} transition={{duration:0.7}} ...>
+                  <div className="grid grid-..." style={{opacity:0, ...}} ref={function useMotionRef.useCallback}>
+                    <div>
+                    <FooterColumn>
+                    <FooterColumn>
+                    <FooterColumn>
+                    <motion.div initial={{opacity:0,x:20}} whileInView={{opacity:1,x:0}} transition={{duration:0.6}} ...>
+                      <div className="" style={{opacity:0, ...}} ref={function useMotionRef.useCallback}>
+                        <h4>
+                        <p>
+                        <form className="mb-4">
+                          <input
+                            type="email"
+                            placeholder="Your email"
+                            className="w-full px-4 py-2 bg-[#141824] text-white rounded-lg text-sm    placeholder-gray..."
+-                           fdprocessedid="40t53e"
+                          >
+                          <button
+                            className="w-full bg-gradient-to-r from-blue-600 to-indigo-600    hover:from-blue-700 hove..."
+-                           fdprocessedid="nmkqgr"
+                          >
++                           Subscribe
+                        ...
+                ...
+
+[00:28:13.402] Server  WARN     ⚠ Fast Refresh had to perform a full reload when ./app/admin/products/page.jsx changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+[00:28:13.413] Server  LOG      ✓ Compiled in 298ms
+[00:28:14.627] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:28:15.422] Browser ERROR   A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+%s%s https://react.dev/link/hydration-mismatch 
+
+  ...
+    <HotReload globalError={[...]} webSocket={WebSocket} staticIndicatorState={{pathname:null, ...}}>
+      <AppDevOverlayErrorBoundary globalError={[...]}>
+        <ReplaySsrOnlyErrors>
+        <DevRootHTTPAccessFallbackBoundary>
+          <HTTPAccessFallbackBoundary notFound={<NotAllowedRootHTTPFallbackError>}>
+            <HTTPAccessFallbackErrorBoundary pathname="/admin/pro..." notFound={<NotAllowedRootHTTPFallbackError>} ...>
+              <RedirectBoundary>
+                <RedirectErrorBoundary router={{...}}>
+                  <Head>
+                  <__next_root_layout_boundary__>
+                    <SegmentViewNode type="layout" pagePath="layout.js">
+                      <SegmentTrieNode>
+                      <link>
+                      <script>
+                      <script>
+                      <script>
+                      <RootLayout>
+                        <html lang="en">
+                          <head>
+                          <body
+-                           cz-shortcut-listen="true"
+                          >
+                            ...
+                              ...
+                                <div className="flex items...">
+                                  <motion.div>
+                                  <div className="hidden md:...">
+                                    <motion.div initial={{opacity:0}} animate={{opacity:1}} className="relative w...">
+                                      <div className="relative w..." style={{opacity:0}} ...>
+                                        <FiSearch>
+                                        <input
+                                          type="text"
+                                          placeholder="Search products..."
+                                          className="w-full pl-12 pr-4 py-2 rounded-full bg-gray-100 focus:bg-white sh..."
+-                                         fdprocessedid="oohj0q"
+                                        >
+                                  <nav>
+                                  <div className="flex items...">
+                                    <motion.button whileHover={{scale:1.2}} className="hidden sm:...">
+                                      <button
+                                        className="hidden sm:block text-gray-600 hover:text-blue-600 transition"
+                                        style={{}}
+                                        ref={function useMotionRef.useCallback}
+-                                       fdprocessedid="ygm4q"
+                                      >
+                                    ...
+                              <main>
+                              ...
+                                <div className="" style={{opacity:0, ...}} ref={function useMotionRef.useCallback}>
+                                  <h4>
+                                  <p>
+                                  <form className="mb-4">
+                                    <input
+                                      type="email"
+                                      placeholder="Your email"
+                                      className="w-full px-4 py-2 bg-[#141824] text-white rounded-lg text-sm    placeh..."
+-                                     fdprocessedid="dabknn"
+                                    >
+                                    <button
+                                      className="w-full bg-gradient-to-r from-blue-600 to-indigo-600    hover:from-blu..."
+-                                     fdprocessedid="ifdubc"
+                                    >
++                                     Subscribe
+                                  ...
+                  ...
+
+[00:28:15.422] Browser ERROR   React has detected a change in the order of Hooks called by %s. This will lead to bugs and errors if not fixed. For more information, read the Rules of Hooks: https://react.dev/link/rules-of-hooks
+
+   Previous render            Next render
+   ------------------------------------------------------
+%s   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ AdminProductsPage 1. useContext                 useContext
+2. useState                   useState
+3. useState                   useState
+4. undefined                  useEffect
+
+[00:28:15.422] Browser ERROR   uncaughtError: Error: Rendered more hooks than during the previous render.
+[00:28:44.885] Server  ERROR    ⨯ ./app/admin/products/page.jsx:4:1
+Module not found: Can't resolve '../'
+  2 |
+  3 | import { useEffect, useState } from "react";
+> 4 | import { useAuth } from "../";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  5 |
+  6 | export default function AdminProductsPage() {
+  7 |   const { user } = useAuth();
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/products/page.jsx [Client Component Browser]
+    ./app/admin/products/page.jsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/products/page.jsx [Client Component SSR]
+    ./app/admin/products/page.jsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:28:44.889] Server  ERROR    ⨯ ./app/admin/products/page.jsx:4:1
+Module not found: Can't resolve '../'
+  2 |
+  3 | import { useEffect, useState } from "react";
+> 4 | import { useAuth } from "../";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  5 |
+  6 | export default function AdminProductsPage() {
+  7 |   const { user } = useAuth();
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/products/page.jsx [Client Component Browser]
+    ./app/admin/products/page.jsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/products/page.jsx [Client Component SSR]
+    ./app/admin/products/page.jsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:28:44.894] Server  ERROR    ⨯ ./app/admin/products/page.jsx:4:1
+Module not found: Can't resolve '../'
+  2 |
+  3 | import { useEffect, useState } from "react";
+> 4 | import { useAuth } from "../";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  5 |
+  6 | export default function AdminProductsPage() {
+  7 |   const { user } = useAuth();
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/products/page.jsx [Client Component Browser]
+    ./app/admin/products/page.jsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/products/page.jsx [Client Component SSR]
+    ./app/admin/products/page.jsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:28:44.897] Server  ERROR    ⨯ ./app/admin/products/page.jsx:4:1
+Module not found: Can't resolve '../'
+  2 |
+  3 | import { useEffect, useState } from "react";
+> 4 | import { useAuth } from "../";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  5 |
+  6 | export default function AdminProductsPage() {
+  7 |   const { user } = useAuth();
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/products/page.jsx [Client Component Browser]
+    ./app/admin/products/page.jsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/products/page.jsx [Client Component SSR]
+    ./app/admin/products/page.jsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:28:44.904] Server  ERROR    ⨯ ./app/admin/products/page.jsx:4:1
+Module not found: Can't resolve '../'
+  2 |
+  3 | import { useEffect, useState } from "react";
+> 4 | import { useAuth } from "../";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  5 |
+  6 | export default function AdminProductsPage() {
+  7 |   const { user } = useAuth();
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/products/page.jsx [Client Component Browser]
+    ./app/admin/products/page.jsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/products/page.jsx [Client Component SSR]
+    ./app/admin/products/page.jsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:28:44.907] Server  ERROR    ⨯ ./app/admin/products/page.jsx:4:1
+Module not found: Can't resolve '../'
+  2 |
+  3 | import { useEffect, useState } from "react";
+> 4 | import { useAuth } from "../";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  5 |
+  6 | export default function AdminProductsPage() {
+  7 |   const { user } = useAuth();
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/products/page.jsx [Client Component Browser]
+    ./app/admin/products/page.jsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/products/page.jsx [Client Component SSR]
+    ./app/admin/products/page.jsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:28:44.913] Server  ERROR    ⨯ ./app/admin/products/page.jsx:4:1
+Module not found: Can't resolve '../'
+  2 |
+  3 | import { useEffect, useState } from "react";
+> 4 | import { useAuth } from "../";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  5 |
+  6 | export default function AdminProductsPage() {
+  7 |   const { user } = useAuth();
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/products/page.jsx [Client Component Browser]
+    ./app/admin/products/page.jsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/products/page.jsx [Client Component SSR]
+    ./app/admin/products/page.jsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:28:44.918] Server  ERROR    ⨯ ./app/admin/products/page.jsx:4:1
+Module not found: Can't resolve '../'
+  2 |
+  3 | import { useEffect, useState } from "react";
+> 4 | import { useAuth } from "../";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  5 |
+  6 | export default function AdminProductsPage() {
+  7 |   const { user } = useAuth();
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/products/page.jsx [Client Component Browser]
+    ./app/admin/products/page.jsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/products/page.jsx [Client Component SSR]
+    ./app/admin/products/page.jsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:28:44.924] Server  ERROR    ⨯ ./app/admin/products/page.jsx:4:1
+Module not found: Can't resolve '../'
+  2 |
+  3 | import { useEffect, useState } from "react";
+> 4 | import { useAuth } from "../";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  5 |
+  6 | export default function AdminProductsPage() {
+  7 |   const { user } = useAuth();
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/products/page.jsx [Client Component Browser]
+    ./app/admin/products/page.jsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/products/page.jsx [Client Component SSR]
+    ./app/admin/products/page.jsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:28:44.927] Server  ERROR    ⨯ ./app/admin/products/page.jsx:4:1
+Module not found: Can't resolve '../'
+  2 |
+  3 | import { useEffect, useState } from "react";
+> 4 | import { useAuth } from "../";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  5 |
+  6 | export default function AdminProductsPage() {
+  7 |   const { user } = useAuth();
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/products/page.jsx [Client Component Browser]
+    ./app/admin/products/page.jsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/products/page.jsx [Client Component SSR]
+    ./app/admin/products/page.jsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:28:44.931] Server  ERROR    ⨯ ./app/admin/products/page.jsx:4:1
+Module not found: Can't resolve '../'
+  2 |
+  3 | import { useEffect, useState } from "react";
+> 4 | import { useAuth } from "../";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  5 |
+  6 | export default function AdminProductsPage() {
+  7 |   const { user } = useAuth();
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/products/page.jsx [Client Component Browser]
+    ./app/admin/products/page.jsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/products/page.jsx [Client Component SSR]
+    ./app/admin/products/page.jsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:28:44.935] Server  ERROR    ⨯ ./app/admin/products/page.jsx:4:1
+Module not found: Can't resolve '../'
+  2 |
+  3 | import { useEffect, useState } from "react";
+> 4 | import { useAuth } from "../";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  5 |
+  6 | export default function AdminProductsPage() {
+  7 |   const { user } = useAuth();
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/products/page.jsx [Client Component Browser]
+    ./app/admin/products/page.jsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/products/page.jsx [Client Component SSR]
+    ./app/admin/products/page.jsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:28:44.938] Server  LOG      ✓ Compiled in 225ms
+[00:28:45.421] Browser ERROR   ./app/admin/products/page.jsx:4:1
+Module not found: Can't resolve '../'
+  2 |
+  3 | import { useEffect, useState } from "react";
+> 4 | import { useAuth } from "../";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  5 |
+  6 | export default function AdminProductsPage() {
+  7 |   const { user } = useAuth();
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/products/page.jsx [Client Component Browser]
+    ./app/admin/products/page.jsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/products/page.jsx [Client Component SSR]
+    ./app/admin/products/page.jsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+[00:28:47.446] Server  ERROR    ⨯ ./app/admin/products/page.jsx:4:1
+Module not found: Can't resolve '../../'
+  2 |
+  3 | import { useEffect, useState } from "react";
+> 4 | import { useAuth } from "../../";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  5 |
+  6 | export default function AdminProductsPage() {
+  7 |   const { user } = useAuth();
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/products/page.jsx [Client Component Browser]
+    ./app/admin/products/page.jsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/products/page.jsx [Client Component SSR]
+    ./app/admin/products/page.jsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:28:47.449] Server  ERROR    ⨯ ./app/admin/products/page.jsx:4:1
+Module not found: Can't resolve '../../'
+  2 |
+  3 | import { useEffect, useState } from "react";
+> 4 | import { useAuth } from "../../";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  5 |
+  6 | export default function AdminProductsPage() {
+  7 |   const { user } = useAuth();
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/products/page.jsx [Client Component Browser]
+    ./app/admin/products/page.jsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/products/page.jsx [Client Component SSR]
+    ./app/admin/products/page.jsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:28:47.451] Server  ERROR    ⨯ ./app/admin/products/page.jsx:4:1
+Module not found: Can't resolve '../../'
+  2 |
+  3 | import { useEffect, useState } from "react";
+> 4 | import { useAuth } from "../../";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  5 |
+  6 | export default function AdminProductsPage() {
+  7 |   const { user } = useAuth();
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/products/page.jsx [Client Component Browser]
+    ./app/admin/products/page.jsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/products/page.jsx [Client Component SSR]
+    ./app/admin/products/page.jsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:28:47.455] Server  ERROR    ⨯ ./app/admin/products/page.jsx:4:1
+Module not found: Can't resolve '../../'
+  2 |
+  3 | import { useEffect, useState } from "react";
+> 4 | import { useAuth } from "../../";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  5 |
+  6 | export default function AdminProductsPage() {
+  7 |   const { user } = useAuth();
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/products/page.jsx [Client Component Browser]
+    ./app/admin/products/page.jsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/products/page.jsx [Client Component SSR]
+    ./app/admin/products/page.jsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:28:47.460] Server  ERROR    ⨯ ./app/admin/products/page.jsx:4:1
+Module not found: Can't resolve '../../'
+  2 |
+  3 | import { useEffect, useState } from "react";
+> 4 | import { useAuth } from "../../";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  5 |
+  6 | export default function AdminProductsPage() {
+  7 |   const { user } = useAuth();
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/products/page.jsx [Client Component Browser]
+    ./app/admin/products/page.jsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/products/page.jsx [Client Component SSR]
+    ./app/admin/products/page.jsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:28:47.464] Server  ERROR    ⨯ ./app/admin/products/page.jsx:4:1
+Module not found: Can't resolve '../../'
+  2 |
+  3 | import { useEffect, useState } from "react";
+> 4 | import { useAuth } from "../../";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  5 |
+  6 | export default function AdminProductsPage() {
+  7 |   const { user } = useAuth();
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/products/page.jsx [Client Component Browser]
+    ./app/admin/products/page.jsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/products/page.jsx [Client Component SSR]
+    ./app/admin/products/page.jsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:28:47.467] Server  ERROR    ⨯ ./app/admin/products/page.jsx:4:1
+Module not found: Can't resolve '../../'
+  2 |
+  3 | import { useEffect, useState } from "react";
+> 4 | import { useAuth } from "../../";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  5 |
+  6 | export default function AdminProductsPage() {
+  7 |   const { user } = useAuth();
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/products/page.jsx [Client Component Browser]
+    ./app/admin/products/page.jsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/products/page.jsx [Client Component SSR]
+    ./app/admin/products/page.jsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:28:47.470] Server  ERROR    ⨯ ./app/admin/products/page.jsx:4:1
+Module not found: Can't resolve '../../'
+  2 |
+  3 | import { useEffect, useState } from "react";
+> 4 | import { useAuth } from "../../";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  5 |
+  6 | export default function AdminProductsPage() {
+  7 |   const { user } = useAuth();
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/products/page.jsx [Client Component Browser]
+    ./app/admin/products/page.jsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/products/page.jsx [Client Component SSR]
+    ./app/admin/products/page.jsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:28:47.476] Server  ERROR    ⨯ ./app/admin/products/page.jsx:4:1
+Module not found: Can't resolve '../../'
+  2 |
+  3 | import { useEffect, useState } from "react";
+> 4 | import { useAuth } from "../../";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  5 |
+  6 | export default function AdminProductsPage() {
+  7 |   const { user } = useAuth();
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/products/page.jsx [Client Component Browser]
+    ./app/admin/products/page.jsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/products/page.jsx [Client Component SSR]
+    ./app/admin/products/page.jsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:28:47.480] Server  ERROR    ⨯ ./app/admin/products/page.jsx:4:1
+Module not found: Can't resolve '../../'
+  2 |
+  3 | import { useEffect, useState } from "react";
+> 4 | import { useAuth } from "../../";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  5 |
+  6 | export default function AdminProductsPage() {
+  7 |   const { user } = useAuth();
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/products/page.jsx [Client Component Browser]
+    ./app/admin/products/page.jsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/products/page.jsx [Client Component SSR]
+    ./app/admin/products/page.jsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:28:47.482] Server  ERROR    ⨯ ./app/admin/products/page.jsx:4:1
+Module not found: Can't resolve '../../'
+  2 |
+  3 | import { useEffect, useState } from "react";
+> 4 | import { useAuth } from "../../";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  5 |
+  6 | export default function AdminProductsPage() {
+  7 |   const { user } = useAuth();
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/products/page.jsx [Client Component Browser]
+    ./app/admin/products/page.jsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/products/page.jsx [Client Component SSR]
+    ./app/admin/products/page.jsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:28:47.484] Server  ERROR    ⨯ ./app/admin/products/page.jsx:4:1
+Module not found: Can't resolve '../../'
+  2 |
+  3 | import { useEffect, useState } from "react";
+> 4 | import { useAuth } from "../../";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  5 |
+  6 | export default function AdminProductsPage() {
+  7 |   const { user } = useAuth();
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/products/page.jsx [Client Component Browser]
+    ./app/admin/products/page.jsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/products/page.jsx [Client Component SSR]
+    ./app/admin/products/page.jsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:28:47.492] Server  LOG      ✓ Compiled in 172ms
+[00:28:48.430] Browser ERROR   ./app/admin/products/page.jsx:4:1
+Module not found: Can't resolve '../../'
+  2 |
+  3 | import { useEffect, useState } from "react";
+> 4 | import { useAuth } from "../../";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  5 |
+  6 | export default function AdminProductsPage() {
+  7 |   const { user } = useAuth();
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/products/page.jsx [Client Component Browser]
+    ./app/admin/products/page.jsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/products/page.jsx [Client Component SSR]
+    ./app/admin/products/page.jsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+[00:28:50.858] Server  ERROR    ⨯ ./app/admin/products/page.jsx:4:1
+Module not found: Can't resolve '../../../'
+  2 |
+  3 | import { useEffect, useState } from "react";
+> 4 | import { useAuth } from "../../../";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  5 |
+  6 | export default function AdminProductsPage() {
+  7 |   const { user } = useAuth();
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/products/page.jsx [Client Component Browser]
+    ./app/admin/products/page.jsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/products/page.jsx [Client Component SSR]
+    ./app/admin/products/page.jsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:28:50.862] Server  ERROR    ⨯ ./app/admin/products/page.jsx:4:1
+Module not found: Can't resolve '../../../'
+  2 |
+  3 | import { useEffect, useState } from "react";
+> 4 | import { useAuth } from "../../../";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  5 |
+  6 | export default function AdminProductsPage() {
+  7 |   const { user } = useAuth();
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/products/page.jsx [Client Component Browser]
+    ./app/admin/products/page.jsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/products/page.jsx [Client Component SSR]
+    ./app/admin/products/page.jsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:28:50.869] Server  ERROR    ⨯ ./app/admin/products/page.jsx:4:1
+Module not found: Can't resolve '../../../'
+  2 |
+  3 | import { useEffect, useState } from "react";
+> 4 | import { useAuth } from "../../../";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  5 |
+  6 | export default function AdminProductsPage() {
+  7 |   const { user } = useAuth();
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/products/page.jsx [Client Component Browser]
+    ./app/admin/products/page.jsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/products/page.jsx [Client Component SSR]
+    ./app/admin/products/page.jsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:28:50.873] Server  ERROR    ⨯ ./app/admin/products/page.jsx:4:1
+Module not found: Can't resolve '../../../'
+  2 |
+  3 | import { useEffect, useState } from "react";
+> 4 | import { useAuth } from "../../../";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  5 |
+  6 | export default function AdminProductsPage() {
+  7 |   const { user } = useAuth();
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/products/page.jsx [Client Component Browser]
+    ./app/admin/products/page.jsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/products/page.jsx [Client Component SSR]
+    ./app/admin/products/page.jsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:28:50.879] Server  ERROR    ⨯ ./app/admin/products/page.jsx:4:1
+Module not found: Can't resolve '../../../'
+  2 |
+  3 | import { useEffect, useState } from "react";
+> 4 | import { useAuth } from "../../../";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  5 |
+  6 | export default function AdminProductsPage() {
+  7 |   const { user } = useAuth();
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/products/page.jsx [Client Component Browser]
+    ./app/admin/products/page.jsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/products/page.jsx [Client Component SSR]
+    ./app/admin/products/page.jsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:28:50.882] Server  ERROR    ⨯ ./app/admin/products/page.jsx:4:1
+Module not found: Can't resolve '../../../'
+  2 |
+  3 | import { useEffect, useState } from "react";
+> 4 | import { useAuth } from "../../../";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  5 |
+  6 | export default function AdminProductsPage() {
+  7 |   const { user } = useAuth();
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/products/page.jsx [Client Component Browser]
+    ./app/admin/products/page.jsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/products/page.jsx [Client Component SSR]
+    ./app/admin/products/page.jsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:28:50.886] Server  ERROR    ⨯ ./app/admin/products/page.jsx:4:1
+Module not found: Can't resolve '../../../'
+  2 |
+  3 | import { useEffect, useState } from "react";
+> 4 | import { useAuth } from "../../../";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  5 |
+  6 | export default function AdminProductsPage() {
+  7 |   const { user } = useAuth();
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/products/page.jsx [Client Component Browser]
+    ./app/admin/products/page.jsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/products/page.jsx [Client Component SSR]
+    ./app/admin/products/page.jsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:28:50.890] Server  ERROR    ⨯ ./app/admin/products/page.jsx:4:1
+Module not found: Can't resolve '../../../'
+  2 |
+  3 | import { useEffect, useState } from "react";
+> 4 | import { useAuth } from "../../../";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  5 |
+  6 | export default function AdminProductsPage() {
+  7 |   const { user } = useAuth();
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/products/page.jsx [Client Component Browser]
+    ./app/admin/products/page.jsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/products/page.jsx [Client Component SSR]
+    ./app/admin/products/page.jsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:28:50.917] Server  ERROR    ⨯ ./app/admin/products/page.jsx:4:1
+Module not found: Can't resolve '../../../'
+  2 |
+  3 | import { useEffect, useState } from "react";
+> 4 | import { useAuth } from "../../../";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  5 |
+  6 | export default function AdminProductsPage() {
+  7 |   const { user } = useAuth();
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/products/page.jsx [Client Component Browser]
+    ./app/admin/products/page.jsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/products/page.jsx [Client Component SSR]
+    ./app/admin/products/page.jsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:28:50.921] Server  ERROR    ⨯ ./app/admin/products/page.jsx:4:1
+Module not found: Can't resolve '../../../'
+  2 |
+  3 | import { useEffect, useState } from "react";
+> 4 | import { useAuth } from "../../../";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  5 |
+  6 | export default function AdminProductsPage() {
+  7 |   const { user } = useAuth();
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/products/page.jsx [Client Component Browser]
+    ./app/admin/products/page.jsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/products/page.jsx [Client Component SSR]
+    ./app/admin/products/page.jsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:28:50.932] Server  ERROR    ⨯ ./app/admin/products/page.jsx:4:1
+Module not found: Can't resolve '../../../'
+  2 |
+  3 | import { useEffect, useState } from "react";
+> 4 | import { useAuth } from "../../../";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  5 |
+  6 | export default function AdminProductsPage() {
+  7 |   const { user } = useAuth();
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/products/page.jsx [Client Component Browser]
+    ./app/admin/products/page.jsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/products/page.jsx [Client Component SSR]
+    ./app/admin/products/page.jsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:28:50.937] Server  ERROR    ⨯ ./app/admin/products/page.jsx:4:1
+Module not found: Can't resolve '../../../'
+  2 |
+  3 | import { useEffect, useState } from "react";
+> 4 | import { useAuth } from "../../../";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  5 |
+  6 | export default function AdminProductsPage() {
+  7 |   const { user } = useAuth();
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/products/page.jsx [Client Component Browser]
+    ./app/admin/products/page.jsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/products/page.jsx [Client Component SSR]
+    ./app/admin/products/page.jsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:28:50.946] Server  LOG      ✓ Compiled in 215ms
+[00:28:51.428] Browser ERROR   ./app/admin/products/page.jsx:4:1
+Module not found: Can't resolve '../../../'
+  2 |
+  3 | import { useEffect, useState } from "react";
+> 4 | import { useAuth } from "../../../";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  5 |
+  6 | export default function AdminProductsPage() {
+  7 |   const { user } = useAuth();
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/products/page.jsx [Client Component Browser]
+    ./app/admin/products/page.jsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/products/page.jsx [Client Component SSR]
+    ./app/admin/products/page.jsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+[00:28:52.658] Server  ERROR    ⨯ ./app/admin/products/page.jsx:4:1
+Module not found: Can't resolve '../../../context/'
+  2 |
+  3 | import { useEffect, useState } from "react";
+> 4 | import { useAuth } from "../../../context/";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  5 |
+  6 | export default function AdminProductsPage() {
+  7 |   const { user } = useAuth();
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/products/page.jsx [Client Component Browser]
+    ./app/admin/products/page.jsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/products/page.jsx [Client Component SSR]
+    ./app/admin/products/page.jsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:28:52.660] Server  ERROR    ⨯ ./app/admin/products/page.jsx:4:1
+Module not found: Can't resolve '../../../context/'
+  2 |
+  3 | import { useEffect, useState } from "react";
+> 4 | import { useAuth } from "../../../context/";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  5 |
+  6 | export default function AdminProductsPage() {
+  7 |   const { user } = useAuth();
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/products/page.jsx [Client Component Browser]
+    ./app/admin/products/page.jsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/products/page.jsx [Client Component SSR]
+    ./app/admin/products/page.jsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:28:52.663] Server  ERROR    ⨯ ./app/admin/products/page.jsx:4:1
+Module not found: Can't resolve '../../../context/'
+  2 |
+  3 | import { useEffect, useState } from "react";
+> 4 | import { useAuth } from "../../../context/";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  5 |
+  6 | export default function AdminProductsPage() {
+  7 |   const { user } = useAuth();
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/products/page.jsx [Client Component Browser]
+    ./app/admin/products/page.jsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/products/page.jsx [Client Component SSR]
+    ./app/admin/products/page.jsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:28:52.666] Server  ERROR    ⨯ ./app/admin/products/page.jsx:4:1
+Module not found: Can't resolve '../../../context/'
+  2 |
+  3 | import { useEffect, useState } from "react";
+> 4 | import { useAuth } from "../../../context/";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  5 |
+  6 | export default function AdminProductsPage() {
+  7 |   const { user } = useAuth();
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/products/page.jsx [Client Component Browser]
+    ./app/admin/products/page.jsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/products/page.jsx [Client Component SSR]
+    ./app/admin/products/page.jsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:28:52.670] Server  ERROR    ⨯ ./app/admin/products/page.jsx:4:1
+Module not found: Can't resolve '../../../context/'
+  2 |
+  3 | import { useEffect, useState } from "react";
+> 4 | import { useAuth } from "../../../context/";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  5 |
+  6 | export default function AdminProductsPage() {
+  7 |   const { user } = useAuth();
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/products/page.jsx [Client Component Browser]
+    ./app/admin/products/page.jsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/products/page.jsx [Client Component SSR]
+    ./app/admin/products/page.jsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:28:52.673] Server  ERROR    ⨯ ./app/admin/products/page.jsx:4:1
+Module not found: Can't resolve '../../../context/'
+  2 |
+  3 | import { useEffect, useState } from "react";
+> 4 | import { useAuth } from "../../../context/";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  5 |
+  6 | export default function AdminProductsPage() {
+  7 |   const { user } = useAuth();
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/products/page.jsx [Client Component Browser]
+    ./app/admin/products/page.jsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/products/page.jsx [Client Component SSR]
+    ./app/admin/products/page.jsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:28:52.676] Server  ERROR    ⨯ ./app/admin/products/page.jsx:4:1
+Module not found: Can't resolve '../../../context/'
+  2 |
+  3 | import { useEffect, useState } from "react";
+> 4 | import { useAuth } from "../../../context/";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  5 |
+  6 | export default function AdminProductsPage() {
+  7 |   const { user } = useAuth();
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/products/page.jsx [Client Component Browser]
+    ./app/admin/products/page.jsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/products/page.jsx [Client Component SSR]
+    ./app/admin/products/page.jsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:28:52.682] Server  ERROR    ⨯ ./app/admin/products/page.jsx:4:1
+Module not found: Can't resolve '../../../context/'
+  2 |
+  3 | import { useEffect, useState } from "react";
+> 4 | import { useAuth } from "../../../context/";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  5 |
+  6 | export default function AdminProductsPage() {
+  7 |   const { user } = useAuth();
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/products/page.jsx [Client Component Browser]
+    ./app/admin/products/page.jsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/products/page.jsx [Client Component SSR]
+    ./app/admin/products/page.jsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:28:52.687] Server  ERROR    ⨯ ./app/admin/products/page.jsx:4:1
+Module not found: Can't resolve '../../../context/'
+  2 |
+  3 | import { useEffect, useState } from "react";
+> 4 | import { useAuth } from "../../../context/";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  5 |
+  6 | export default function AdminProductsPage() {
+  7 |   const { user } = useAuth();
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/products/page.jsx [Client Component Browser]
+    ./app/admin/products/page.jsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/products/page.jsx [Client Component SSR]
+    ./app/admin/products/page.jsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:28:52.690] Server  ERROR    ⨯ ./app/admin/products/page.jsx:4:1
+Module not found: Can't resolve '../../../context/'
+  2 |
+  3 | import { useEffect, useState } from "react";
+> 4 | import { useAuth } from "../../../context/";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  5 |
+  6 | export default function AdminProductsPage() {
+  7 |   const { user } = useAuth();
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/products/page.jsx [Client Component Browser]
+    ./app/admin/products/page.jsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/products/page.jsx [Client Component SSR]
+    ./app/admin/products/page.jsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:28:52.693] Server  ERROR    ⨯ ./app/admin/products/page.jsx:4:1
+Module not found: Can't resolve '../../../context/'
+  2 |
+  3 | import { useEffect, useState } from "react";
+> 4 | import { useAuth } from "../../../context/";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  5 |
+  6 | export default function AdminProductsPage() {
+  7 |   const { user } = useAuth();
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/products/page.jsx [Client Component Browser]
+    ./app/admin/products/page.jsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/products/page.jsx [Client Component SSR]
+    ./app/admin/products/page.jsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:28:52.697] Server  ERROR    ⨯ ./app/admin/products/page.jsx:4:1
+Module not found: Can't resolve '../../../context/'
+  2 |
+  3 | import { useEffect, useState } from "react";
+> 4 | import { useAuth } from "../../../context/";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  5 |
+  6 | export default function AdminProductsPage() {
+  7 |   const { user } = useAuth();
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/products/page.jsx [Client Component Browser]
+    ./app/admin/products/page.jsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/products/page.jsx [Client Component SSR]
+    ./app/admin/products/page.jsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:28:52.701] Server  LOG      ✓ Compiled in 181ms
+[00:28:53.428] Browser ERROR   ./app/admin/products/page.jsx:4:1
+Module not found: Can't resolve '../../../context/'
+  2 |
+  3 | import { useEffect, useState } from "react";
+> 4 | import { useAuth } from "../../../context/";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  5 |
+  6 | export default function AdminProductsPage() {
+  7 |   const { user } = useAuth();
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/products/page.jsx [Client Component Browser]
+    ./app/admin/products/page.jsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/products/page.jsx [Client Component SSR]
+    ./app/admin/products/page.jsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+[00:28:54.304] Server  ERROR    ⨯ ./app/admin/products/page.jsx:4:1
+Module not found: Can't resolve '../../../context//'
+  2 |
+  3 | import { useEffect, useState } from "react";
+> 4 | import { useAuth } from "../../../context//";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  5 |
+  6 | export default function AdminProductsPage() {
+  7 |   const { user } = useAuth();
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/products/page.jsx [Client Component Browser]
+    ./app/admin/products/page.jsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/products/page.jsx [Client Component SSR]
+    ./app/admin/products/page.jsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:28:54.306] Server  ERROR    ⨯ ./app/admin/products/page.jsx:4:1
+Module not found: Can't resolve '../../../context//'
+  2 |
+  3 | import { useEffect, useState } from "react";
+> 4 | import { useAuth } from "../../../context//";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  5 |
+  6 | export default function AdminProductsPage() {
+  7 |   const { user } = useAuth();
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/products/page.jsx [Client Component Browser]
+    ./app/admin/products/page.jsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/products/page.jsx [Client Component SSR]
+    ./app/admin/products/page.jsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:28:54.309] Server  ERROR    ⨯ ./app/admin/products/page.jsx:4:1
+Module not found: Can't resolve '../../../context//'
+  2 |
+  3 | import { useEffect, useState } from "react";
+> 4 | import { useAuth } from "../../../context//";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  5 |
+  6 | export default function AdminProductsPage() {
+  7 |   const { user } = useAuth();
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/products/page.jsx [Client Component Browser]
+    ./app/admin/products/page.jsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/products/page.jsx [Client Component SSR]
+    ./app/admin/products/page.jsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:28:54.312] Server  ERROR    ⨯ ./app/admin/products/page.jsx:4:1
+Module not found: Can't resolve '../../../context//'
+  2 |
+  3 | import { useEffect, useState } from "react";
+> 4 | import { useAuth } from "../../../context//";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  5 |
+  6 | export default function AdminProductsPage() {
+  7 |   const { user } = useAuth();
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/products/page.jsx [Client Component Browser]
+    ./app/admin/products/page.jsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/products/page.jsx [Client Component SSR]
+    ./app/admin/products/page.jsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:28:54.317] Server  ERROR    ⨯ ./app/admin/products/page.jsx:4:1
+Module not found: Can't resolve '../../../context//'
+  2 |
+  3 | import { useEffect, useState } from "react";
+> 4 | import { useAuth } from "../../../context//";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  5 |
+  6 | export default function AdminProductsPage() {
+  7 |   const { user } = useAuth();
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/products/page.jsx [Client Component Browser]
+    ./app/admin/products/page.jsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/products/page.jsx [Client Component SSR]
+    ./app/admin/products/page.jsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:28:54.320] Server  ERROR    ⨯ ./app/admin/products/page.jsx:4:1
+Module not found: Can't resolve '../../../context//'
+  2 |
+  3 | import { useEffect, useState } from "react";
+> 4 | import { useAuth } from "../../../context//";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  5 |
+  6 | export default function AdminProductsPage() {
+  7 |   const { user } = useAuth();
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/products/page.jsx [Client Component Browser]
+    ./app/admin/products/page.jsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/products/page.jsx [Client Component SSR]
+    ./app/admin/products/page.jsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:28:54.323] Server  ERROR    ⨯ ./app/admin/products/page.jsx:4:1
+Module not found: Can't resolve '../../../context//'
+  2 |
+  3 | import { useEffect, useState } from "react";
+> 4 | import { useAuth } from "../../../context//";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  5 |
+  6 | export default function AdminProductsPage() {
+  7 |   const { user } = useAuth();
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/products/page.jsx [Client Component Browser]
+    ./app/admin/products/page.jsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/products/page.jsx [Client Component SSR]
+    ./app/admin/products/page.jsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:28:54.325] Server  ERROR    ⨯ ./app/admin/products/page.jsx:4:1
+Module not found: Can't resolve '../../../context//'
+  2 |
+  3 | import { useEffect, useState } from "react";
+> 4 | import { useAuth } from "../../../context//";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  5 |
+  6 | export default function AdminProductsPage() {
+  7 |   const { user } = useAuth();
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/products/page.jsx [Client Component Browser]
+    ./app/admin/products/page.jsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/products/page.jsx [Client Component SSR]
+    ./app/admin/products/page.jsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:28:54.329] Server  ERROR    ⨯ ./app/admin/products/page.jsx:4:1
+Module not found: Can't resolve '../../../context//'
+  2 |
+  3 | import { useEffect, useState } from "react";
+> 4 | import { useAuth } from "../../../context//";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  5 |
+  6 | export default function AdminProductsPage() {
+  7 |   const { user } = useAuth();
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/products/page.jsx [Client Component Browser]
+    ./app/admin/products/page.jsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/products/page.jsx [Client Component SSR]
+    ./app/admin/products/page.jsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:28:54.332] Server  ERROR    ⨯ ./app/admin/products/page.jsx:4:1
+Module not found: Can't resolve '../../../context//'
+  2 |
+  3 | import { useEffect, useState } from "react";
+> 4 | import { useAuth } from "../../../context//";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  5 |
+  6 | export default function AdminProductsPage() {
+  7 |   const { user } = useAuth();
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/products/page.jsx [Client Component Browser]
+    ./app/admin/products/page.jsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/products/page.jsx [Client Component SSR]
+    ./app/admin/products/page.jsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:28:54.336] Server  ERROR    ⨯ ./app/admin/products/page.jsx:4:1
+Module not found: Can't resolve '../../../context//'
+  2 |
+  3 | import { useEffect, useState } from "react";
+> 4 | import { useAuth } from "../../../context//";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  5 |
+  6 | export default function AdminProductsPage() {
+  7 |   const { user } = useAuth();
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/products/page.jsx [Client Component Browser]
+    ./app/admin/products/page.jsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/products/page.jsx [Client Component SSR]
+    ./app/admin/products/page.jsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:28:54.339] Server  ERROR    ⨯ ./app/admin/products/page.jsx:4:1
+Module not found: Can't resolve '../../../context//'
+  2 |
+  3 | import { useEffect, useState } from "react";
+> 4 | import { useAuth } from "../../../context//";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  5 |
+  6 | export default function AdminProductsPage() {
+  7 |   const { user } = useAuth();
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/products/page.jsx [Client Component Browser]
+    ./app/admin/products/page.jsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/products/page.jsx [Client Component SSR]
+    ./app/admin/products/page.jsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:28:54.352] Server  LOG      ✓ Compiled in 249ms
+[00:28:55.340] Server  ERROR    ⨯ ./app/admin/products/page.jsx:4:1
+Module not found: Can't resolve '../../../context/'
+  2 |
+  3 | import { useEffect, useState } from "react";
+> 4 | import { useAuth } from "../../../context/";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  5 |
+  6 | export default function AdminProductsPage() {
+  7 |   const { user } = useAuth();
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/products/page.jsx [Client Component Browser]
+    ./app/admin/products/page.jsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/products/page.jsx [Client Component SSR]
+    ./app/admin/products/page.jsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:28:55.346] Server  ERROR    ⨯ ./app/admin/products/page.jsx:4:1
+Module not found: Can't resolve '../../../context/'
+  2 |
+  3 | import { useEffect, useState } from "react";
+> 4 | import { useAuth } from "../../../context/";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  5 |
+  6 | export default function AdminProductsPage() {
+  7 |   const { user } = useAuth();
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/products/page.jsx [Client Component Browser]
+    ./app/admin/products/page.jsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/products/page.jsx [Client Component SSR]
+    ./app/admin/products/page.jsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:28:55.349] Server  ERROR    ⨯ ./app/admin/products/page.jsx:4:1
+Module not found: Can't resolve '../../../context/'
+  2 |
+  3 | import { useEffect, useState } from "react";
+> 4 | import { useAuth } from "../../../context/";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  5 |
+  6 | export default function AdminProductsPage() {
+  7 |   const { user } = useAuth();
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/products/page.jsx [Client Component Browser]
+    ./app/admin/products/page.jsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/products/page.jsx [Client Component SSR]
+    ./app/admin/products/page.jsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:28:55.352] Server  ERROR    ⨯ ./app/admin/products/page.jsx:4:1
+Module not found: Can't resolve '../../../context/'
+  2 |
+  3 | import { useEffect, useState } from "react";
+> 4 | import { useAuth } from "../../../context/";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  5 |
+  6 | export default function AdminProductsPage() {
+  7 |   const { user } = useAuth();
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/products/page.jsx [Client Component Browser]
+    ./app/admin/products/page.jsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/products/page.jsx [Client Component SSR]
+    ./app/admin/products/page.jsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:28:55.355] Server  ERROR    ⨯ ./app/admin/products/page.jsx:4:1
+Module not found: Can't resolve '../../../context/'
+  2 |
+  3 | import { useEffect, useState } from "react";
+> 4 | import { useAuth } from "../../../context/";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  5 |
+  6 | export default function AdminProductsPage() {
+  7 |   const { user } = useAuth();
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/products/page.jsx [Client Component Browser]
+    ./app/admin/products/page.jsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/products/page.jsx [Client Component SSR]
+    ./app/admin/products/page.jsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:28:55.359] Server  ERROR    ⨯ ./app/admin/products/page.jsx:4:1
+Module not found: Can't resolve '../../../context/'
+  2 |
+  3 | import { useEffect, useState } from "react";
+> 4 | import { useAuth } from "../../../context/";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  5 |
+  6 | export default function AdminProductsPage() {
+  7 |   const { user } = useAuth();
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/products/page.jsx [Client Component Browser]
+    ./app/admin/products/page.jsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/products/page.jsx [Client Component SSR]
+    ./app/admin/products/page.jsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:28:55.361] Server  ERROR    ⨯ ./app/admin/products/page.jsx:4:1
+Module not found: Can't resolve '../../../context/'
+  2 |
+  3 | import { useEffect, useState } from "react";
+> 4 | import { useAuth } from "../../../context/";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  5 |
+  6 | export default function AdminProductsPage() {
+  7 |   const { user } = useAuth();
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/products/page.jsx [Client Component Browser]
+    ./app/admin/products/page.jsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/products/page.jsx [Client Component SSR]
+    ./app/admin/products/page.jsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:28:55.364] Server  ERROR    ⨯ ./app/admin/products/page.jsx:4:1
+Module not found: Can't resolve '../../../context/'
+  2 |
+  3 | import { useEffect, useState } from "react";
+> 4 | import { useAuth } from "../../../context/";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  5 |
+  6 | export default function AdminProductsPage() {
+  7 |   const { user } = useAuth();
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/products/page.jsx [Client Component Browser]
+    ./app/admin/products/page.jsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/products/page.jsx [Client Component SSR]
+    ./app/admin/products/page.jsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:28:55.368] Server  ERROR    ⨯ ./app/admin/products/page.jsx:4:1
+Module not found: Can't resolve '../../../context/'
+  2 |
+  3 | import { useEffect, useState } from "react";
+> 4 | import { useAuth } from "../../../context/";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  5 |
+  6 | export default function AdminProductsPage() {
+  7 |   const { user } = useAuth();
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/products/page.jsx [Client Component Browser]
+    ./app/admin/products/page.jsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/products/page.jsx [Client Component SSR]
+    ./app/admin/products/page.jsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:28:55.370] Server  ERROR    ⨯ ./app/admin/products/page.jsx:4:1
+Module not found: Can't resolve '../../../context/'
+  2 |
+  3 | import { useEffect, useState } from "react";
+> 4 | import { useAuth } from "../../../context/";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  5 |
+  6 | export default function AdminProductsPage() {
+  7 |   const { user } = useAuth();
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/products/page.jsx [Client Component Browser]
+    ./app/admin/products/page.jsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/products/page.jsx [Client Component SSR]
+    ./app/admin/products/page.jsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:28:55.374] Server  ERROR    ⨯ ./app/admin/products/page.jsx:4:1
+Module not found: Can't resolve '../../../context/'
+  2 |
+  3 | import { useEffect, useState } from "react";
+> 4 | import { useAuth } from "../../../context/";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  5 |
+  6 | export default function AdminProductsPage() {
+  7 |   const { user } = useAuth();
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/products/page.jsx [Client Component Browser]
+    ./app/admin/products/page.jsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/products/page.jsx [Client Component SSR]
+    ./app/admin/products/page.jsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:28:55.377] Server  ERROR    ⨯ ./app/admin/products/page.jsx:4:1
+Module not found: Can't resolve '../../../context/'
+  2 |
+  3 | import { useEffect, useState } from "react";
+> 4 | import { useAuth } from "../../../context/";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  5 |
+  6 | export default function AdminProductsPage() {
+  7 |   const { user } = useAuth();
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/products/page.jsx [Client Component Browser]
+    ./app/admin/products/page.jsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/products/page.jsx [Client Component SSR]
+    ./app/admin/products/page.jsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:28:55.379] Server  LOG      ✓ Compiled in 152ms
+[00:28:56.419] Browser ERROR   ./app/admin/products/page.jsx:4:1
+Module not found: Can't resolve '../../../context//'
+  2 |
+  3 | import { useEffect, useState } from "react";
+> 4 | import { useAuth } from "../../../context//";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  5 |
+  6 | export default function AdminProductsPage() {
+  7 |   const { user } = useAuth();
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/products/page.jsx [Client Component Browser]
+    ./app/admin/products/page.jsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/products/page.jsx [Client Component SSR]
+    ./app/admin/products/page.jsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+[00:28:56.419] Browser ERROR   ./app/admin/products/page.jsx:4:1
+Module not found: Can't resolve '../../../context/'
+  2 |
+  3 | import { useEffect, useState } from "react";
+> 4 | import { useAuth } from "../../../context/";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  5 |
+  6 | export default function AdminProductsPage() {
+  7 |   const { user } = useAuth();
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/products/page.jsx [Client Component Browser]
+    ./app/admin/products/page.jsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/products/page.jsx [Client Component SSR]
+    ./app/admin/products/page.jsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+[00:29:00.013] Server  ERROR    ⨯ ./app/admin/products/page.jsx:4:1
+Module not found: Can't resolve '../../../context'
+  2 |
+  3 | import { useEffect, useState } from "react";
+> 4 | import { useAuth } from "../../../context";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  5 |
+  6 | export default function AdminProductsPage() {
+  7 |   const { user } = useAuth();
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/products/page.jsx [Client Component Browser]
+    ./app/admin/products/page.jsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/products/page.jsx [Client Component SSR]
+    ./app/admin/products/page.jsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:29:00.016] Server  ERROR    ⨯ ./app/admin/products/page.jsx:4:1
+Module not found: Can't resolve '../../../context'
+  2 |
+  3 | import { useEffect, useState } from "react";
+> 4 | import { useAuth } from "../../../context";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  5 |
+  6 | export default function AdminProductsPage() {
+  7 |   const { user } = useAuth();
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/products/page.jsx [Client Component Browser]
+    ./app/admin/products/page.jsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/products/page.jsx [Client Component SSR]
+    ./app/admin/products/page.jsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:29:00.019] Server  ERROR    ⨯ ./app/admin/products/page.jsx:4:1
+Module not found: Can't resolve '../../../context'
+  2 |
+  3 | import { useEffect, useState } from "react";
+> 4 | import { useAuth } from "../../../context";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  5 |
+  6 | export default function AdminProductsPage() {
+  7 |   const { user } = useAuth();
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/products/page.jsx [Client Component Browser]
+    ./app/admin/products/page.jsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/products/page.jsx [Client Component SSR]
+    ./app/admin/products/page.jsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:29:00.022] Server  ERROR    ⨯ ./app/admin/products/page.jsx:4:1
+Module not found: Can't resolve '../../../context'
+  2 |
+  3 | import { useEffect, useState } from "react";
+> 4 | import { useAuth } from "../../../context";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  5 |
+  6 | export default function AdminProductsPage() {
+  7 |   const { user } = useAuth();
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/products/page.jsx [Client Component Browser]
+    ./app/admin/products/page.jsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/products/page.jsx [Client Component SSR]
+    ./app/admin/products/page.jsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:29:00.031] Server  ERROR    ⨯ ./app/admin/products/page.jsx:4:1
+Module not found: Can't resolve '../../../context'
+  2 |
+  3 | import { useEffect, useState } from "react";
+> 4 | import { useAuth } from "../../../context";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  5 |
+  6 | export default function AdminProductsPage() {
+  7 |   const { user } = useAuth();
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/products/page.jsx [Client Component Browser]
+    ./app/admin/products/page.jsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/products/page.jsx [Client Component SSR]
+    ./app/admin/products/page.jsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:29:00.034] Server  ERROR    ⨯ ./app/admin/products/page.jsx:4:1
+Module not found: Can't resolve '../../../context'
+  2 |
+  3 | import { useEffect, useState } from "react";
+> 4 | import { useAuth } from "../../../context";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  5 |
+  6 | export default function AdminProductsPage() {
+  7 |   const { user } = useAuth();
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/products/page.jsx [Client Component Browser]
+    ./app/admin/products/page.jsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/products/page.jsx [Client Component SSR]
+    ./app/admin/products/page.jsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:29:00.038] Server  ERROR    ⨯ ./app/admin/products/page.jsx:4:1
+Module not found: Can't resolve '../../../context'
+  2 |
+  3 | import { useEffect, useState } from "react";
+> 4 | import { useAuth } from "../../../context";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  5 |
+  6 | export default function AdminProductsPage() {
+  7 |   const { user } = useAuth();
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/products/page.jsx [Client Component Browser]
+    ./app/admin/products/page.jsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/products/page.jsx [Client Component SSR]
+    ./app/admin/products/page.jsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:29:00.041] Server  ERROR    ⨯ ./app/admin/products/page.jsx:4:1
+Module not found: Can't resolve '../../../context'
+  2 |
+  3 | import { useEffect, useState } from "react";
+> 4 | import { useAuth } from "../../../context";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  5 |
+  6 | export default function AdminProductsPage() {
+  7 |   const { user } = useAuth();
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/products/page.jsx [Client Component Browser]
+    ./app/admin/products/page.jsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/products/page.jsx [Client Component SSR]
+    ./app/admin/products/page.jsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:29:00.046] Server  ERROR    ⨯ ./app/admin/products/page.jsx:4:1
+Module not found: Can't resolve '../../../context'
+  2 |
+  3 | import { useEffect, useState } from "react";
+> 4 | import { useAuth } from "../../../context";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  5 |
+  6 | export default function AdminProductsPage() {
+  7 |   const { user } = useAuth();
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/products/page.jsx [Client Component Browser]
+    ./app/admin/products/page.jsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/products/page.jsx [Client Component SSR]
+    ./app/admin/products/page.jsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:29:00.050] Server  ERROR    ⨯ ./app/admin/products/page.jsx:4:1
+Module not found: Can't resolve '../../../context'
+  2 |
+  3 | import { useEffect, useState } from "react";
+> 4 | import { useAuth } from "../../../context";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  5 |
+  6 | export default function AdminProductsPage() {
+  7 |   const { user } = useAuth();
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/products/page.jsx [Client Component Browser]
+    ./app/admin/products/page.jsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/products/page.jsx [Client Component SSR]
+    ./app/admin/products/page.jsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:29:00.053] Server  ERROR    ⨯ ./app/admin/products/page.jsx:4:1
+Module not found: Can't resolve '../../../context'
+  2 |
+  3 | import { useEffect, useState } from "react";
+> 4 | import { useAuth } from "../../../context";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  5 |
+  6 | export default function AdminProductsPage() {
+  7 |   const { user } = useAuth();
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/products/page.jsx [Client Component Browser]
+    ./app/admin/products/page.jsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/products/page.jsx [Client Component SSR]
+    ./app/admin/products/page.jsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:29:00.056] Server  ERROR    ⨯ ./app/admin/products/page.jsx:4:1
+Module not found: Can't resolve '../../../context'
+  2 |
+  3 | import { useEffect, useState } from "react";
+> 4 | import { useAuth } from "../../../context";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  5 |
+  6 | export default function AdminProductsPage() {
+  7 |   const { user } = useAuth();
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/products/page.jsx [Client Component Browser]
+    ./app/admin/products/page.jsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/products/page.jsx [Client Component SSR]
+    ./app/admin/products/page.jsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:29:00.059] Server  LOG      ✓ Compiled in 178ms
+[00:29:00.430] Browser ERROR   ./app/admin/products/page.jsx:4:1
+Module not found: Can't resolve '../../../context'
+  2 |
+  3 | import { useEffect, useState } from "react";
+> 4 | import { useAuth } from "../../../context";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  5 |
+  6 | export default function AdminProductsPage() {
+  7 |   const { user } = useAuth();
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/products/page.jsx [Client Component Browser]
+    ./app/admin/products/page.jsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/products/page.jsx [Client Component SSR]
+    ./app/admin/products/page.jsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+[00:29:01.459] Server  ERROR    ⨯ ./app/admin/products/page.jsx:4:1
+Module not found: Can't resolve '../../../context/'
+  2 |
+  3 | import { useEffect, useState } from "react";
+> 4 | import { useAuth } from "../../../context/";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  5 |
+  6 | export default function AdminProductsPage() {
+  7 |   const { user } = useAuth();
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/products/page.jsx [Client Component Browser]
+    ./app/admin/products/page.jsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/products/page.jsx [Client Component SSR]
+    ./app/admin/products/page.jsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:29:01.461] Server  ERROR    ⨯ ./app/admin/products/page.jsx:4:1
+Module not found: Can't resolve '../../../context/'
+  2 |
+  3 | import { useEffect, useState } from "react";
+> 4 | import { useAuth } from "../../../context/";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  5 |
+  6 | export default function AdminProductsPage() {
+  7 |   const { user } = useAuth();
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/products/page.jsx [Client Component Browser]
+    ./app/admin/products/page.jsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/products/page.jsx [Client Component SSR]
+    ./app/admin/products/page.jsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:29:01.463] Server  ERROR    ⨯ ./app/admin/products/page.jsx:4:1
+Module not found: Can't resolve '../../../context/'
+  2 |
+  3 | import { useEffect, useState } from "react";
+> 4 | import { useAuth } from "../../../context/";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  5 |
+  6 | export default function AdminProductsPage() {
+  7 |   const { user } = useAuth();
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/products/page.jsx [Client Component Browser]
+    ./app/admin/products/page.jsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/products/page.jsx [Client Component SSR]
+    ./app/admin/products/page.jsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:29:01.466] Server  ERROR    ⨯ ./app/admin/products/page.jsx:4:1
+Module not found: Can't resolve '../../../context/'
+  2 |
+  3 | import { useEffect, useState } from "react";
+> 4 | import { useAuth } from "../../../context/";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  5 |
+  6 | export default function AdminProductsPage() {
+  7 |   const { user } = useAuth();
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/products/page.jsx [Client Component Browser]
+    ./app/admin/products/page.jsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/products/page.jsx [Client Component SSR]
+    ./app/admin/products/page.jsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:29:01.470] Server  ERROR    ⨯ ./app/admin/products/page.jsx:4:1
+Module not found: Can't resolve '../../../context/'
+  2 |
+  3 | import { useEffect, useState } from "react";
+> 4 | import { useAuth } from "../../../context/";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  5 |
+  6 | export default function AdminProductsPage() {
+  7 |   const { user } = useAuth();
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/products/page.jsx [Client Component Browser]
+    ./app/admin/products/page.jsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/products/page.jsx [Client Component SSR]
+    ./app/admin/products/page.jsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:29:01.472] Server  ERROR    ⨯ ./app/admin/products/page.jsx:4:1
+Module not found: Can't resolve '../../../context/'
+  2 |
+  3 | import { useEffect, useState } from "react";
+> 4 | import { useAuth } from "../../../context/";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  5 |
+  6 | export default function AdminProductsPage() {
+  7 |   const { user } = useAuth();
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/products/page.jsx [Client Component Browser]
+    ./app/admin/products/page.jsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/products/page.jsx [Client Component SSR]
+    ./app/admin/products/page.jsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:29:01.474] Server  ERROR    ⨯ ./app/admin/products/page.jsx:4:1
+Module not found: Can't resolve '../../../context/'
+  2 |
+  3 | import { useEffect, useState } from "react";
+> 4 | import { useAuth } from "../../../context/";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  5 |
+  6 | export default function AdminProductsPage() {
+  7 |   const { user } = useAuth();
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/products/page.jsx [Client Component Browser]
+    ./app/admin/products/page.jsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/products/page.jsx [Client Component SSR]
+    ./app/admin/products/page.jsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:29:01.477] Server  ERROR    ⨯ ./app/admin/products/page.jsx:4:1
+Module not found: Can't resolve '../../../context/'
+  2 |
+  3 | import { useEffect, useState } from "react";
+> 4 | import { useAuth } from "../../../context/";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  5 |
+  6 | export default function AdminProductsPage() {
+  7 |   const { user } = useAuth();
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/products/page.jsx [Client Component Browser]
+    ./app/admin/products/page.jsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/products/page.jsx [Client Component SSR]
+    ./app/admin/products/page.jsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:29:01.480] Server  ERROR    ⨯ ./app/admin/products/page.jsx:4:1
+Module not found: Can't resolve '../../../context/'
+  2 |
+  3 | import { useEffect, useState } from "react";
+> 4 | import { useAuth } from "../../../context/";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  5 |
+  6 | export default function AdminProductsPage() {
+  7 |   const { user } = useAuth();
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/products/page.jsx [Client Component Browser]
+    ./app/admin/products/page.jsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/products/page.jsx [Client Component SSR]
+    ./app/admin/products/page.jsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:29:01.483] Server  ERROR    ⨯ ./app/admin/products/page.jsx:4:1
+Module not found: Can't resolve '../../../context/'
+  2 |
+  3 | import { useEffect, useState } from "react";
+> 4 | import { useAuth } from "../../../context/";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  5 |
+  6 | export default function AdminProductsPage() {
+  7 |   const { user } = useAuth();
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/products/page.jsx [Client Component Browser]
+    ./app/admin/products/page.jsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/products/page.jsx [Client Component SSR]
+    ./app/admin/products/page.jsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:29:01.485] Server  ERROR    ⨯ ./app/admin/products/page.jsx:4:1
+Module not found: Can't resolve '../../../context/'
+  2 |
+  3 | import { useEffect, useState } from "react";
+> 4 | import { useAuth } from "../../../context/";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  5 |
+  6 | export default function AdminProductsPage() {
+  7 |   const { user } = useAuth();
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/products/page.jsx [Client Component Browser]
+    ./app/admin/products/page.jsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/products/page.jsx [Client Component SSR]
+    ./app/admin/products/page.jsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:29:01.487] Server  ERROR    ⨯ ./app/admin/products/page.jsx:4:1
+Module not found: Can't resolve '../../../context/'
+  2 |
+  3 | import { useEffect, useState } from "react";
+> 4 | import { useAuth } from "../../../context/";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  5 |
+  6 | export default function AdminProductsPage() {
+  7 |   const { user } = useAuth();
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/products/page.jsx [Client Component Browser]
+    ./app/admin/products/page.jsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/products/page.jsx [Client Component SSR]
+    ./app/admin/products/page.jsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:29:01.493] Server  LOG      ✓ Compiled in 139ms
+[00:29:02.428] Browser ERROR   ./app/admin/products/page.jsx:4:1
+Module not found: Can't resolve '../../../context/'
+  2 |
+  3 | import { useEffect, useState } from "react";
+> 4 | import { useAuth } from "../../../context/";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  5 |
+  6 | export default function AdminProductsPage() {
+  7 |   const { user } = useAuth();
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/products/page.jsx [Client Component Browser]
+    ./app/admin/products/page.jsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/products/page.jsx [Client Component SSR]
+    ./app/admin/products/page.jsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+[00:29:03.185] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[00:29:03.209] Server  LOG      ✓ Compiled in 188ms
+[00:29:04.023] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:29:04.460] Browser ERROR   A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+%s%s https://react.dev/link/hydration-mismatch 
+
+  ...
+    <HotReload globalError={[...]} webSocket={WebSocket} staticIndicatorState={{pathname:null, ...}}>
+      <AppDevOverlayErrorBoundary globalError={[...]}>
+        <ReplaySsrOnlyErrors>
+        <DevRootHTTPAccessFallbackBoundary>
+          <HTTPAccessFallbackBoundary notFound={<NotAllowedRootHTTPFallbackError>}>
+            <HTTPAccessFallbackErrorBoundary pathname="/admin/pro..." notFound={<NotAllowedRootHTTPFallbackError>} ...>
+              <RedirectBoundary>
+                <RedirectErrorBoundary router={{...}}>
+                  <Head>
+                  <__next_root_layout_boundary__>
+                    <SegmentViewNode type="layout" pagePath="layout.js">
+                      <SegmentTrieNode>
+                      <link>
+                      <script>
+                      <script>
+                      <script>
+                      <RootLayout>
+                        <html lang="en">
+                          <head>
+                          <body
+-                           cz-shortcut-listen="true"
+                          >
+                            ...
+                              ...
+                                <div className="flex items...">
+                                  <motion.div>
+                                  <div className="hidden md:...">
+                                    <motion.div initial={{opacity:0}} animate={{opacity:1}} className="relative w...">
+                                      <div className="relative w..." style={{opacity:0}} ...>
+                                        <FiSearch>
+                                        <input
+                                          type="text"
+                                          placeholder="Search products..."
+                                          className="w-full pl-12 pr-4 py-2 rounded-full bg-gray-100 focus:bg-white sh..."
+-                                         fdprocessedid="xbq2s"
+                                        >
+                                  <nav>
+                                  <div className="flex items...">
+                                    <motion.button whileHover={{scale:1.2}} className="hidden sm:...">
+                                      <button
+                                        className="hidden sm:block text-gray-600 hover:text-blue-600 transition"
+                                        style={{}}
+                                        ref={function useMotionRef.useCallback}
+-                                       fdprocessedid="in5mmk"
+                                      >
+                                    ...
+                              <main>
+                              ...
+                                <div className="" style={{opacity:0, ...}} ref={function useMotionRef.useCallback}>
+                                  <h4>
+                                  <p>
+                                  <form className="mb-4">
+                                    <input
+                                      type="email"
+                                      placeholder="Your email"
+                                      className="w-full px-4 py-2 bg-[#141824] text-white rounded-lg text-sm    placeh..."
+-                                     fdprocessedid="wyucf"
+                                    >
+                                    <button
+                                      className="w-full bg-gradient-to-r from-blue-600 to-indigo-600    hover:from-blu..."
+-                                     fdprocessedid="drdvy"
+                                    >
++                                     Subscribe
+                                  ...
+                  ...
+
+[00:29:04.460] Browser ERROR   React has detected a change in the order of Hooks called by %s. This will lead to bugs and errors if not fixed. For more information, read the Rules of Hooks: https://react.dev/link/rules-of-hooks
+
+   Previous render            Next render
+   ------------------------------------------------------
+%s   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ AdminProductsPage 1. useContext                 useContext
+2. useState                   useState
+3. useState                   useState
+4. undefined                  useEffect
+
+[00:29:04.460] Browser ERROR   uncaughtError: Error: Rendered more hooks than during the previous render.
+[00:29:13.793] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[00:29:13.794] Server  WARN     ⚠ Fast Refresh had to perform a full reload when ./app/admin/products/page.jsx changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+[00:29:13.795] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[00:29:13.837] Server  LOG      ✓ Compiled in 264ms
+[00:29:14.956] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:47:20.313] Server  WARN     ⚠ Fast Refresh had to perform a full reload when ./app/admin/products/page.jsx changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+[00:47:22.280] Server  LOG      ✓ Compiled in 2.9s
+[00:47:22.291] Server  WARN     ⚠ Fast Refresh had to perform a full reload when ./app/admin/products/page.jsx changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+[00:47:23.599] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:47:24.420] Browser ERROR   A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+%s%s https://react.dev/link/hydration-mismatch 
+
+  ...
+    <HotReload globalError={[...]} webSocket={WebSocket} staticIndicatorState={{pathname:null, ...}}>
+      <AppDevOverlayErrorBoundary globalError={[...]}>
+        <ReplaySsrOnlyErrors>
+        <DevRootHTTPAccessFallbackBoundary>
+          <HTTPAccessFallbackBoundary notFound={<NotAllowedRootHTTPFallbackError>}>
+            <HTTPAccessFallbackErrorBoundary pathname="/admin/pro..." notFound={<NotAllowedRootHTTPFallbackError>} ...>
+              <RedirectBoundary>
+                <RedirectErrorBoundary router={{...}}>
+                  <Head>
+                  <__next_root_layout_boundary__>
+                    <SegmentViewNode type="layout" pagePath="layout.js">
+                      <SegmentTrieNode>
+                      <link>
+                      <script>
+                      <script>
+                      <script>
+                      <RootLayout>
+                        <html lang="en">
+                          <head>
+                          <body
+-                           cz-shortcut-listen="true"
+                          >
+                            ...
+                              ...
+                                <div className="flex items...">
+                                  <motion.div>
+                                  <div className="hidden md:...">
+                                    <motion.div initial={{opacity:0}} animate={{opacity:1}} className="relative w...">
+                                      <div className="relative w..." style={{opacity:0}} ...>
+                                        <FiSearch>
+                                        <input
+                                          type="text"
+                                          placeholder="Search products..."
+                                          className="w-full pl-12 pr-4 py-2 rounded-full bg-gray-100 focus:bg-white sh..."
+-                                         fdprocessedid="kzms6d"
+                                        >
+                                  <nav>
+                                  <div className="flex items...">
+                                    <motion.button whileHover={{scale:1.2}} className="hidden sm:...">
+                                      <button
+                                        className="hidden sm:block text-gray-600 hover:text-blue-600 transition"
+                                        style={{}}
+                                        ref={function useMotionRef.useCallback}
+-                                       fdprocessedid="csjoo8"
+                                      >
+                                    ...
+                              <main>
+                              ...
+                                <div className="" style={{opacity:0, ...}} ref={function useMotionRef.useCallback}>
+                                  <h4>
+                                  <p>
+                                  <form className="mb-4">
+                                    <input
+                                      type="email"
+                                      placeholder="Your email"
+                                      className="w-full px-4 py-2 bg-[#141824] text-white rounded-lg text-sm    placeh..."
+-                                     fdprocessedid="y0d45"
+                                    >
+                                    <button
+                                      className="w-full bg-gradient-to-r from-blue-600 to-indigo-600    hover:from-blu..."
+-                                     fdprocessedid="d0oapp"
+                                    >
++                                     Subscribe
+                                  ...
+                  ...
+
+[00:47:25.418] Browser ERROR   uncaughtError: TypeError: products.map is not a function
+[00:47:35.455] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:47:35.723] Browser ERROR   A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+%s%s https://react.dev/link/hydration-mismatch 
+
+  ...
+    <body>
+      <AuthProvider>
+        <CartProvider>
+          <Header>
+          <main>
+          <Footer>
+            <footer className="bg-[#0d0f1...">
+              <div>
+              <div className="relative m...">
+                <motion.div initial={{opacity:0,y:40}} whileInView={{opacity:1,y:0}} transition={{duration:0.7}} ...>
+                  <div className="grid grid-..." style={{opacity:0, ...}} ref={function useMotionRef.useCallback}>
+                    <div>
+                    <FooterColumn>
+                    <FooterColumn>
+                    <FooterColumn>
+                    <motion.div initial={{opacity:0,x:20}} whileInView={{opacity:1,x:0}} transition={{duration:0.6}} ...>
+                      <div className="" style={{opacity:0, ...}} ref={function useMotionRef.useCallback}>
+                        <h4>
+                        <p>
+                        <form className="mb-4">
+                          <input
+                            type="email"
+                            placeholder="Your email"
+                            className="w-full px-4 py-2 bg-[#141824] text-white rounded-lg text-sm    placeholder-gray..."
+-                           fdprocessedid="90gd"
+                          >
+                          <button
+                            className="w-full bg-gradient-to-r from-blue-600 to-indigo-600    hover:from-blue-700 hove..."
+-                           fdprocessedid="vdvalm"
+                          >
++                           Subscribe
+                        ...
+                ...
+
+[00:47:35.853] Browser ERROR   uncaughtError: TypeError: products.map is not a function
+[00:47:40.851] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:47:41.183] Browser ERROR   A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+%s%s https://react.dev/link/hydration-mismatch 
+
+  ...
+    <SegmentViewNode type="layout" pagePath="layout.js">
+      <SegmentTrieNode>
+      <link>
+      <script>
+      <script>
+      <script>
+      <RootLayout>
+        <html lang="en">
+          <head>
+          <body>
+            <AuthProvider>
+              <CartProvider>
+                <Header>
+                  <header className="backdrop-b...">
+                    <div className="max-w-7xl ...">
+                      <div className="flex items...">
+                        <motion.div>
+                        <div className="hidden md:...">
+                          <motion.div initial={{opacity:0}} animate={{opacity:1}} className="relative w...">
+                            <div className="relative w..." style={{opacity:0}} ref={function useMotionRef.useCallback}>
+                              <FiSearch>
+                              <input
+                                type="text"
+                                placeholder="Search products..."
+                                className="w-full pl-12 pr-4 py-2 rounded-full bg-gray-100 focus:bg-white shadow-inner..."
+-                               fdprocessedid="7vlma7"
+                              >
+                        <nav>
+                        <div className="flex items...">
+                          <motion.button whileHover={{scale:1.2}} className="hidden sm:...">
+                            <button
+                              className="hidden sm:block text-gray-600 hover:text-blue-600 transition"
+                              style={{}}
+                              ref={function useMotionRef.useCallback}
+-                             fdprocessedid="cwudaqh"
+                            >
+                          ...
+                    ...
+                <main>
+                ...
+                  <div className="relative m...">
+                    <motion.div initial={{opacity:0,y:40}} whileInView={{opacity:1,y:0}} transition={{duration:0.7}} ...>
+                      <div className="grid grid-..." style={{opacity:0, ...}} ref={function useMotionRef.useCallback}>
+                        <div>
+                        <FooterColumn>
+                        <FooterColumn>
+                        <FooterColumn>
+                        <motion.div initial={{opacity:0,x:20}} whileInView={{opacity:1,x:0}} transition={{duration:0.6}} ...>
+                          <div className="" style={{opacity:0, ...}} ref={function useMotionRef.useCallback}>
+                            <h4>
+                            <p>
+                            <form className="mb-4">
+                              <input
+                                type="email"
+                                placeholder="Your email"
+                                className="w-full px-4 py-2 bg-[#141824] text-white rounded-lg text-sm    placeholder-..."
+-                               fdprocessedid="1j113p"
+                              >
+                              <button
+                                className="w-full bg-gradient-to-r from-blue-600 to-indigo-600    hover:from-blue-700 ..."
+-                               fdprocessedid="vfetqk"
+                              >
++                               Subscribe
+                            ...
+                    ...
+
+[00:47:41.183] Browser ERROR   uncaughtError: TypeError: products.map is not a function
+[00:50:33.329] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:50:33.565] Browser ERROR   A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+%s%s https://react.dev/link/hydration-mismatch 
+
+  ...
+    <body>
+      <AuthProvider>
+        <CartProvider>
+          <Header>
+          <main>
+          <Footer>
+            <footer className="bg-[#0d0f1...">
+              <div>
+              <div className="relative m...">
+                <motion.div initial={{opacity:0,y:40}} whileInView={{opacity:1,y:0}} transition={{duration:0.7}} ...>
+                  <div className="grid grid-..." style={{opacity:0, ...}} ref={function useMotionRef.useCallback}>
+                    <div>
+                    <FooterColumn>
+                    <FooterColumn>
+                    <FooterColumn>
+                    <motion.div initial={{opacity:0,x:20}} whileInView={{opacity:1,x:0}} transition={{duration:0.6}} ...>
+                      <div className="" style={{opacity:0, ...}} ref={function useMotionRef.useCallback}>
+                        <h4>
+                        <p>
+                        <form className="mb-4">
+                          <input
+                            type="email"
+                            placeholder="Your email"
+                            className="w-full px-4 py-2 bg-[#141824] text-white rounded-lg text-sm    placeholder-gray..."
+-                           fdprocessedid="bmrorf"
+                          >
+                          <button
+                            className="w-full bg-gradient-to-r from-blue-600 to-indigo-600    hover:from-blue-700 hove..."
+-                           fdprocessedid="t6ddt6"
+                          >
++                           Subscribe
+                        ...
+                ...
+
+[00:50:33.706] Browser ERROR   uncaughtError: TypeError: products.map is not a function
+[00:54:10.694] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[00:54:10.705] Server  LOG      ✓ Compiled in 1658ms
+[00:54:12.366] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:54:13.422] Browser ERROR   A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+%s%s https://react.dev/link/hydration-mismatch 
+
+  ...
+    <HotReload globalError={[...]} webSocket={WebSocket} staticIndicatorState={{pathname:null, ...}}>
+      <AppDevOverlayErrorBoundary globalError={[...]}>
+        <ReplaySsrOnlyErrors>
+        <DevRootHTTPAccessFallbackBoundary>
+          <HTTPAccessFallbackBoundary notFound={<NotAllowedRootHTTPFallbackError>}>
+            <HTTPAccessFallbackErrorBoundary pathname="/admin/pro..." notFound={<NotAllowedRootHTTPFallbackError>} ...>
+              <RedirectBoundary>
+                <RedirectErrorBoundary router={{...}}>
+                  <Head>
+                  <__next_root_layout_boundary__>
+                    <SegmentViewNode type="layout" pagePath="layout.js">
+                      <SegmentTrieNode>
+                      <link>
+                      <script>
+                      <script>
+                      <script>
+                      <RootLayout>
+                        <html lang="en">
+                          <head>
+                          <body
+-                           cz-shortcut-listen="true"
+                          >
+                            ...
+                              ...
+                                <div className="flex items...">
+                                  <motion.div>
+                                  <div className="hidden md:...">
+                                    <motion.div initial={{opacity:0}} animate={{opacity:1}} className="relative w...">
+                                      <div className="relative w..." style={{opacity:0}} ...>
+                                        <FiSearch>
+                                        <input
+                                          type="text"
+                                          placeholder="Search products..."
+                                          className="w-full pl-12 pr-4 py-2 rounded-full bg-gray-100 focus:bg-white sh..."
+-                                         fdprocessedid="hxrnhi"
+                                        >
+                                  <nav>
+                                  <div className="flex items...">
+                                    <motion.button whileHover={{scale:1.2}} className="hidden sm:...">
+                                      <button
+                                        className="hidden sm:block text-gray-600 hover:text-blue-600 transition"
+                                        style={{}}
+                                        ref={function useMotionRef.useCallback}
+-                                       fdprocessedid="90kelv"
+                                      >
+                                    ...
+                              <main>
+                              ...
+                                <div style={{opacity:0, ...}} ref={function useMotionRef.useCallback}>
+                                  <h4>
+                                  <p>
+                                  <form className="mb-4">
+                                    <input
+                                      type="email"
+                                      placeholder="Your email"
+                                      autoComplete="off"
+                                      data-lpignore="true"
+                                      data-form-type="other"
+                                      className="w-full px-4 py-2 bg-[#141824] text-white rounded-lg text-sm placehold..."
+-                                     fdprocessedid="gnjqe"
+                                    >
+                                    <button
+                                      type="button"
+                                      data-lpignore="true"
+                                      data-form-type="other"
+                                      className="w-full mt-3 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-b..."
+-                                     fdprocessedid="94w20f"
+                                    >
++                                     Subscribe
+                  ...
+
+[00:54:13.422] Browser ERROR   uncaughtError: TypeError: products.map is not a function
+[00:54:56.041] Server  LOG      ✓ Compiled in 386ms
+[00:54:56.043] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[00:54:57.317] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:54:58.424] Browser ERROR   A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+%s%s https://react.dev/link/hydration-mismatch 
+
+  ...
+    <HotReload globalError={[...]} webSocket={WebSocket} staticIndicatorState={{pathname:null, ...}}>
+      <AppDevOverlayErrorBoundary globalError={[...]}>
+        <ReplaySsrOnlyErrors>
+        <DevRootHTTPAccessFallbackBoundary>
+          <HTTPAccessFallbackBoundary notFound={<NotAllowedRootHTTPFallbackError>}>
+            <HTTPAccessFallbackErrorBoundary pathname="/admin/pro..." notFound={<NotAllowedRootHTTPFallbackError>} ...>
+              <RedirectBoundary>
+                <RedirectErrorBoundary router={{...}}>
+                  <Head>
+                  <__next_root_layout_boundary__>
+                    <SegmentViewNode type="layout" pagePath="layout.js">
+                      <SegmentTrieNode>
+                      <link>
+                      <script>
+                      <script>
+                      <script>
+                      <RootLayout>
+                        <html lang="en">
+                          <head>
+                          <body
+-                           cz-shortcut-listen="true"
+                          >
+                            ...
+                              ...
+                                <div className="flex items...">
+                                  <motion.div>
+                                  <div className="hidden md:...">
+                                    <motion.div initial={{opacity:0}} animate={{opacity:1}} className="relative w...">
+                                      <div className="relative w..." style={{opacity:0}} ...>
+                                        <FiSearch>
+                                        <input
+                                          type="text"
+                                          placeholder="Search products..."
+                                          autoComplete="off"
+                                          data-lpignore="true"
+                                          data-form-type="other"
+                                          className="w-full pl-12 pr-4 py-2 rounded-full bg-gray-100 focus:bg-white sh..."
+-                                         fdprocessedid="f76qv8"
+                                        >
+                                  <nav>
+                                  <div className="flex items...">
+                                    <motion.button whileHover={{scale:1.2}} className="hidden sm:...">
+                                      <button
+                                        className="hidden sm:block text-gray-600 hover:text-blue-600 transition"
+                                        style={{}}
+                                        ref={function useMotionRef.useCallback}
+-                                       fdprocessedid="gzwl3s"
+                                      >
+                                    ...
+                              <main>
+                              ...
+                                <div style={{opacity:0, ...}} ref={function useMotionRef.useCallback}>
+                                  <h4>
+                                  <p>
+                                  <form className="mb-4">
+                                    <input
+                                      type="email"
+                                      placeholder="Your email"
+                                      autoComplete="off"
+                                      data-lpignore="true"
+                                      data-form-type="other"
+                                      className="w-full px-4 py-2 bg-[#141824] text-white rounded-lg text-sm placehold..."
+-                                     fdprocessedid="33m6q"
+                                    >
+                                    <button
+                                      type="button"
+                                      data-lpignore="true"
+                                      data-form-type="other"
+                                      className="w-full mt-3 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-b..."
+-                                     fdprocessedid="ur2lor"
+                                    >
++                                     Subscribe
+                  ...
+
+[00:54:58.424] Browser ERROR   uncaughtError: TypeError: products.map is not a function
+[00:55:01.081] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[00:55:01.612] Server  LOG      ✓ Compiled in 199ms
+[00:55:02.011] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:55:03.428] Browser ERROR   A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+%s%s https://react.dev/link/hydration-mismatch 
+
+  ...
+    <SegmentViewNode type="layout" pagePath="layout.js">
+      <SegmentTrieNode>
+      <link>
+      <script>
+      <script>
+      <script>
+      <RootLayout>
+        <html lang="en">
+          <head>
+          <body>
+            <AuthProvider>
+              <CartProvider>
+                <Header>
+                  <header className="backdrop-b...">
+                    <div className="max-w-7xl ...">
+                      <div className="flex items...">
+                        <motion.div>
+                        <div className="hidden md:...">
+                          <motion.div initial={{opacity:0}} animate={{opacity:1}} className="relative w...">
+                            <div className="relative w..." style={{opacity:0}} ref={function useMotionRef.useCallback}>
+                              <FiSearch>
+                              <input
+                                type="text"
+                                placeholder="Search products..."
+                                autoComplete="off"
+                                data-lpignore="true"
+                                data-form-type="other"
+                                className="w-full pl-12 pr-4 py-2 rounded-full bg-gray-100 focus:bg-white shadow-inner..."
+-                               fdprocessedid="wv48fg"
+                              >
+                        <nav>
+                        <div className="flex items...">
+                          <motion.button whileHover={{scale:1.2}} className="hidden sm:...">
+                            <button
+                              className="hidden sm:block text-gray-600 hover:text-blue-600 transition"
+                              style={{}}
+                              ref={function useMotionRef.useCallback}
+-                             fdprocessedid="rwrkxm"
+                            >
+                          ...
+                    ...
+                <main>
+                <Footer>
+                  <footer className="bg-[#0d0f1...">
+                    <div className="max-w-7xl ...">
+                      <div>
+                      <div>
+                      <div>
+                      <div>
+                        <motion.div initial={{opacity:0,x:20}} whileInView={{opacity:1,x:0}} transition={{duration:0.6}}>
+                          <div style={{opacity:0, ...}} ref={function useMotionRef.useCallback}>
+                            <h4>
+                            <p>
+                            <form className="mb-4">
+                              <input
+                                type="email"
+                                placeholder="Your email"
+                                autoComplete="off"
+                                data-lpignore="true"
+                                data-form-type="other"
+                                className="w-full px-4 py-2 bg-[#141824] text-white rounded-lg text-sm placeholder-gra..."
+-                               fdprocessedid="qlv35z"
+                              >
+                              <button
+                                type="button"
+                                data-lpignore="true"
+                                data-form-type="other"
+                                className="w-full mt-3 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-70..."
+-                               fdprocessedid="imrui8"
+                              >
++                               Subscribe
+                    ...
+
+[00:55:03.428] Browser ERROR   uncaughtError: TypeError: products.map is not a function
+[00:55:08.837] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:55:09.095] Browser ERROR   uncaughtError: TypeError: products.map is not a function
+[00:57:00.852] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[00:57:00.886] Server  LOG      ✓ Compiled in 316ms
+[00:57:01.842] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:57:02.420] Browser ERROR   A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+%s%s https://react.dev/link/hydration-mismatch 
+
+  ...
+    <HotReload globalError={[...]} webSocket={WebSocket} staticIndicatorState={{pathname:null, ...}}>
+      <AppDevOverlayErrorBoundary globalError={[...]}>
+        <ReplaySsrOnlyErrors>
+        <DevRootHTTPAccessFallbackBoundary>
+          <HTTPAccessFallbackBoundary notFound={<NotAllowedRootHTTPFallbackError>}>
+            <HTTPAccessFallbackErrorBoundary pathname="/admin/pro..." notFound={<NotAllowedRootHTTPFallbackError>} ...>
+              <RedirectBoundary>
+                <RedirectErrorBoundary router={{...}}>
+                  <Head>
+                  <__next_root_layout_boundary__>
+                    <SegmentViewNode type="layout" pagePath="layout.js">
+                      <SegmentTrieNode>
+                      <link>
+                      <script>
+                      <script>
+                      <script>
+                      <RootLayout>
+                        <html lang="en">
+                          <head>
+                          <body
+-                           cz-shortcut-listen="true"
+                          >
+                            ...
+                              ...
+                                <div className="flex items...">
+                                  <motion.div>
+                                  <div className="hidden md:...">
+                                    <motion.div initial={{opacity:0}} animate={{opacity:1}} className="relative w...">
+                                      <div className="relative w..." style={{opacity:0}} ...>
+                                        <FiSearch>
+                                        <input
+                                          type="text"
+                                          placeholder="Search products..."
+                                          autoComplete="off"
+                                          data-lpignore="true"
+                                          data-form-type="other"
+                                          className="w-full pl-12 pr-4 py-2 rounded-full bg-gray-100 focus:bg-white sh..."
+-                                         fdprocessedid="zzmopc"
+                                        >
+                                  <nav>
+                                  <div className="flex items...">
+                                    <motion.button whileHover={{scale:1.2}} className="hidden sm:...">
+                                      <button
+                                        className="hidden sm:block text-gray-600 hover:text-blue-600 transition"
+                                        style={{}}
+                                        ref={function useMotionRef.useCallback}
+-                                       fdprocessedid="thd1c7"
+                                      >
+                                    ...
+                              <main>
+                              ...
+                                <div style={{opacity:0, ...}} ref={function useMotionRef.useCallback}>
+                                  <h4>
+                                  <p>
+                                  <form className="mb-4">
+                                    <input
+                                      type="email"
+                                      placeholder="Your email"
+                                      autoComplete="off"
+                                      data-lpignore="true"
+                                      data-form-type="other"
+                                      className="w-full px-4 py-2 bg-[#141824] text-white rounded-lg text-sm placehold..."
+-                                     fdprocessedid="dphyzy"
+                                    >
+                                    <button
+                                      type="button"
+                                      data-lpignore="true"
+                                      data-form-type="other"
+                                      className="w-full mt-3 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-b..."
+-                                     fdprocessedid="gknuss"
+                                    >
++                                     Subscribe
+                  ...
+
+[00:57:02.420] Browser LOG     ADMIN PRODUCTS RESPONSE: {"products":[],"success":true}

@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 import { useContext, useState, useEffect } from 'react'
@@ -73,13 +73,16 @@ export default function Header() {
             </Link>
           </motion.div>
 
-          {/* ⭐ Search Bar */}
+      {/* ⭐ Search Bar */}
           <div className="hidden md:flex flex-1 max-w-lg mx-6">
             <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="relative w-full">
               <FiSearch className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 w-5 h-5" />
               <input
                 type="text"
                 placeholder="Search products..."
+                autoComplete="off"
+                data-lpignore="true"
+                data-form-type="other"
                 className="w-full pl-12 pr-4 py-2 rounded-full bg-gray-100 focus:bg-white shadow-inner outline-none border border-transparent focus:ring-2 focus:ring-blue-500 transition-all"
               />
             </motion.div>
